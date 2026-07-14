@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcquiringBank__c</fullName>
+    <description>SWW::Acquiring bank for the deal, based on this merchant Ids must be created.</description>
+    <externalId>false</externalId>
+    <label>Acquiring Bank</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Acquiring_Bank</valueSetName>
+    </valueSet>
+</CustomField>

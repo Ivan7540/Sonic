@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyWorkOrders</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>AppointmentDate__c</columns>
+    <columns>AppointmentTime__c</columns>
+    <columns>Type__c</columns>
+    <columns>Status__c</columns>
+    <columns>Technician__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New,Scheduled,Testing,Dispatched,In Progress,Rescheduled,On Hold</value>
+    </filters>
+    <filters>
+        <field>TechnicianLoggedIn__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>My Work Orders</label>
+</ListView>

@@ -1,0 +1,245 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml" controller="SureswipeQuotePricingSectionController">
+    <apex:repeat value="{!bundlePricings}" var="each">
+        <block-container page-break-before="always">
+            <block>PRICING SCHEDULE - Costs (excluding VAT)</block>
+            <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+                <table-header text-align="center" background-color="#0f243e">
+                    <table-cell display-align="center" padding="5" border="1pt solid  silver">
+                        <block font-weight="bold" text-align="left"><inline color="#FFFFFF">{!each.GroupName}</inline></block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid  silver" number-columns-spanned="2">
+                        <block font-weight="bold" text-align="center"><inline color="#FFFFFF">{!each.ContractTermString}</inline></block>
+                    </table-cell>
+                </table-header>
+                <table-body>
+                    <table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">Transaction Rate</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="center">
+                                <apex:outputText value="CR: {0, number, ###,###,###,##0.0000}%">
+                                    <apex:param value="{!domesticCreditCardRate}" />
+                                </apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="center">
+                                <apex:outputText value="DR: {0, number, ###,###,###,##0.0000}%">
+                                    <apex:param value="{!domesticDebitCardRate}" />
+                                </apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">International card fees (unless otherwise stated)</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="center">
+                                <apex:outputText value="CR: {0, number, ###,###,###,##0.0000}%">
+                                    <apex:param value="{!internationalCreditCardRate}" />
+                                </apex:outputText>
+                            </block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="center">
+                                <apex:outputText value="DR: {0, number, ###,###,###,##0.0000}%">
+                                    <apex:param value="{!internationalDebitCardRate}" />
+                                </apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">{!if(each.IsOutrightPurchase,'Purchase Price of Card Acceptance Device', 'Total Monthly Cost')}</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="center">Qty: {!each.DeviceQty}</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="center">
+                                <apex:outputText value="R{0, number, ###,###,###,##0.00}">
+                                    <apex:param value="{!each.DeviceTotalPrice}" />
+                                </apex:outputText>
+                            </block>
+                        </table-cell>
+                    </table-row>
+                    <table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">Committed SVRA (swipe)</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="center">R {!SwipeValue}</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="center"><inline color="white">{!each.InitialSignatories}</inline></block>
+                        </table-cell>
+                    </table-row>
+                    <table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">Monthly Connectivity Fee</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="2">
+                            <block  text-align="center">R {!each.productPriceMap['SS_OUTRIGHT_PURCHASE_MONTHLY_CONNECTIVITY_FEE']}</block>
+                        </table-cell>
+                    </table-row>
+                    <table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">Unpaid Debit Order Fee</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="2">
+                            <block  text-align="center">R {!UnpaidDebitOrderFee}</block>
+                        </table-cell>
+                    </table-row>
+                    <table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">Reactivation fee (3 consecutive months no usage)</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="2">
+                            <block  text-align="center">R {!ReactivationFee}</block>
+                        </table-cell>
+                    </table-row>
+                    <table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">Paper-Roll Delivery</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="2">
+                            <block  text-align="center">R {!PaperRollDeliveryFee}</block>
+                        </table-cell>
+                    </table-row>
+                    <table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">Paper-Rolls</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="2">
+                            <block  text-align="center">R {!PaperRollFee}</block>
+                        </table-cell>
+                    </table-row>
+                    <!--<apex:variable rendered="{!contains(each.productKeySet, 'SS_MINIMUM_BILL')}" value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="left">Minimum bill (per branch, applicable to the above options)</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="2">
+                                <block  text-align="center">{! If(each.productPriceMap['SS_MINIMUM_BILL'] > 0, each.productPriceMap['SS_MINIMUM_BILL'], 'No minimum bill') }</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_SERVER_RENTAL')}" value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="left">Server Rental </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="center">Qty: {!each.ProductQtyMap['SS_SERVER_RENTAL']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="center">R {!each.productPriceMap['SS_SERVER_RENTAL']}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_SERVER_PURCHASE')}" value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="left">Server Purchase </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="center">Qty: {!each.ProductQtyMap['SS_SERVER_PURCHASE']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="center">R {!each.productPriceMap['SS_SERVER_PURCHASE']}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_PED_STAND')}" value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="left">PED Stand </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="center">Qty: {!each.ProductQtyMap['SS_PED_STAND']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="center">R {!each.productPriceMap['SS_PED_STAND']}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_BLUETOOTH_PRINTER_RENTAL')}" value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="left">Printer Rental </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="center">Qty: {!each.ProductQtyMap['SS_BLUETOOTH_PRINTER_RENTAL']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="center">R {!if(contains(each.productKeySet, 'SS_BLUETOOTH_PRINTER_RENTAL'), each.productPriceMap['SS_BLUETOOTH_PRINTER_RENTAL'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_OUTRIGHT_PURCHASE_COURIER_FEE')}" value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="left">Outright Purchase Courier Fee </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="center">Qty: {!each.ProductQtyMap['SS_OUTRIGHT_PURCHASE_COURIER_FEE']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block  text-align="center">R {!if(contains(each.productKeySet, 'SS_OUTRIGHT_PURCHASE_COURIER_FEE'), each.productPriceMap['SS_OUTRIGHT_PURCHASE_COURIER_FEE'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>-->
+                    <!--<table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">Callout fee</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="2">
+                            <block  text-align="center">{!if(each.CalloutFee > 0, 'R ' + Text(each.CalloutFee), 'Included')}</block>
+                        </table-cell>
+                    </table-row>-->
+                    <!--<table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">Unauthorised MOTO and Fallback Fee : non MOTO clients</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="2">
+                            <block  text-align="center">Applicable credit card rate + 2.5%</block>
+                        </table-cell>
+                    </table-row>-->
+                    <table-row border="1pt solid silver" height="100px">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver">
+                            <block  text-align="left">Special conditions</block>
+                        </table-cell>
+                        <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="2">
+                            <block  text-align="center">{!currentQuote.SBQQ__Notes__c}</block>
+                        </table-cell>
+                    </table-row>
+                    <!--<table-row border="1pt solid silver">
+                        <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="3">
+                            <block linefeed-treatment="preserve" text-align="justify">
+                                Please perform payment of &nbsp;<apex:outputText value="R{0, number, ###,###,###,##0.00}"><apex:param value="{!each.DeviceTotalPrice}" /></apex:outputText> with payment reference: <inline font-weight="bold">{!currentQuote.Name}</inline>
+                                To:
+                                Bank: Nedbank 
+                                Account type: Current account
+                                Branch code: 198765
+                                Account number: 1454111852
+                                and email proof of payment to <inline font-weight="bold">xxxx@sureswipe.co.za</inline>
+                            </block>
+                        </table-cell>
+                    </table-row>-->
+                </table-body>
+            </table>
+        </block-container>
+    </apex:repeat>
+    <block linefeed-treatment="preserve" text-align="justify">
+        
+        <block font-weight="bold">*Please note:</block> 
+        The transaction rate offered to your business is subject to meeting your Committed SVRA (swipe)
+        
+        Should you not achieve your monthly swipe over an average of 3 consecutive months, Sureswipe reserves the right to adjust your transaction rate accordingly.
+        
+        Should you swipe between 50% to 79% of your Committed SVRA (swipe), your transaction rate will be adjusted upward by 0.05%. 
+        Should you swipe less than 50% of your Committed SVRA (swipe), your transaction rate will be adjusted upward by 0.10%. 
+    </block>
+</apex:page>

@@ -1,0 +1,23 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" 
+                controller="LCC_WorkOrderActionsController"
+                access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="actionItems" type="WorkOrderAction__c[]"/>
+    <aura:attribute name="showCompletedSteps" type="Boolean"/>
+    <aura:attribute name="completedStepId" type="String"/>
+    <aura:if isTrue="{! v.actionItems.length > 0}">
+        <lightning:layout>
+            <lightning:layoutItem size="11">
+                <lightning:progressIndicator currentStep="{! v.completedStepId }" type="path" variant="base">
+                    <aura:iteration items="{! v.actionItems }" var="item">
+                        <lightning:progressStep label="{! item.Name }" value="{! item.Id }"/>
+                    </aura:iteration>
+                </lightning:progressIndicator>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="1">
+                <lightning:button label="Complete" variant="brand" onclick="{! c.completeClick }"/>     
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Manual_PAN_Entry__c</name>
+    <picklistValues>
+        <masterLabel>Manual PAN Entry disabled</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manual PAN Entry enabled</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

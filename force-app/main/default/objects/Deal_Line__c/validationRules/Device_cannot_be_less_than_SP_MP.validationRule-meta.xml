@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Device_cannot_be_less_than_SP_MP</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+				BLANKVALUE(MasterpassQuantity__c, 0) &gt; BLANKVALUE(Quantity__c, 0),
+				BLANKVALUE(SwitchpayQuantity__c, 0) &gt; BLANKVALUE(Quantity__c, 0) 
+				)</errorConditionFormula>
+    <errorMessage>Masterpass or SwitchPay quantity cannot be greater than Device Quantity</errorMessage>
+</ValidationRule>

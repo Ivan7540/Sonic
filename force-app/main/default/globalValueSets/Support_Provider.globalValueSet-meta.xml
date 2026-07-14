@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Bank</fullName>
+        <default>false</default>
+        <label>Bank</label>
+    </customValue>
+    <customValue>
+        <fullName>BCX</fullName>
+        <default>false</default>
+        <label>BCX</label>
+    </customValue>
+    <customValue>
+        <fullName>Own</fullName>
+        <default>false</default>
+        <label>Own</label>
+    </customValue>
+    <customValue>
+        <fullName>Adumo</fullName>
+        <default>false</default>
+        <label>Adumo</label>
+    </customValue>
+    <customValue>
+        <fullName>Verifone</fullName>
+        <default>false</default>
+        <label>Verifone</label>
+    </customValue>
+    <customValue>
+        <fullName>SURESWIPE</fullName>
+        <default>false</default>
+        <label>SURESWIPE</label>
+    </customValue>
+    <masterLabel>Support Provider</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

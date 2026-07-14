@@ -1,0 +1,50 @@
+<apex:page standardController="Contact" extensions="KeyCloakController" showHeader="false">
+    <style>
+        .float { 
+            margin:10; 
+            padding:10; 
+        }
+        .right {
+            float:left;
+            position:relative;
+            margin-left: 15%; 
+        }
+        .leftBoxButton {
+            padding: 15px !important;
+            text-decoration: none;
+            border-color: grey !important;
+            background: #D3D3D3 !important;
+            color: black;
+            display: block;
+        }
+        .messages {
+            font-weight: bold;
+            color: #f60;
+            font-size: 15px !important;
+        }
+    </style>  
+    <apex:form id="myForm">      
+        <div id="left" class="float left">
+            <apex:outputPanel id="buttons">
+                <apex:commandButton action="{!createUser}" styleClass="leftBoxButton" value="New User" status="status" reRender="messages" />
+                <br/>
+                <apex:commandButton action="{!resetUser}" styleClass="leftBoxButton" value="Reset Password" status="status" reRender="messages" />
+            </apex:outputPanel>
+        </div>
+        <div id="messageBox" class="float right">
+            <apex:outputPanel id="Spinner">
+                <apex:actionStatus id="status">
+                    <Apex:facet name="start" >
+                        <img src="/img/loading.gif" style="float: left; margin: 8px;" width="30" height="30" />
+                        <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>  <p/>  <p/>
+                    </Apex:facet>
+                    <Apex:facet name="stop" >
+                    </Apex:facet>
+                </apex:actionStatus>
+            </apex:outputPanel>
+            <apex:outputPanel id="messages" >
+                <apex:messages styleClass="messages"/>
+            </apex:outputPanel>
+        </div>
+    </apex:form>
+</apex:page>

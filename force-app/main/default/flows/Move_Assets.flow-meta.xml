@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <assignments>
+        <description>Add the updated Asset to a new collection to be updated</description>
+        <name>Add_Asset_to_collection</name>
+        <label>Add Asset to collection</label>
+        <locationX>264</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>UpdatedAssets</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Asset_Loop</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Asset_Loop</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Changes the Asset&apos;s Account to the new Account&apos;s Id</description>
+        <name>Change_Asset_Account</name>
+        <label>Change Asset Account</label>
+        <locationX>264</locationX>
+        <locationY>398</locationY>
+        <assignmentItems>
+            <assignToReference>Asset_Loop.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>NewAccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Asset_to_collection</targetReference>
+        </connector>
+    </assignments>
+    <description>Moves Assets from one Account to another</description>
+    <interviewLabel>Move Assets {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Move Assets</label>
+    <loops>
+        <description>Loop that iterates over all the Account&apos;s Assets</description>
+        <name>Asset_Loop</name>
+        <label>Asset Loop</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <collectionReference>AccountAssets</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Change_Asset_Account</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Assets</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the Assets on the old Account</description>
+        <name>Get_Assets</name>
+        <label>Get Assets</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Asset_Loop</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>StartAccountId</elementReference>
+            </value>
+        </filters>
+        <object>Asset</object>
+        <outputReference>AccountAssets</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>AccountId</queriedFields>
+        <queriedFields>Status</queriedFields>
+        <queriedFields>AssignedStock__c</queriedFields>
+        <queriedFields>IsCompetitorProduct</queriedFields>
+        <queriedFields>ContactId</queriedFields>
+        <queriedFields>Product2Id</queriedFields>
+        <queriedFields>Order__c</queriedFields>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the Assets after they were assigned to the new Account</description>
+        <name>Update_Assets</name>
+        <label>Update Assets</label>
+        <locationX>176</locationX>
+        <locationY>734</locationY>
+        <inputReference>UpdatedAssets</inputReference>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Assets</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>The collection of Account&apos;s Assets</description>
+        <name>AccountAssets</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Asset</objectType>
+    </variables>
+    <variables>
+        <description>The Id of the new Account</description>
+        <name>NewAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The Id of the original Account</description>
+        <name>StartAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Collection of Assets with updated Account references</description>
+        <name>UpdatedAssets</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Asset</objectType>
+    </variables>
+</Flow>

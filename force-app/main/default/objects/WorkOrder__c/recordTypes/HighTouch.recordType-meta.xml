@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HighTouch</fullName>
+    <active>true</active>
+    <description>Work Orders which use our own technical resources for delivering the devices</description>
+    <label>High Touch</label>
+    <picklistValues>
+        <picklist>Reason__c</picklist>
+        <values>
+            <fullName>Compromised Device</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incorrectly logged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Merchant not available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Physically Resolved%3A Technician not needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reassign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred to Debtors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requires AM action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site is dodgy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site not ready</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telephonically Resolved</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Allocate Stock</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dispatched</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rescheduled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheduled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stock Allocated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Testing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Collection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Collection%2FInstallation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terminal Deactivation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terminal Reactivation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terminal Suspension</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

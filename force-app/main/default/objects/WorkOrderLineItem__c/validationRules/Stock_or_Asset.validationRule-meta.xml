@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stock_or_Asset</fullName>
+    <active>true</active>
+    <description>Ensures either the Asset or Stock for the record is specified</description>
+    <errorConditionFormula>ISBLANK(Asset__c) &amp;&amp; ISBLANK(Stock__c)</errorConditionFormula>
+    <errorDisplayField>Asset__c</errorDisplayField>
+    <errorMessage>Cannot leave both Asset and Stock blank</errorMessage>
+</ValidationRule>

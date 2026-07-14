@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Asset Provider</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Asset Provider</value>
+    </caseValues>
+    <layouts>
+        <layout>ACS</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Asset Provider Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Innervation</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Retry_SwitchPay</name>
+    </quickActions>
+    <recordTypes>
+        <label></label>
+        <name>ACS</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Innervation</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

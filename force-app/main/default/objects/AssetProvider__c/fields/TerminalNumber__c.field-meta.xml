@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TerminalNumber__c</fullName>
+    <description>The auto-number used to form the unique part of the terminal Id</description>
+    <displayFormat>{0000000000}</displayFormat>
+    <externalId>false</externalId>
+    <label>Terminal Number</label>
+    <trackTrending>false</trackTrending>
+    <type>AutoNumber</type>
+</CustomField>

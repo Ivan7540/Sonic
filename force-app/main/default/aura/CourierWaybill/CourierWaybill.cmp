@@ -1,0 +1,61 @@
+<aura:component controller="CourierWaybillController" implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="workOrder" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="addressList" type="Object[]"/>
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="fieldList" type="String[]" default="['Name', 'ShippingAddress']"/>
+    <aura:attribute name="calledOut" type="Boolean" default="false"/>
+    <aura:attribute name="addressSelected" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <force:recordData 
+        aura:id="recordLoader"
+        fields="Id, Account__c, Contact__c, Account__r.ShippingStreet, Account__r.ShippingCity, Account__r.ShippingPostalCode"
+        recordId="{!v.recordId}"
+        targetFields="{!v.workOrder}"
+        targetError="{!v.recordLoadError}"
+    />
+
+    <lightning:card title="Get Waybill (Courier IT)" iconName="standard:asset_action">
+
+        <div class="slds-align_absolute-center">
+            <lightning:button aura:id="btnAddress" label="Confirm Address" title="Bring up a list of addresses from Courier IT" onclick="{!c.findAddress}"/>
+        </div> 
+
+        <aura:if isTrue="{!v.calledOut}">        
+            <aura:if isTrue="{!v.addressList.length > 0}">
+                <div class="slds-m-top_x-small">
+                    <label class="slds-text-heading_small slds-text-color_weak">Select a suburb below to request a waybill</label>
+                </div>
+                <div class="slds-align_absolute-center slds-m-top_small">
+                    <lightning:datatable 
+                        data="{! v.addressList }"
+                        columns="{! v.columns }"
+                        keyField="SubId"
+                        maxRowSelection="1"
+                        aura:id="addressTable"
+                        onrowselection="{!c.selectionMade}"
+                    />
+                </div>
+                <div class="slds-align_absolute-center">
+                    <lightning:button disabled="{!!v.addressSelected}" aura:id="btnWaybill" class="slds-m-top_x-small" variant="brand" label="Get Waybill" title="Log a collection/delivery with Courier IT" onclick="{!c.requestDelivery}" />
+                </div>
+                <aura:set attribute="else">
+                    <div class="slds-m-top_x-small">
+                        <label class="slds-text-heading_small slds-text-color_weak">Merchant's address does not map to a physical address. Please verify merchant information, edit as necessary and try again.</label>
+                    </div>
+                    <div class="slds-m-top_x-small">
+                        <lightning:recordForm
+                            recordId="{!v.workOrder.Account__c}"
+                            objectApiName="Account"
+                            fields="{!v.fieldList}"
+                            mode="edit" 
+                            onsuccess="{!c.addressUpdated}"                            
+                        />
+                    </div>                    
+                </aura:set>
+            </aura:if>    
+        </aura:if>
+
+    </lightning:card>
+</aura:component>

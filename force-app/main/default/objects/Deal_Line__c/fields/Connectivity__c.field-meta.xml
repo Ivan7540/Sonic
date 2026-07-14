@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Connectivity__c</fullName>
+    <externalId>false</externalId>
+    <label>Connectivity</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SME Cloud</fullName>
+                <default>false</default>
+                <label>SME Cloud</label>
+            </value>
+            <value>
+                <fullName>SecureEdge</fullName>
+                <default>false</default>
+                <label>SecureEdge</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

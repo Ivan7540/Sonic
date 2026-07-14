@@ -1,0 +1,58 @@
+<template>
+    <div class="slds-p-top_medium">
+        <lightning-button label="Add Director" variant="brand" onclick={handleAddRow}>
+        </lightning-button>
+        <c-deal-principal-modal onaddcontactevent= {saveItem}></c-deal-principal-modal>
+
+        <div class="slds-p-horizontal_small">
+            <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+                <template for:each={contacts} for:item="item" for:index="index">
+                    <lightning-accordion-section key={item.key} name={item.key} label={item.firstname}>
+                        <div key={item.key} class="slds-grid slds-wrap slds-gutters">
+                            <div class="rowInput slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input   value={item.firstname} onchange={handleFirstName} accesskey={item.key} name="firstname"
+                                                   label="Name"></lightning-input>
+                                <lightning-input   value={item.lastname} onchange={handleLastName} accesskey={item.key} name="lastname"
+                                                   label="Surname"></lightning-input>
+                                <lightning-input  value={item.phone} onchange={handlePhone} accesskey={item.key} name="phone"
+                                                  label="Contact Number"></lightning-input>
+                                <lightning-input  value={item.email} onchange={handleEmail} accesskey={item.key} name="email"
+                                                  required=true
+                                                  label="Contact Email"></lightning-input>
+                                <lightning-input  value={item.landline} onchange={handleLandline} accesskey={item.key} name="landline"
+                                                  label="Landline number"></lightning-input>
+                                <lightning-input  value={item.idNumber} onchange={handleIdNumber} accesskey={item.key} name="idNumber"
+                                                  required=true
+                                                  label="ID Number Residential Permit"></lightning-input>
+
+                            </div>
+                            <div class="rowInput slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-record-edit-form object-api-name="AccountContactRelation" accesskey={item.key}>
+                                    <lightning-messages>
+                                    </lightning-messages>
+                                    <lightning-input-field field-name="Roles" accesskey={item.key} variant="label-stacked" value={item.Roles} onchange={handleRole} >
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="Relationship_Strength__c" accesskey={item.key} variant="label-stacked" value={item.relationshipStrength} onchange={handleStrength}></lightning-input-field>
+                                </lightning-record-edit-form>
+
+                                <div class="slds-col slds-align-middle">
+                                    <lightning-button-icon variant="brand" onclick={removeProduct} icon-name="utility:delete"
+                                                           accesskey={item.key}>
+                                    </lightning-button-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </lightning-accordion-section>
+                </template>
+            </lightning-accordion>
+            <p class="slds-text-color_error">{errorMessage}</p>
+
+            </br>
+        </div>
+    </div>
+    <lightning-button
+            label="Save Principles"
+            title="Save"
+            onclick={handleGoNext}>
+    </lightning-button>
+</template>

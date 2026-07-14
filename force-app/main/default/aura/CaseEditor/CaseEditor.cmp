@@ -1,0 +1,11 @@
+<aura:component implements="force:hasRecordId,lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="cFields" type="String[]" />
+    <aura:attribute name="recordTypeId" type="String" />
+    <aura:attribute name="objectName" type="String" />  
+    <lightning:recordForm
+        recordId="{!v.recordId}"
+        recordTypeId="{!v.recordTypeId}"
+        objectApiName="{!v.objectName}"
+        fields="{!v.cFields}"
+        mode="edit" />
+</aura:component>

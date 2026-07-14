@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name="recordId" label="Deal Id" />
+    <design:attribute name="dealLines" label="Deal Lines"/>
+    <design:attribute name="saleType" label="Sale Type"/>
+    <design:attribute name="thirdParty" label="Third Party"/>
+</design:component>

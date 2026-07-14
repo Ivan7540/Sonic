@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>SS WhatsApp Sureswipe Sales</name>
+    <queueMembers>
+        <users>
+            <user>ajit@sureswipe.co.za.sonic</user>
+            <user>cassim@sureswipe.co.za.sonic</user>
+            <user>darren@adumo.com.sonic</user>
+            <user>joseph@sureswipe.co.za.sonic</user>
+            <user>lesego@sureswipe.co.za.sonic</user>
+            <user>masixole@sureswipe.co.za.sonic</user>
+            <user>nomsa@adumo.com.sonic</user>
+            <user>pfunzo@sureswipe.co.za.sonic</user>
+            <user>thabo@sureswipe.co.za.sonic</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>SS_WhatsApp_Sureswipe_Sales</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>MessagingSession</sobjectType>
+    </queueSobject>
+</Queue>

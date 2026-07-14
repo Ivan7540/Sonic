@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Work Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Work Orders</value>
+    </caseValues>
+    <layouts>
+        <layout>Artwork Design Work Order Layout</layout>
+        <sections>
+            <label></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Collection Work Order Layout</layout>
+        <sections>
+            <label></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>High Touch Work Order Layout</layout>
+        <sections>
+            <label></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Low Touch Work Order Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>No Device</layout>
+        <sections>
+            <label></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Allocate_Stock</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Allocate_to_Swtich</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Cancel_Work_Order</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Change_Device</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Hold</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Report_Stock_Discrepancy</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Reschedule</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Schedule</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Select_Assets_For_Collection</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Unallocate_Stock</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Update_Technician</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>View_Stock</name>
+    </quickActions>
+    <recordTypes>
+        <label></label>
+        <name>Artwork_Design</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Collection</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Gift_Loyalty</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>HighTouch</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>LowTouch</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>NoDevice</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Programme_Setup</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Collection_Status_Set</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Gift_Loyalty_Work_Order_Completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Installation_Complete_Contact</name>
+    </validationRules>
+</CustomObjectTranslation>

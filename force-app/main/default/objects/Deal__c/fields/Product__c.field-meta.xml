@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product__c</fullName>
+    <externalId>false</externalId>
+    <label>Product</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lite</fullName>
+                <default>false</default>
+                <label>Lite</label>
+            </value>
+            <value>
+                <fullName>Classic</fullName>
+                <default>false</default>
+                <label>Classic</label>
+            </value>
+            <value>
+                <fullName>Classic Plus</fullName>
+                <default>false</default>
+                <label>Classic Plus</label>
+            </value>
+            <value>
+                <fullName>Classic Plus with POS</fullName>
+                <default>false</default>
+                <label>Classic Plus with POS</label>
+            </value>
+            <value>
+                <fullName>Gift And Loyalty</fullName>
+                <default>false</default>
+                <label>Gift And Loyalty</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Terminal_Profile__c</fullName>
+    <externalId>false</externalId>
+    <label>Terminal Profile</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sureswipe - Sales</fullName>
+                <default>false</default>
+                <label>Sureswipe - Sales</label>
+            </value>
+            <value>
+                <fullName>Sureswipe - Sales and Refund</fullName>
+                <default>false</default>
+                <label>Sureswipe - Sales and Refund</label>
+            </value>
+            <value>
+                <fullName>Sureswipe - Sales, Refund and Manual</fullName>
+                <default>false</default>
+                <label>Sureswipe - Sales, Refund and Manual</label>
+            </value>
+            <value>
+                <fullName>Sureswipe - Sales,Refund,Manual and QR</fullName>
+                <default>false</default>
+                <label>Sureswipe - Sales,Refund,Manual and QR</label>
+            </value>
+            <value>
+                <fullName>Sureswipe - Sales and QR</fullName>
+                <default>false</default>
+                <label>Sureswipe - Sales and QR</label>
+            </value>
+            <value>
+                <fullName>Sureswipe - Sales, Refund, Manual and QR</fullName>
+                <default>false</default>
+                <label>Sureswipe - Sales, Refund, Manual and QR</label>
+            </value>
+            <value>
+                <fullName>Sureswipe - Sale and Manual</fullName>
+                <default>false</default>
+                <label>Sureswipe - Sale and Manual</label>
+            </value>
+            <value>
+                <fullName>Sureswipe - Sale, Refunds &amp; VAS Loyalty</fullName>
+                <default>false</default>
+                <label>Sureswipe - Sale, Refunds &amp; VAS Loyalty</label>
+            </value>
+            <value>
+                <fullName>Sureswipe Restaurant - Sale</fullName>
+                <default>false</default>
+                <label>Sureswipe Restaurant - Sale</label>
+            </value>
+            <value>
+                <fullName>Sureswipe Restaurant - Sale, Large Slip</fullName>
+                <default>false</default>
+                <label>Sureswipe Restaurant - Sale, Large Slip</label>
+            </value>
+            <value>
+                <fullName>Sureswipe Restaurant - Sale and Refund</fullName>
+                <default>false</default>
+                <label>Sureswipe Restaurant - Sale and Refund</label>
+            </value>
+            <value>
+                <fullName>GAAP - Sales</fullName>
+                <default>false</default>
+                <label>GAAP - Sales</label>
+            </value>
+            <value>
+                <fullName>GAAP - Sales and Refund</fullName>
+                <default>false</default>
+                <label>GAAP - Sales and Refund</label>
+            </value>
+            <value>
+                <fullName>GAAP - Restaurant Sale</fullName>
+                <default>false</default>
+                <label>GAAP - Restaurant Sale</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

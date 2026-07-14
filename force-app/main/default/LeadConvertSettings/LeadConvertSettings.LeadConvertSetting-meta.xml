@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LeadConvertSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowOwnerChange>true</allowOwnerChange>
+    <objectMapping>
+        <inputObject>Lead</inputObject>
+        <mappingFields>
+            <inputField>SwipeValue__c</inputField>
+            <outputField>Monthly_Swipe_Value_Card_Value__c</outputField>
+        </mappingFields>
+        <outputObject>Account</outputObject>
+    </objectMapping>
+    <objectMapping>
+        <inputObject>Lead</inputObject>
+        <mappingFields>
+            <inputField>Channel__c</inputField>
+            <outputField>Channel__c</outputField>
+        </mappingFields>
+        <mappingFields>
+            <inputField>Product__c</inputField>
+            <outputField>Product__c</outputField>
+        </mappingFields>
+        <mappingFields>
+            <inputField>Referral_Contact__c</inputField>
+            <outputField>ReferralContact__c</outputField>
+        </mappingFields>
+        <outputObject>Opportunity</outputObject>
+    </objectMapping>
+    <opportunityCreationOptions>VisibleOptional</opportunityCreationOptions>
+</LeadConvertSettings>

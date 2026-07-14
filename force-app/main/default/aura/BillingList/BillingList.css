@@ -1,0 +1,3 @@
+.THIS.last-row-bold table tr:last-child * {
+    font-weight: bold;
+}

@@ -1,0 +1,99 @@
+<aura:component implements="force:lightningQuickAction,flexipage:availableForAllPageTypes,lightning:availableForFlowScreens,lightning:availableForFlowActions,force:hasRecordId,force:hasSObjectName">
+    
+    <aura:attribute name="productName" type="String"/>
+    <aura:attribute name="deviceName" type="String"/>
+    <aura:attribute name="paymentServer" type="String"/>
+    <aura:attribute name="contractTerm" type="String"/>
+    <aura:attribute name="selectedVAS" type="String"/>
+    <aura:attribute name="staticResourceName" type="String"/>
+    <aura:attribute name="dealItemId" type="String"/>
+    <aura:attribute name="lineDiscount" type="Decimal"/>
+    <aura:attribute name="lineDiscountAmount" type="Double"/>
+    <aura:attribute name="preventSave" type="Boolean" default="true"/>
+    <aura:attribute name="showEditor" type="Boolean" description="from parent component"/>
+    <aura:attribute name="disableAdd" type="Boolean" description="from parent component"/>
+    <aura:attribute name="saleType" type="String" description="from parent component"/>
+    <aura:attribute name="thirdParty" type="String" description="from parent component"/>
+    <aura:attribute name="onLoadCalled" type="Boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:card iconName="standard:product_item" title="Select Product" >
+        <lightning:recordEditForm aura:id="recordEditForm"
+                                  recordId="{!v.dealItemId}"
+                                  objectApiName="Deal_Line__c"
+                                  density="compact"
+                                  onload="{!c.handleOnLoad}"
+                                  onsuccess="{!c.onSuccess}"
+                                  onsubmit="{!c.handleSubmit}">
+            <lightning:messages/>
+            <lightning:inputField fieldName="Product__c" required="true" onchange="{!c.handleOnChange}"/>
+            
+            <lightning:inputField fieldName="Device__c" required="true" onchange="{!c.handleOnChange}"/>
+            
+            <lightning:inputField fieldName="Quantity__c" required="true" onchange="{!c.handleOnChange}"/>
+            <aura:if isTrue="{!and(v.productName == 'ClassicPlus', v.deviceName == 'SS_SP_630')}">
+                <div class="slds-text-color_weak">Note: Classic Plus bundle with SP630 Device can have only 24 Month contract term, if other selected it will be changed to 24 Month</div>
+
+            </aura:if>
+            <lightning:inputField aura:id="ContractTerm" fieldName="ContractTerm__c" required="true" onchange="{!c.handleOnChange}" value="{!v.contractTerm}"/>
+            <lightning:inputField fieldName="LineDiscount__c" required="false" onchange="{!c.handleOnChange}" disabled="{!v.lineDiscountAmount >0}"/>
+            <aura:if isTrue="{!v.contractTerm == 'None'}">
+                <lightning:inputField fieldName="LineDiscountAmount__c" onchange="{!c.handleOnChange}" disabled="{!v.lineDiscount >0}"/>
+
+            </aura:if>
+            <div class="slds-text-color_weak">Note: Above discount is applicable for whole contract term, and will need approval</div>
+            
+            <aura:if isTrue="{! or(v.deviceName == 'SS_BT50', v.deviceName == 'SS_HUMBLE_BT50')}">
+                <lightning:inputField fieldName="DeviceType__c" onchange="{!c.handleOnChange}"/>
+                
+            </aura:if>
+            <aura:if isTrue="{!v.productName == 'ClassicPlusWithPOS'}">
+                
+                <lightning:inputField fieldName="PaymentServer__c" onchange="{!c.handleOnChange}"/>
+                
+                <lightning:inputField fieldName="PaymentServerQuantity__c" required="{! not(empty(v.paymentServer))}" onchange="{!c.handleOnChange}"/>
+                
+                <lightning:inputField fieldName="PEDQuantity__c" onchange="{!c.handleOnChange}"/>
+                
+            </aura:if>
+            <aura:if isTrue="{!v.productName == 'Lite'}">
+                <lightning:inputField fieldName="BluetoothPrinterQuantity__c" onchange="{!c.handleOnChange}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.deviceName == 'SS_SP_630'}">
+                <aura:if isTrue="{!v.contractTerm != 'None'}">
+                    <lightning:inputField fieldName="MasterpassQuantity__c" onchange="{!c.handleOnChange}"/>
+                    <!--lightning:inputField fieldName="SwitchpayQuantity__c" onchange="{!c.handleOnChange}"/-->
+                </aura:if>
+            </aura:if>
+            <aura:if isTrue="{!or(v.deviceName == 'SS_M4_SERIES', v.deviceName == 'SS_M4_SERIES')}">
+                <aura:if isTrue="{!v.contractTerm != 'None'}">
+                    <div class="slds-box">
+                        <lightning:inputField fieldName="VAS__c" onchange="{!c.handleOnChange}"/>
+                        <aura:if isTrue="{!v.selectedVAS.length > 0}">
+                            <lightning:inputField fieldName="GiftLoyaltyPaymentType__c" onchange="{!c.handleOnChange}" variant="label-stacked" required="true"/>
+                            <lightning:inputField fieldName="CardDesignType__c" onchange="{!c.handleOnChange}" variant="label-stacked" required="true"/>
+                            <!--lightning:inputField fieldName="AdditionalBrandedCards__c" onchange="{!c.handleOnChange}" variant="label-stacked"/-->
+                            <!--div class="slds-text-color_weak">*This is additional to already included 200 branded cards</div-->
+                            <br/>
+                            <!--lightning:inputField fieldName="AdditionalEnrolmentForms__c" onchange="{!c.handleOnChange}" variant="label-stacked"/-->
+                            <!--div class="slds-text-color_weak">*This is additional to already included 200 enrolment forms</div-->
+                            <br/>
+                            <br/>
+                            <div class="slds-text-color_weak">*Starter pack includes 200 cards, 200 enrolment forms, card display stand and 5 paper rolls.</div>
+                        </aura:if>
+                    </div>
+                </aura:if>
+            </aura:if>
+            <aura:if isTrue="{!not(v.preventSave)}">
+                <lightning:inputField fieldName="Deal__c" value="{!v.recordId}" disabled="true"/>
+            </aura:if>
+            <lightning:inputField fieldName="Name" value="{!v.productName}" class="slds-hide"/>
+            <lightning:inputField fieldName="StaticResourceName__c" class="slds-hide"/>
+            
+            
+            <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="Save" label="Save" />
+            
+        </lightning:recordEditForm>
+    </lightning:card>
+</aura:component>

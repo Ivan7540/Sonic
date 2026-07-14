@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BankName</fullName>
+    <columns>DeveloperName</columns>
+    <columns>MasterLabel</columns>
+    <columns>BusinessType__c</columns>
+    <columns>DocumentType1__c</columns>
+    <columns>DocumentType2__c</columns>
+    <columns>DocumentType3__c</columns>
+    <columns>DocumentType4__c</columns>
+    <columns>DocumentType5__c</columns>
+    <columns>Required__c</columns>
+    <columns>Disabled__c</columns>
+    <columns>RequirementType__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>BankName</label>
+</ListView>

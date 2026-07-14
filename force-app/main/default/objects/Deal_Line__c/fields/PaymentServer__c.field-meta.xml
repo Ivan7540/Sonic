@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PaymentServer__c</fullName>
+    <externalId>false</externalId>
+    <label>Payment Server</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>ContractTerm__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SS_SERVER_PURCHASE</fullName>
+                <default>false</default>
+                <label>Purchase</label>
+            </value>
+            <value>
+                <fullName>SS_SERVER_RENTAL</fullName>
+                <default>false</default>
+                <label>Rental</label>
+            </value>
+            <value>
+                <fullName>AD_SME_CLOUD__RENTAL</fullName>
+                <default>false</default>
+                <label>SME Cloud</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>24Month</controllingFieldValue>
+            <controllingFieldValue>None</controllingFieldValue>
+            <valueName>SS_SERVER_PURCHASE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>24Month</controllingFieldValue>
+            <valueName>SS_SERVER_RENTAL</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>36Month</controllingFieldValue>
+            <valueName>AD_SME_CLOUD__RENTAL</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

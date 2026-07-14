@@ -1,0 +1,56 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml" controller="SureswipeMoreTymePricingSection">
+    <block text-align="center" linefeed-treatment="preserve">
+        ALTERNATIVE SERVICE PROVIDER SCHEDULE – MORETYME
+
+
+    </block>
+        <block linefeed-treatment="preserve">
+        BY USING THE MORETYME PRODUCT, THE CLIENT AGREES TO THE MORETYME TERMS SET-OUT IN THIS SCHEDULE. THE MORETYME TERMS MANAGE THE PARTIES’ RESPONSIBILITIES IN RESPECT OF THE MORETYME SOLUTION AND MUST BE READ IN CONJUNCTION WITH THE AGREEMENT. 
+            
+            
+    </block>
+    
+    <block font-size="6">PRICING SCHEDULE</block>
+    <block-container>
+        <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+            <table-header text-align="center" background-color="#0f243e">
+                <table-cell display-align="center" padding="5" border="1pt solid  silver" number-columns-spanned="4">
+                    <block text-align="left">
+                        <inline color="#FFFFFF" font-weight="bold">Monthly and other Service Fees</inline> <inline color="#FFFFFF"> (excluding VAT)</inline>
+                    </block>
+                </table-cell>
+                <table-cell display-align="center" padding="5" border="1pt solid  silver">
+                    <block font-weight="bold" text-align="center">
+                        <inline color="#FFFFFF"></inline>
+                    </block>
+                </table-cell>
+            </table-header>
+            <table-body>
+                <table-row border="1pt solid silver">
+                    <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="4">
+                        <block  text-align="left">MoreTyme Commission payable per transaction</block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                            <apex:outputText value="{0, number, ###,###,###,##0.0000}%">
+                                <apex:param value="{!bankFees}" />
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+                </table-row>
+                <table-row border="1pt solid silver">
+                    <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="4">
+                        <block  text-align="left">MoreTyme Payment fee per transaction</block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                            <apex:outputText value="R{0, number, ###,###,###,##0.00}">
+                                <apex:param value="{!transactionFees}" />
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+                </table-row>
+            </table-body>
+        </table>
+    </block-container>
+</apex:page>

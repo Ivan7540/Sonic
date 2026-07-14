@@ -1,0 +1,7 @@
+<apex:page showHeader="false" sidebar="false" cache="false"  contentType="text/xml" controller="SignatureController">
+    <block text-align="right">
+        <apex:repeat value="{!InitialSignatories}" var="eachSignatory">
+            <inline color="white">{!eachSignatory}</inline>
+        </apex:repeat>
+    </block>
+</apex:page>

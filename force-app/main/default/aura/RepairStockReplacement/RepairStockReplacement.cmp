@@ -1,0 +1,35 @@
+<aura:component controller="StockReplacementController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="workOrder" type="Object"/>
+    <aura:attribute name="lineList" type="Object" />
+    <aura:attribute name="lineId" type="String" />
+    <aura:attribute name="lineSerial" type="String" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <force:recordData aura:id="recordLoader"
+        fields="Id, Order__c, Order__r.OriginatingWarehouse__c, Account__c"
+        recordId="{!v.recordId}"
+        targetFields="{!v.workOrder}"
+        targetError="{!v.recordLoadError}"
+        recordUpdated="{!c.recordUpdate}"
+    />
+    <lightning:card iconName="custom:custom98" title="Devices to Repair">
+        <lightning:datatable data="{! v.lineList }"
+            columns="{! v.columns }"
+            keyField="Id"
+            hideCheckboxColumn="true"
+            aura:id="lineTable"
+            onrowaction="{!c.handleRowAction}"
+        />    
+        <aura:if isTrue="{!v.lineId != null}">
+            <lightning:recordEditForm aura:id="newLineForm" objectApiName="WorkOrderLineItem__c" onsuccess="{!c.handleSuccess}">
+                <lightning:messages />
+                <lightning:inputField fieldName="WorkOrder__c" value="{!v.recordId}" class="slds-hide" />
+                <lightning:inputField fieldName="ReplacedItem__c" value="{!v.lineId}" class="slds-hide" />
+                <label for="Stock">Replacement Stock for {!v.lineSerial}</label>
+                <lightning:inputField aura:id="Stock" fieldName="Stock__c" variant="label-hidden" />
+                <lightning:button class="slds-m-top_small" variant="brand" type="submit" label="Confirm" />
+            </lightning:recordEditForm>
+        </aura:if>
+    </lightning:card>
+</aura:component>

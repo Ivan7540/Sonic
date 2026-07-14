@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Installation_Complete_Contact</fullName>
+    <active>true</active>
+    <description>Ensures that an installation Work Order cannot be completed without a related Contact, as that will cause an exception</description>
+    <errorConditionFormula>ISPICKVAL(Status__c, &apos;Testing&apos;) &amp;&amp; ISPICKVAL(Type__c, &apos;Installation&apos;) &amp;&amp; ISBLANK(Contact__c)</errorConditionFormula>
+    <errorDisplayField>Contact__c</errorDisplayField>
+    <errorMessage>Cannot schedule an installation without a Contact specified</errorMessage>
+</ValidationRule>

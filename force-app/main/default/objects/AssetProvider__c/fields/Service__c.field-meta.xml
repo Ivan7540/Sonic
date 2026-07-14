@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service__c</fullName>
+    <description>Field indicating which value added service this Asset Provider is providing for</description>
+    <externalId>false</externalId>
+    <label>Service</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Switch Pay</fullName>
+                <default>false</default>
+                <label>Switch Pay</label>
+            </value>
+            <value>
+                <fullName>Sureswipe Acquiring</fullName>
+                <default>false</default>
+                <label>Sureswipe Acquiring</label>
+            </value>
+            <value>
+                <fullName>GAAP</fullName>
+                <default>false</default>
+                <label>GAAP</label>
+            </value>
+            <value>
+                <fullName>Masterpass</fullName>
+                <default>false</default>
+                <label>Masterpass</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

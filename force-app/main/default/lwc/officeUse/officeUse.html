@@ -1,0 +1,75 @@
+<!--
+ - Created by JurgitaG on 5/5/2021.
+ -->
+
+<!-- Office Use -->
+<template>
+    <lightning-record-edit-form record-id={recordId}
+                                object-api-name="Account"
+                                onsuccess={handleSuccess}
+
+    >
+        <lightning-messages>
+        </lightning-messages>
+        <lightning-input-field field-name="Industry" required=true>
+        </lightning-input-field>
+        <lightning-input-field field-name="TradingName__c" required=true>
+        </lightning-input-field>
+        <lightning-input-field field-name="Description_of_Goods_and_Services__c" required=true>
+        </lightning-input-field>
+        <lightning-input-field field-name="ShippingAddress" required=true>
+        </lightning-input-field>
+        <lightning-input-field field-name="BillingAddress">
+        </lightning-input-field>
+        <lightning-input-field field-name="Not_VAT_Registered__c" onchange={handleNotRegistered}>
+        </lightning-input-field>
+        <lightning-input-field field-name="VAT_Number__c" required={requireVAT}>
+        </lightning-input-field>
+        <lightning-input-field field-name="Business_Hours_From__c" value={hoursFrom} class="slds-hide">
+        </lightning-input-field>
+        <lightning-input-field field-name="Business_Hours_To__c" value={hoursTo} class="slds-hide">
+        </lightning-input-field>
+        <lightning-input
+                type="time"
+                name="hoursFrom"
+                label="Business Hours From"
+                field-level-help="Business Hours From"
+                value={hoursFromValue}
+                required=true
+                variant="label-inline"
+                onchange={handleFromTime}>
+
+        </lightning-input>
+        <lightning-input
+                type="time"
+                name="hoursTo"
+                required=true
+                label="Business Hours To"
+                field-level-help="Business Hours To"
+                value={hoursToValue}
+                variant="label-inline"
+                onchange={handleToTime}></lightning-input>
+        <lightning-input-field field-name="PreferredInstallationDate__c">
+        </lightning-input-field>
+        <lightning-input-field field-name="LiquorExpiryDate__c">
+        </lightning-input-field>
+        <lightning-input-field field-name="LiquorLicenseNumber__c">
+        </lightning-input-field>
+        <lightning-input-field field-name="ReceiptHeader__c" required=true>
+        </lightning-input-field>
+        <lightning-input-field field-name="ReceiptFooter__c" required=true>
+        </lightning-input-field>
+        <lightning-input-field field-name="Seasonal__c">
+        </lightning-input-field>
+        <lightning-input-field field-name="VisitedBySureswipe__c">
+        </lightning-input-field>
+        <lightning-button
+                class="slds-m-top_small slds-float_right slds-m-bottom_medium"
+                variant="brand"
+                type="submit"
+                onsubmit={handleSubmit}
+                name="update"
+                label="Save">
+        </lightning-button>
+    </lightning-record-edit-form>
+</template>

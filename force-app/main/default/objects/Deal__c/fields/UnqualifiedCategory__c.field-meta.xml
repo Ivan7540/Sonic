@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UnqualifiedCategory__c</fullName>
+    <externalId>false</externalId>
+    <label>Unqualified Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Client Issues</fullName>
+                <default>false</default>
+                <label>Client Issues</label>
+            </value>
+            <value>
+                <fullName>Not Interested</fullName>
+                <default>false</default>
+                <label>Not Interested</label>
+            </value>
+            <value>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+                <label>Duplicate</label>
+            </value>
+            <value>
+                <fullName>Next day settlement</fullName>
+                <default>false</default>
+                <label>Next day settlement</label>
+            </value>
+            <value>
+                <fullName>POS not integrated</fullName>
+                <default>false</default>
+                <label>POS not integrated</label>
+            </value>
+            <value>
+                <fullName>Owner unreacheable</fullName>
+                <default>false</default>
+                <label>Owner unreacheable</label>
+            </value>
+            <value>
+                <fullName>Foreigner docs not in order</fullName>
+                <default>false</default>
+                <label>Foreigner docs not in order</label>
+            </value>
+            <value>
+                <fullName>Offer not compelling enough</fullName>
+                <default>false</default>
+                <label>Offer not compelling enough</label>
+            </value>
+            <value>
+                <fullName>Client not contactable</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Client not contactable</label>
+            </value>
+            <value>
+                <fullName>Cost</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cost</label>
+            </value>
+            <value>
+                <fullName>Customer Not Interested</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Customer Not Interested</label>
+            </value>
+            <value>
+                <fullName>Customer took too long</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Customer took too long</label>
+            </value>
+            <value>
+                <fullName>Does not meet SS requirements</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Does not meet SS requirements</label>
+            </value>
+            <value>
+                <fullName>Duplicate Lead</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Duplicate Lead</label>
+            </value>
+            <value>
+                <fullName>Existing Customer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Existing Customer</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Product</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Product</label>
+            </value>
+            <value>
+                <fullName>Service</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Service</label>
+            </value>
+            <value>
+                <fullName>Trusted Brand</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Trusted Brand</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

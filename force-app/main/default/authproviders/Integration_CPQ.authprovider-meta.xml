@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authorizeUrl>https://sonic2.my.salesforce.com/services/oauth2/authorize</authorizeUrl>
+    <consumerKey>3MVG9sh10GGnD4DsThUCBNoGsKWcJV_Wvj3CaOigB2igauoNnGFffP7jaTaNZotnJCrV6O.KS9aoUDpMz_Wwn</consumerKey>
+    <consumerSecret>TiKUyC1KRK+yFiLagMqepEFKbbGSzn7Xekk7Y3JnVDppgmSIBi4pFmWVbNnJRVuIiv+8BpTFq5sTsco2n9yEqHBBGPdiC2rX</consumerSecret>
+    <defaultScopes>refresh_token full</defaultScopes>
+    <friendlyName>Integration_CPQ</friendlyName>
+    <includeOrgIdInIdentifier>true</includeOrgIdInIdentifier>
+    <providerType>Salesforce</providerType>
+    <sendAccessTokenInHeader>false</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+    <tokenUrl>https://sonic2.my.salesforce.com/services/oauth2/token</tokenUrl>
+</AuthProvider>

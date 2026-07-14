@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Additional Documents</fullName>
+        <default>false</default>
+        <label>Additional Documents</label>
+    </customValue>
+    <customValue>
+        <fullName>Associated parties/Source of Funds</fullName>
+        <default>false</default>
+        <label>Associated parties/Source of Funds</label>
+    </customValue>
+    <customValue>
+        <fullName>Beneficial Owner Calculator</fullName>
+        <default>false</default>
+        <label>Beneficial Owner Calculator</label>
+    </customValue>
+    <customValue>
+        <fullName>Beneficial Owner Form</fullName>
+        <default>false</default>
+        <label>Beneficial Owner Form</label>
+    </customValue>
+    <customValue>
+        <fullName>Certificate of Incorporation(CM1)</fullName>
+        <default>false</default>
+        <label>Certificate of Incorporation(CM1)</label>
+    </customValue>
+    <customValue>
+        <fullName>CK1 Document</fullName>
+        <default>false</default>
+        <label>CK1 Document</label>
+    </customValue>
+    <customValue>
+        <fullName>CK2 Document</fullName>
+        <default>false</default>
+        <label>CK2 Document</label>
+    </customValue>
+    <customValue>
+        <fullName>CK Document</fullName>
+        <default>false</default>
+        <label>CK Document</label>
+    </customValue>
+    <customValue>
+        <fullName>Combined FICA Documents</fullName>
+        <default>false</default>
+        <label>Combined FICA Documents</label>
+    </customValue>
+    <customValue>
+        <fullName>Draft Contract</fullName>
+        <default>false</default>
+        <label>Draft Contract</label>
+    </customValue>
+    <customValue>
+        <fullName>Draft Masterpass Addendum</fullName>
+        <default>false</default>
+        <label>Draft Masterpass Addendum</label>
+    </customValue>
+    <customValue>
+        <fullName>Draft SwitchPay Addendum</fullName>
+        <default>false</default>
+        <label>Draft SwitchPay Addendum</label>
+    </customValue>
+    <customValue>
+        <fullName>FICA Checklist</fullName>
+        <default>false</default>
+        <label>FICA Checklist</label>
+    </customValue>
+    <customValue>
+        <fullName>Founding document</fullName>
+        <default>false</default>
+        <label>Founding document</label>
+    </customValue>
+    <customValue>
+        <fullName>ID-GreenBarCode</fullName>
+        <default>false</default>
+        <label>ID-GreenBarCode</label>
+    </customValue>
+    <customValue>
+        <fullName>ID-Smartcard</fullName>
+        <default>false</default>
+        <label>ID-Smartcard</label>
+    </customValue>
+    <customValue>
+        <fullName>ITC Motivation Bank Statements</fullName>
+        <default>false</default>
+        <label>ITC Motivation Bank Statements</label>
+    </customValue>
+    <customValue>
+        <fullName>ITC Motivation Proof of a Plan</fullName>
+        <default>false</default>
+        <label>ITC Motivation Proof of a Plan</label>
+    </customValue>
+    <customValue>
+        <fullName>ITC Motivation Signed Surety</fullName>
+        <default>false</default>
+        <label>ITC Motivation Signed Surety</label>
+    </customValue>
+    <customValue>
+        <fullName>ITC Report</fullName>
+        <default>false</default>
+        <label>ITC Report</label>
+    </customValue>
+    <customValue>
+        <fullName>Liquor License</fullName>
+        <default>false</default>
+        <label>Liquor License</label>
+    </customValue>
+    <customValue>
+        <fullName>Match Report</fullName>
+        <default>false</default>
+        <label>Match Report</label>
+    </customValue>
+    <customValue>
+        <fullName>Memorandum of Incorporation (MOI)</fullName>
+        <default>false</default>
+        <label>Memorandum of Incorporation (MOI)</label>
+    </customValue>
+    <customValue>
+        <fullName>Notice of registered office(CM22)</fullName>
+        <default>false</default>
+        <label>Notice of registered office(CM22)</label>
+    </customValue>
+    <customValue>
+        <fullName>OFAC Report</fullName>
+        <default>false</default>
+        <label>OFAC Report</label>
+    </customValue>
+    <customValue>
+        <fullName>Ownership and Control structure (OC)</fullName>
+        <default>false</default>
+        <label>Ownership and Control structure (OC)</label>
+    </customValue>
+    <customValue>
+        <fullName>Partnership agreement</fullName>
+        <default>false</default>
+        <label>Partnership agreement</label>
+    </customValue>
+    <customValue>
+        <fullName>Passport Copy</fullName>
+        <default>false</default>
+        <label>Passport Copy</label>
+    </customValue>
+    <customValue>
+        <fullName>Proof of Address</fullName>
+        <default>false</default>
+        <label>Proof of Address</label>
+    </customValue>
+    <customValue>
+        <fullName>Proof of banking in entity name</fullName>
+        <default>false</default>
+        <label>Proof of banking in entity name</label>
+    </customValue>
+    <customValue>
+        <fullName>Proof of Business Address</fullName>
+        <default>false</default>
+        <label>Proof of Business Address</label>
+    </customValue>
+    <customValue>
+        <fullName>Resolution to identify who may act on behalf of the entity</fullName>
+        <default>false</default>
+        <label>Resolution to identify who may act on behalf of the entity</label>
+    </customValue>
+    <customValue>
+        <fullName>Risk Report</fullName>
+        <default>false</default>
+        <label>Risk Report</label>
+    </customValue>
+    <customValue>
+        <fullName>Share Certificate</fullName>
+        <default>false</default>
+        <label>Share Certificate</label>
+    </customValue>
+    <customValue>
+        <fullName>Signed Contract</fullName>
+        <default>false</default>
+        <label>Signed Contract</label>
+    </customValue>
+    <customValue>
+        <fullName>Signed Masterpass Addendum</fullName>
+        <default>false</default>
+        <label>Signed Masterpass Addendum</label>
+    </customValue>
+    <customValue>
+        <fullName>Signed Shares Letter</fullName>
+        <default>false</default>
+        <label>Signed Shares Letter</label>
+    </customValue>
+    <customValue>
+        <fullName>Signed SwitchPay Addendum</fullName>
+        <default>false</default>
+        <label>Signed SwitchPay Addendum</label>
+    </customValue>
+    <customValue>
+        <fullName>Site Verification</fullName>
+        <default>false</default>
+        <label>Site Verification</label>
+    </customValue>
+    <customValue>
+        <fullName>Trust deed</fullName>
+        <default>false</default>
+        <label>Trust deed</label>
+    </customValue>
+    <customValue>
+        <fullName>Payment</fullName>
+        <default>false</default>
+        <label>Payment</label>
+    </customValue>
+    <customValue>
+        <fullName>Invoice</fullName>
+        <default>false</default>
+        <label>Invoice</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Closure</fullName>
+        <default>false</default>
+        <label>Business Closure</label>
+    </customValue>
+    <customValue>
+        <fullName>Resolution Letter</fullName>
+        <default>false</default>
+        <label>Resolution Letter</label>
+    </customValue>
+    <description>The values used to designate the type of a KYC document</description>
+    <masterLabel>KYC Tags</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

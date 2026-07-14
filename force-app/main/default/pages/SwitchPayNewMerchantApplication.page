@@ -1,0 +1,431 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml">
+    <block-container display-align="center">
+        <block text-align="center" font-weight="bold">SWITCHPAY - NEW MERCHANT APPLICATION FORM</block>
+    </block-container>
+    
+    <leader leader-pattern="rule" leader-length="100%" rule-style="solid" rule-thickness="1pt"/>   
+    <table table-layout="fixed" width="100%">
+        <table-body>
+            <table-row>
+                <table-cell column-number="1" number-columns-spanned="3" column-width="35pt">
+                    <block end-indent="0.2in" font-size="10pt">
+                        To qualify for approval as a Merchant, please complete the following application.
+                    </block>
+                    <block end-indent="0.2in" font-size="10pt">
+                        Please send all required attachments and information to either of the following: 
+                    </block>
+                    <block end-indent="0.2in" font-size="10pt">
+                        Email: admin@switchpay.co.za
+                    </block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black">
+                    <block text-align="center">APPLICATION DATE</block>
+                </table-cell>
+            </table-row>
+        </table-body>
+    </table>
+    
+    <block>
+        <leader leader-pattern="space" leader-length="0pt"/>
+    </block>
+    
+    <block-container display-align="center">
+        <block text-align="center">SERVICE TYPE:</block>
+    </block-container>
+    
+    <leader leader-pattern="rule" leader-length="100%" rule-style="solid" rule-thickness="1pt"/> 
+    
+    <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+        <table-header text-align="center">
+            <table-cell display-align="center" border="1pt solid  black" number-columns-spanned="4">
+                <block text-align="left">SELECT SWITCHPAY SERVICES BEING APPLIED FOR</block>
+            </table-cell>
+            <table-cell display-align="center" border="1pt solid  black">
+                <block text-align="center">TICK OPTIONS</block>
+            </table-cell>
+            <table-cell display-align="center" border="1pt solid  black">
+                <block text-align="center">QTY</block>
+            </table-cell>
+            <table-cell display-align="center" border="1pt solid  black">
+                <block text-align="center">TOTAL Incl</block>
+            </table-cell>
+        </table-header>
+        
+        <table-body>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt"><inline border-after-width="1pt" border-after-style="solid" >SERVICE OPTIONS</inline></block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black">
+                    <block></block>
+                </table-cell>
+                <table-cell column-number="3" border="1pt solid black">
+                    <block></block>
+                </table-cell>
+                <table-cell column-number="4" border="1pt solid black">
+                    <block></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">SERVICE PBL - Purpose Based Lending Module - R250 pm (Excl. VAT)</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black">
+                    <block></block>
+                </table-cell>
+                <table-cell column-number="3" border="1pt solid black">
+                    <block text-align="center" font-size="10pt">1</block>
+                </table-cell>
+                <table-cell column-number="4" border="1pt solid black">
+                    <block text-align="right" font-size="10pt">R 0.00</block>
+                </table-cell>
+            </table-row>
+        </table-body>
+    </table>
+    
+    <block>
+        <leader leader-pattern="space" leader-length="0pt"/>
+    </block>
+    
+    <block-container display-align="center">
+        <block text-align="center">TYPE OF ENTITY:</block>
+    </block-container>
+    
+    <leader leader-pattern="rule" leader-length="100%" rule-style="solid" rule-thickness="1pt"/> 
+    
+    <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+        <table-header text-align="center">
+            <table-cell display-align="center" border="1pt solid  black" number-columns-spanned="4">
+                <block text-align="left">ENTITIES</block>
+            </table-cell>
+            <table-cell display-align="center" border="1pt solid  black" number-columns-spanned="2">
+                <block text-align="center">TICK OPTION</block>
+            </table-cell>
+        </table-header>
+        
+        <table-body>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Public Company</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Private Company</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Close Corporation</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block font-size="10pt"></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Partnership</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Sole Proprietorship</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Joint Venture</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Section 21 Company</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Association</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Trust</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">If Trust, no. of Trustees?</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block></block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Any Trustee a Juristic Person?</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black">
+                    <block font-size="10pt" text-align="center">Yes</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black">
+                    <block font-size="10pt" text-align="center">No</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" number-columns-spanned="4">
+                    <block font-size="10pt">Other (Please specify)</block>
+                </table-cell>
+                <table-cell column-number="2" border="1pt solid black" number-columns-spanned="2">
+                    <block></block>
+                </table-cell>
+            </table-row>
+        </table-body>
+    </table>
+    
+    <block>
+        <leader leader-pattern="space" leader-length="0pt"/>
+    </block>
+    
+    <block-container display-align="center" page-break-before="always">
+        <block text-align="center">MERCHANT/MERCHANT'S FULL PARTICULARS</block>
+    </block-container>
+    
+    <leader leader-pattern="rule" leader-length="100%" rule-style="solid" rule-thickness="1pt"/> 
+    
+    <table table-layout="fixed" width="100%" margin-top="10pt" border-collapse="separate" border-separation="4px">
+        <table-body>
+            <table-row>
+                <table-cell>
+                    <block font-size="10pt">FULL / REGISTERED NAME:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">PRIMARY CONTACT PERSON'S MOBILE NO.:</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+            </table-row>
+            
+			<table-row>
+                <table-cell>
+                    <block font-size="10pt">REGISTERED NUMBER:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">PRIMARY CONTACT PERSON'S E-MAIL:</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+            </table-row>
+            
+            <table-row>
+                <table-cell>
+                    <block font-size="10pt">TRADING NAME:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">COMPANY'S PHYSICAL ADDRESS:</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+            </table-row>
+            
+            <table-row>
+                <table-cell>
+                    <block font-size="10pt">TAX NO.:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">VAT NO.: (if registered)</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+            </table-row>
+        </table-body>
+    </table>
+    <table table-layout="fixed" width="100%" margin-top="10pt" border-collapse="separate" border-separation="4px">
+        <table-body>
+            <table-row>
+                <table-cell>
+                    <block font-size="10pt">TELEPHONE NO.:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">FAX NO.:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">SUBURB:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">CODE:</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+            </table-row>
+        </table-body>
+    </table>
+    <table table-layout="fixed" width="100%" margin-top="10pt" border-collapse="separate" border-separation="4px">
+        <table-body>
+            <table-row>
+                <table-cell>
+                    <block font-size="10pt">GENERAL COMPANY EMAIL:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">CITY:</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+            </table-row>
+            
+            <table-row>
+                <table-cell>
+                    <block font-size="10pt">PRIMARY CONTACT PERSON:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">PROVINCE:</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+            </table-row>
+        </table-body>
+    </table>
+    
+    <block>
+        <leader leader-pattern="space" leader-length="0pt"/>
+    </block>
+    
+    <block-container display-align="center">
+        <block text-align="center">MERCHANT SETTLEMENT BANKING DETAILS</block>
+    </block-container>
+    
+    <leader leader-pattern="rule" leader-length="100%" rule-style="solid" rule-thickness="1pt"/>
+    <block>
+        <leader leader-pattern="space" leader-length="0pt"/>
+    </block>
+    
+    <block-container>
+        <block font-weight="bold">The bank account settlement information required would be the same account information used for the card merchant settlements:</block>
+    </block-container>
+    
+    <table table-layout="fixed" width="100%" margin-top="10pt" border-collapse="separate" border-separation="4px">
+        <table-body>
+            <table-row>
+                <table-cell>
+                    <block font-size="10pt">BANK:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">ACCOUNT HOLDER'S NAME:</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+            </table-row>
+            
+            <table-row>
+                <table-cell>
+                    <block font-size="10pt">BRANCH:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">ACCOUNT NUMBER:</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+            </table-row>
+            
+            <table-row>
+                <table-cell>
+                    <block font-size="10pt">BRANCH NUMBER:</block>
+                </table-cell>
+                <table-cell>
+                    <block font-size="10pt">ACCOUNT TYPE:</block>
+                </table-cell>
+            </table-row>
+            <table-row>
+                <table-cell column-number="1" border="1pt solid black" padding="5">
+                    <block><leader /></block>
+                </table-cell>
+                <table-cell border="1pt solid black" padding="5">
+                    <block>Cheque Account</block>
+                </table-cell>
+            </table-row>
+        </table-body>
+    </table>
+</apex:page>

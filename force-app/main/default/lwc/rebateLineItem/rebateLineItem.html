@@ -1,0 +1,80 @@
+<!--
+ - Created by JurgitaG on 6/6/2021.
+ -->
+
+<!-- Rebate Line Item -->
+<template>
+    <div class="slds-box slds-m-top_medium">
+        <lightning-record-edit-form object-api-name="Deal_Line__c">
+            <lightning-messages>
+            </lightning-messages>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <lightning-input-field class="">
+                </lightning-input-field>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12">
+                    <template if:true={selectedOption}>
+                        <lightning-input label="Rebate Item" value={selectedOptionLabel}
+                                         disabled=true></lightning-input>
+                    </template>
+                    <template if:false={selectedOption}>
+                        <lightning-combobox
+                                name="rebateItem"
+                                label="Rebate Item"
+                                value={selectedOption}
+                                placeholder="Select"
+                                options={availableOptions}
+                                onchange={handleRebate}></lightning-combobox>
+                    </template>
+                </div>
+                <lightning-input class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12"
+                                 max={maxQuantity} label="# of Products" type="number" value={rebateQuantity}
+                                 name="RebatedQuantity__c" onchange={handleQuantity} variant="label-stacked"
+                                 disabled={disableQuantity}>
+                </lightning-input>
+                <lightning-input  label="# of Months" type="number"
+                                  class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12"
+                        value={rebateMonths} name="RebateMonths__c" onchange={handleMonths}
+                        variant="label-stacked" disabled={disableMonths}>
+                </lightning-input>
+                <lightning-input label="Rebate (%)"
+                        class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12" type="number"
+                        value={rebateDiscount} name="RebateDiscountPercentage__c" onchange={handleRebateDiscount} formatter="percent-fixed"
+                        variant="label-stacked" disabled={disableRebateDiscount} autocomplete="off" step="0.01" max="100">
+                </lightning-input>
+                <lightning-input label="Rebate (R)" type="number" formatter="currency"
+                        class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12"
+                        value={rebateAmount} name="RebateDiscountAmount__c" onchange={handleRebateAmount}
+                        variant="label-stacked" disabled={disableRebateAmount} autocomplete="off" step="0.1">
+                </lightning-input>
+
+
+                <div class="slds-grid slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                    <lightning-input label="Discount (%)" type="number" formatter="percent-fixed"
+                            class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12"
+                            value={discount} name="LineDiscount__c" onchange={handleDiscount}
+                            variant="label-stacked" disabled={disableDiscount} autocomplete="off" step="0.01" max="100">
+                    </lightning-input>
+                    <lightning-input label="Discount (R)" type="number" formatter="currency"
+                            class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12 slds-large-off"
+                            value={discountAmount} name="LineDiscountAmount__c" onchange={handleDiscountAmount}
+                            variant="label-stacked" disabled={disableAmount} autocomplete="off" step="0.1">
+                    </lightning-input>
+                </div>
+
+                <lightning-input-field
+                        class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12" value={rebateReason}
+                        field-name="RebateReason__c" onchange={handleRebateReason} variant="label-stacked" required="true">
+                </lightning-input-field>
+                <lightning-input-field
+                        class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12"
+                        value={rebateMotivation} aria-rowcount=1 field-name="RebateMotivation__c"
+                        onchange={handleMotivation} variant="label-stacked">
+                </lightning-input-field>
+                <div class="slds-col slds-align-middle slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12">
+                    <lightning-button-icon variant="brand" onclick={handleDelete} icon-name="utility:delete">
+                    </lightning-button-icon>
+                </div>
+            </div>
+        </lightning-record-edit-form>
+    </div>
+</template>

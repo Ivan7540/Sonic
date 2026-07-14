@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Device__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Device</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SS_SP_630</fullName>
+                <default>false</default>
+                <label>SP630</label>
+            </value>
+            <value>
+                <fullName>SS_M4_SERIES</fullName>
+                <default>false</default>
+                <label>M4</label>
+            </value>
+            <value>
+                <fullName>NotApplicable</fullName>
+                <default>false</default>
+                <label>Not Applicable</label>
+            </value>
+            <value>
+                <fullName>SS_VX820</fullName>
+                <default>false</default>
+                <label>VX820</label>
+            </value>
+            <value>
+                <fullName>SS_P400</fullName>
+                <default>false</default>
+                <label>P400</label>
+            </value>
+            <value>
+                <fullName>SS_BT50</fullName>
+                <default>false</default>
+                <label>BT50</label>
+            </value>
+            <value>
+                <fullName>SS_HI5</fullName>
+                <default>false</default>
+                <label>HI5</label>
+            </value>
+            <value>
+                <fullName>SS_HUMBLE_HI5</fullName>
+                <default>false</default>
+                <label>Humble Hi Five</label>
+            </value>
+            <value>
+                <fullName>SS_HUMBLE_BT50</fullName>
+                <default>false</default>
+                <label>Humble BT 50</label>
+            </value>
+            <value>
+                <fullName>SS_GAAP_SP_630</fullName>
+                <default>false</default>
+                <label>GAAP SP630</label>
+            </value>
+            <value>
+                <fullName>SS_MOVE_2500</fullName>
+                <default>false</default>
+                <label>Move 2500</label>
+            </value>
+            <value>
+                <fullName>SS_A50</fullName>
+                <default>false</default>
+                <label>A50</label>
+            </value>
+            <value>
+                <fullName>AD_A920PRO</fullName>
+                <default>false</default>
+                <label>A920 Pro</label>
+            </value>
+            <value>
+                <fullName>AD_A920</fullName>
+                <default>false</default>
+                <label>A920</label>
+            </value>
+            <value>
+                <fullName>SS_BLUEBIRD</fullName>
+                <default>false</default>
+                <label>Bluebird</label>
+            </value>
+            <value>
+                <fullName>SS_SP_630PRO</fullName>
+                <default>false</default>
+                <label>SP630 Pro</label>
+            </value>
+            <value>
+                <fullName>AD_A35</fullName>
+                <default>false</default>
+                <label>A35</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

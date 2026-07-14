@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name="productFamily" label="Product Family"></design:attribute>
+     <design:attribute name="selectedProductId" Label="Selected Product Id"/>
+</design:component>

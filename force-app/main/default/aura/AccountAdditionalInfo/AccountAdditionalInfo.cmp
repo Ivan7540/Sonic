@@ -1,0 +1,69 @@
+<aura:component controller="AccountInfoController" implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="opportunity" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="accountMode" type="String"/>
+    <aura:attribute name="mode" type="String"/>
+    <aura:attribute name="accountRelation" type="Object"/>
+	<aura:attribute name="accountFields" type="String[]" default="['Name','TradingName__c','Service_Level__c','ShippingAddress','Account_Manager__c','BusinessType__c',' Industry','Description_of_Goods_and_Services__c','Business_Hours_From__c','Business_Hours_To__c','RegistrationNumber__c','Sic','SicDesc','Monthly_Swipe_Value_Card_Value__c']"/>
+    <aura:attribute name="contactFields" type="String[]" default="['Name','Phone','Email','MailingAddress','Call_Opt_Out__c','Messaging_Opt_Out__c','HasOptedOutOfEmail']"/>
+    <aura:attribute name="bankFields" type="String[]" default="['Bank__c','AccountType__c','Name','AccountNumber__c','BranchCode__c']"/>
+    
+    <force:recordData aura:id="recordLoader"
+        fields="AccountId"
+        recordId="{!v.recordId}"
+        targetFields="{!v.opportunity}"
+        targetError="{!v.recordLoadError}"
+        recordUpdated="{!c.recordUpdate}"
+    />
+
+    <lightning:card iconName="standard:account" title="Company Information">
+        <lightning:recordForm
+            recordId="{!v.opportunity.AccountId}"
+            objectApiName="Account"
+            fields="{!v.accountFields}"
+            mode="{!v.accountMode}"
+            columns="2"
+        />
+    </lightning:card>
+
+    <lightning:card iconName="standard:contact" title="Primary Contact">
+        <aura:if isTrue="{!v.accountRelation.primaryContactId != null}">
+            <lightning:recordForm
+                recordId="{!v.accountRelation.primaryContactId}"
+                objectApiName="Contact"
+                fields="{!v.contactFields}"
+                mode="readonly"
+                columns="2"
+            />
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.accountRelation.nonPrimaryContacts.size > 1}">
+                    No single Contact related to the Company has been designated as primary    
+                    <aura:set attribute="else">
+                        No Contacts related to the Company
+                    </aura:set>                                                 
+                </aura:if> 
+            </aura:set>                                                 
+        </aura:if>        
+    </lightning:card>
+
+    <lightning:card iconName="custom:custom13" title="Debit Account">
+        <aura:if isTrue="{!v.accountRelation.debitAccountId != null}">
+            <lightning:recordForm
+                recordId="{!v.accountRelation.debitAccountId}"
+                objectApiName="Bank_Account__c"
+                fields="{!v.bankFields}"
+                mode="readonly"
+                columns="2"
+            />
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.accountRelation.debitAccounts.size > 1}">
+                    More than one Bank Account related to the Company has been designated as the debit account  
+                    <aura:set attribute="else">
+                        No Bank Account related to the Company has been designated as the debit account
+                    </aura:set>                                                 
+                </aura:if> 
+            </aura:set>
+        </aura:if>        
+    </lightning:card>
+
+</aura:component>

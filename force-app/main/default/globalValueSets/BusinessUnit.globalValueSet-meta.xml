@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Innervation</fullName>
+        <default>false</default>
+        <label>Innervation</label>
+    </customValue>
+    <customValue>
+        <fullName>Sureswipe</fullName>
+        <default>false</default>
+        <label>Sureswipe</label>
+    </customValue>
+    <description>SWW:2021-02-01:: Different business units for Sonic org. Each new company added will be a new Business Unit</description>
+    <masterLabel>Business Unit</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

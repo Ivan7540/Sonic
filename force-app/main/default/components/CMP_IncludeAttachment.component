@@ -1,0 +1,4 @@
+<apex:component controller="IncludeAttachmentController" access="global">
+    <apex:attribute name="workOrderId" description="Work Order Id" assignTo="{!workOrderObjectId}" type="Id"/>
+    <apex:outputText value="{!PageContents}" escape="false" />
+</apex:component>

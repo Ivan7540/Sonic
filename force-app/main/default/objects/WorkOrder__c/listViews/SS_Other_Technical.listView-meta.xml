@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SS_Other_Technical</fullName>
+    <columns>RECORDTYPE</columns>
+    <columns>NAME</columns>
+    <columns>Type__c</columns>
+    <columns>Account__c</columns>
+    <columns>Trading_Name__c</columns>
+    <columns>Province__c</columns>
+    <columns>Status__c</columns>
+    <columns>Technician__c</columns>
+    <columns>AppointmentDate__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Province__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed,Cancelled</value>
+    </filters>
+    <label>SS_Other Technical</label>
+</ListView>

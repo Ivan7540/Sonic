@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CompletionAction__c</fullName>
+    <description>The type of action taken on the parent Work Order when the Action record is marked as completed</description>
+    <externalId>false</externalId>
+    <label>Completion Action</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Update Status</fullName>
+                <default>false</default>
+                <label>Update Status</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

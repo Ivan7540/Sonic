@@ -1,0 +1,105 @@
+<!--
+ - Created by JurgitaG on 6/25/2021.
+ -->
+
+<!-- Deal Approval Info -->
+<template>
+
+	<template if:true={isLoading}>
+		<lightning-card>
+			<div class="slds-is-relative" style="min-height: 177px;">
+				<lightning-spinner alternative-text="Loading"></lightning-spinner>
+			</div>
+		</lightning-card>
+	</template>
+
+	<template if:true={error}>
+		<c-error-panel errors={error}></c-error-panel>
+	</template>
+
+	<template if:true={shouldShowData}>
+
+		<lightning-accordion active-section-name="rates" allow-multiple-sections-open={allowMultipleSectionsOpen}>
+
+			<lightning-accordion-section name="rates" label="Rates">
+				<lightning-card title="Rates">
+					<lightning-datatable
+							hide-checkbox-column=true
+							data={dealRates}
+							columns={rateColumns}
+							key-field="dealLineId"
+					></lightning-datatable>
+				</lightning-card>
+			</lightning-accordion-section>
+
+<!--			<lightning-accordion-section name="products" label="Products">-->
+<!--				<template for:each={dealProducts} for:item="item" for:index="index">-->
+<!--					<lightning-card class="slds-p-around_x-small" key={item.dealLineId} title={item.product}>-->
+<!--						<lightning-record-view-form-->
+<!--								key={item.dealLineId}-->
+<!--								record-id={item.dealLineId}-->
+<!--								object-api-name="Deal_Line__c"-->
+<!--								aria-colcount=2-->
+<!--						>-->
+<!--							<div class="slds-grid slds-m-around_xx-small">-->
+<!--								<div class="slds-col slds-size_1-of-2">-->
+<!--									<h3 class="slds-m-left_xx-small slds-text-title_bold">Product information: </h3>-->
+<!--									<lightning-output-field field-name="Product__c"></lightning-output-field>-->
+<!--									<lightning-output-field field-name="ContractTerm__c"></lightning-output-field>-->
+<!--									<lightning-output-field field-name="Device__c"></lightning-output-field>-->
+<!--									<lightning-output-field field-name="Quantity__c"></lightning-output-field>-->
+<!--									<lightning-output-field field-name="LineDiscount__c"></lightning-output-field>-->
+<!--								</div>-->
+<!--								<div class="slds-col slds-size_1-of-2">-->
+<!--									<h3 class="slds-m-left_xx-small slds-text-title_bold">Rebate Information:</h3>-->
+<!--									<lightning-output-field field-name="RebateItem__c"></lightning-output-field>-->
+<!--									<lightning-output-field field-name="RebateDiscountPercentage__c"></lightning-output-field>-->
+<!--									<lightning-output-field field-name="RebateDiscountAmount__c"></lightning-output-field>-->
+<!--									<lightning-output-field field-name="RebateMonths__c"></lightning-output-field>-->
+<!--									<lightning-output-field field-name="RebatedQuantity__c"></lightning-output-field>-->
+<!--									<lightning-output-field field-name="RebateMotivation__c"></lightning-output-field>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</lightning-record-view-form>-->
+<!--					</lightning-card>-->
+<!--				</template>-->
+<!--			</lightning-accordion-section>-->
+
+			<lightning-accordion-section name="bundles" label="Bundles">
+				<template for:each={dealBundles} for:item="bundle" for:index="index">
+					<lightning-record-view-form
+							key={bundle.id}
+							record-id={bundle.id}
+							object-api-name="Deal_Line__c"
+							aria-colcount=2
+					>
+						<div class="slds-grid slds-m-around_xx-small">
+							<div class="slds-col slds-size_1-of-2">
+								<lightning-output-field field-name="Product__c"></lightning-output-field>
+								<lightning-output-field field-name="Device__c"></lightning-output-field>
+								<lightning-output-field field-name="ContractTerm__c"></lightning-output-field>
+								<lightning-output-field field-name="Quantity__c"></lightning-output-field>
+							</div>
+							<div class="slds-col slds-size_1-of-2">
+								<lightning-output-field field-name="PaymentServer__c"></lightning-output-field>
+								<lightning-output-field field-name="DeviceType__c"></lightning-output-field>
+								<lightning-output-field field-name="MoretymeType__c"></lightning-output-field>
+<!--								<lightning-output-field field-name="RebateMonths__c"></lightning-output-field>-->
+							</div>
+						</div>
+					</lightning-record-view-form>
+					<lightning-datatable
+							key={bundle.id}
+							hide-checkbox-column=true
+							columns={rateLineColumns}
+							data={bundle.rebateLines}
+							key-field="id"
+					></lightning-datatable>
+				</template>
+			</lightning-accordion-section>
+
+		</lightning-accordion>
+
+	</template>
+
+</template>

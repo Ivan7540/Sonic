@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SS_Stock_Low_Touch</fullName>
+    <columns>RECORDTYPE</columns>
+    <columns>NAME</columns>
+    <columns>Type__c</columns>
+    <columns>Account__c</columns>
+    <columns>Trading_Name__c</columns>
+    <columns>Province__c</columns>
+    <columns>Status__c</columns>
+    <columns>Technician__c</columns>
+    <columns>Waybill_Number__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed,Cancelled</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>WorkOrder__c.LowTouch</value>
+    </filters>
+    <label>SS Stock - Low Touch</label>
+    <queue>Stock</queue>
+</ListView>

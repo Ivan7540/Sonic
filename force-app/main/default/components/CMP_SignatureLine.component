@@ -1,0 +1,7 @@
+<apex:component >
+    <apex:attribute name="merchantRepName" description="The name of the merchnt's representative" type="String" required="true"/>
+    <apex:attribute name="technicianName" description="The name of the Sureswipe technician" type="String" required="true"/>
+    On behalf of merchant: {!merchantRepName}
+    <br/><br/>
+    On behalf of <b>SureSwipe</b>: {!technicianName}
+</apex:component>

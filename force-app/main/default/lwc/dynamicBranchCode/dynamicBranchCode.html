@@ -1,0 +1,11 @@
+<!--
+ - Created by JurgitaG on 5/25/2021.
+ -->
+
+<!-- Dynamic Branch Code -->
+<template>
+    <lightning-record-edit-form object-api-name="Bank_Account__c">
+        <lightning-input-field field-name="Bank__c" value={bankName} onchange={handleBank} variant="label-stacked" required=true></lightning-input-field>
+        <lightning-input-field field-name="BranchCode__c" value={branchCode} onchange={handleBranch} variant="label-stacked" required=true></lightning-input-field>
+    </lightning-record-edit-form>
+</template>

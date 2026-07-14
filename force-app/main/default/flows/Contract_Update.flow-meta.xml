@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Sets the value for commission month on the related Account to first day of next month</description>
+        <name>Set_Commission_Month</name>
+        <label>Set Commission Month</label>
+        <locationX>578</locationX>
+        <locationY>575</locationY>
+        <actionName>SetCommissionMonthInvocable</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Update_Account</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>inputs</name>
+            <value>
+                <elementReference>$Record.InstallationDate__c</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>CommissionAccount.Commission_Month__c</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>52.0</apiVersion>
+    <assignments>
+        <description>Assigns list size to a numeric variable</description>
+        <name>Count_Active</name>
+        <label>Count Active</label>
+        <locationX>182</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>NumberOfActive</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Other_Contracts_for_the_Rate_Contract</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Active_Contracts_for_Rate</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Set status to cancelled</description>
+        <name>Set_Rate_Status</name>
+        <label>Set Rate Status</label>
+        <locationX>50</locationX>
+        <locationY>1055</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Rate_Contract.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Cancelled</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Rate_Contract</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Checks if there are any active Contracts for the Rate Contract of the cancelled Contract</description>
+        <name>Active_Contracts_for_Rate</name>
+        <label>Active Contracts for Rate</label>
+        <locationX>182</locationX>
+        <locationY>815</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NumberOfActive</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Rate_Contract</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines which actions to execute based on which change was made to the record</description>
+        <name>Flow_Path</name>
+        <label>Flow Path</label>
+        <locationX>512</locationX>
+        <locationY>455</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Contract_Cancelled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Status</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancelled</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Other_Contracts_for_the_Rate_Contract</targetReference>
+            </connector>
+            <label>Contract Cancelled</label>
+        </rules>
+        <rules>
+            <name>First_Installation_Complete</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.InstallationDate__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.InstallationDate__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>CommissionAccount.Commission_Month__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Commission_Month</targetReference>
+            </connector>
+            <label>First Installation Complete</label>
+        </rules>
+    </decisions>
+    <description>Handles changes for Contract after save</description>
+    <interviewLabel>Contract Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contract Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Commission_Account</name>
+        <label>Get Commission Account</label>
+        <locationX>512</locationX>
+        <locationY>335</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Flow_Path</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputReference>CommissionAccount</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Commission_Month__c</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets all other active Contracts on the cancelled Contracts Rate Contract</description>
+        <name>Get_Other_Contracts_for_the_Rate_Contract</name>
+        <label>Get Other Contracts for the Rate Contract</label>
+        <locationX>182</locationX>
+        <locationY>575</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Count_Active</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RateContract__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.RateContract__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Cancelled</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Contract</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the Rate Contract of the cancelled Contract</description>
+        <name>Get_Rate_Contract</name>
+        <label>Get Rate Contract</label>
+        <locationX>50</locationX>
+        <locationY>935</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Rate_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.RateContract__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contract</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the Contract&apos;s Account after the date has been set for commission payout date</description>
+        <name>Update_Account</name>
+        <label>Update Account</label>
+        <locationX>578</locationX>
+        <locationY>695</locationY>
+        <inputReference>CommissionAccount</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the Rate Contract status</description>
+        <name>Update_Rate_Contract</name>
+        <label>Update Rate Contract</label>
+        <locationX>50</locationX>
+        <locationY>1175</locationY>
+        <inputReference>Get_Rate_Contract</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>386</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Commission_Account</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancelled</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>InstallationDate__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Activated</stringValue>
+            </value>
+        </filters>
+        <object>Contract</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>The Contract&apos;s Account that is updated as part of setting the date for payout of commission</description>
+        <name>CommissionAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <description>Number of Contracts for the parent rate Contract that have yet to be activated</description>
+        <name>NumberInactive</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>Represents number of active Contracts for the Rate Contract of the Contract currently being cancelled</description>
+        <name>NumberOfActive</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+</Flow>

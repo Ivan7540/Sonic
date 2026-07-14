@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Work_Order_Record_Type__c</fullName>
+    <description>Field corresponding to the developer name of Work Order record types</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Work Order Record Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>HighTouch</fullName>
+                <default>true</default>
+                <label>HighTouch</label>
+            </value>
+            <value>
+                <fullName>LowTouch</fullName>
+                <default>false</default>
+                <label>LowTouch</label>
+            </value>
+            <value>
+                <fullName>NoDevice</fullName>
+                <default>false</default>
+                <label>NoDevice</label>
+            </value>
+            <value>
+                <fullName>Collection</fullName>
+                <default>false</default>
+                <label>Collection</label>
+            </value>
+            <value>
+                <fullName>Gift_Loyalty</fullName>
+                <default>false</default>
+                <label>Gift &amp; Loyalty</label>
+            </value>
+            <value>
+                <fullName>Programme_Setup</fullName>
+                <default>false</default>
+                <label>Programme_Setup</label>
+            </value>
+            <value>
+                <fullName>Artwork_Design</fullName>
+                <default>false</default>
+                <label>Artwork_Design</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

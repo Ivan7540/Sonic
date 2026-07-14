@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <assignments>
+        <description>Adds the Case field names to be displayed on the first screen</description>
+        <name>Add_field_names_0</name>
+        <label>Add field names</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <assignmentItems>
+            <assignToReference>FirstScreenFields</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Type</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>FirstScreenFields</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Reason</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>FirstScreenFields</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Case_Reason_Level_1__c</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Contact</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Creates the repair Case, that will be the output of this flow</description>
+        <name>CreateCase</name>
+        <label>Create Case</label>
+        <locationX>176</locationX>
+        <locationY>638</locationY>
+        <assignmentItems>
+            <assignToReference>CaseRecord.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Contact.AccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CaseRecord.ContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Contact.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CaseRecord.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Case_RecordType.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Insert_Case</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <description>User indicates they clicked on the &apos;Next&apos; button in error</description>
+        <name>Mistake</name>
+        <choiceText>No, I clicked the &apos;Next&apos; button by mistake</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>false</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <description>User indicates that they intended to move past the previous screen without selecting an Asset, and is therefore prompted to enter the serial number of the non-existent Asset for the technicians to investigate.</description>
+        <name>Yes</name>
+        <choiceText>I have not found the requisite Asset in the list provided</choiceText>
+        <dataType>String</dataType>
+        <userInput>
+            <isRequired>true</isRequired>
+            <promptText>Asset serial number</promptText>
+        </userInput>
+        <value>
+            <stringValue>true</stringValue>
+        </value>
+    </choices>
+    <description>A subflow used for Case creation from a Contact starting record</description>
+    <interviewLabel>Create Case with Type {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Case with Type</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Insert_Case</name>
+        <label>Insert Case</label>
+        <locationX>176</locationX>
+        <locationY>758</locationY>
+        <connector>
+            <targetReference>Case_type</targetReference>
+        </connector>
+        <inputReference>CaseRecord</inputReference>
+    </recordCreates>
+    <recordLookups>
+        <description>Gets the record type</description>
+        <name>Get_Case_RecordType</name>
+        <label>Get Case RecordType</label>
+        <locationX>176</locationX>
+        <locationY>518</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CreateCase</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Case</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CaseRecordTypeName</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the Contact record that started the process</description>
+        <name>Get_Contact</name>
+        <label>Get Contact</label>
+        <locationX>176</locationX>
+        <locationY>398</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Case_RecordType</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Case</name>
+        <label>Update Case</label>
+        <locationX>176</locationX>
+        <locationY>998</locationY>
+        <inputReference>CaseRecord</inputReference>
+    </recordUpdates>
+    <screens>
+        <name>Case_type</name>
+        <label>Capture Case type</label>
+        <locationX>176</locationX>
+        <locationY>878</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+        <fields>
+            <name>Editor</name>
+            <extensionName>c:CaseEditor</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>cFields</name>
+                <value>
+                    <elementReference>FirstScreenFields</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>recordTypeId</name>
+                <value>
+                    <elementReference>Get_Case_RecordType.Id</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>CaseRecord.Id</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>objectName</name>
+                <value>
+                    <stringValue>Case</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>The screen shown to the user on page load. Needed to prevent DML operations running on each load of the record page.</description>
+        <name>SplashScreen</name>
+        <label>Splash Screen</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Add_field_names_0</targetReference>
+        </connector>
+        <fields>
+            <name>SplashText</name>
+            <fieldText>&lt;p&gt;{!SplashMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>SplashScreen</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>The record being created</description>
+        <name>CaseRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <description>Developer name of the Case Record Type to be used. Spelling must be accurate, as variable is used in querying.</description>
+        <name>CaseRecordTypeName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Field names to be used on the first screen</description>
+        <name>FirstScreenFields</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Number of Work Order Line Items created</description>
+        <name>NumberOfLines</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>System required variable for capturing the starting record Id</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The message for the user displayed on the splash screen</description>
+        <name>SplashMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

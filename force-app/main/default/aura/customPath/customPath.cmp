@@ -1,0 +1,30 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" >
+    <aura:attribute name="picklistFieldOne" type="String"/>
+    <aura:attribute name="picklistFieldTwo" type="String"/>
+    
+    <aura:attribute name="recordFields" type="Object"/>
+    
+    <aura:attribute name="variantOne" type="String" />
+    <aura:attribute name="variantTwo" type="String" />
+    <aura:attribute name="allowEdits" type="Boolean"/>
+    
+    <!--force:recordData to update picklist value-->
+    <force:recordData aura:id="record"
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      targetFields="{!v.recordFields}"
+                      mode="EDIT"/>
+    
+    
+    <lightning:picklistPath aura:id="{!v.picklistFieldOne}"
+                            recordId="{!v.recordId}"
+                            variant="{!v.variantOne}"
+                            picklistFieldApiName="{!v.picklistFieldOne}"
+                            onselect="{!c.handleSelectOne}"/>
+    
+    <lightning:picklistPath aura:id="{!v.picklistFieldTwo}"
+                            recordId="{!v.recordId}"
+                            variant="{!v.variantTwo}"
+                            picklistFieldApiName="{!v.picklistFieldTwo}"
+                            onselect="{!c.handleSelectTwo}"/>
+</aura:component>

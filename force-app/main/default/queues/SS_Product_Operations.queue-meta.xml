@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>SS Product Operations</name>
+    <queueMembers>
+        <users>
+            <user>julies@sureswipe.co.za.sonic</user>
+            <user>marisa@innervation.co.za.sonic</user>
+            <user>tshepom@sureswipe.co.za.sonic</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>SS_Product_Operations</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

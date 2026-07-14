@@ -1,0 +1,35 @@
+<aura:component implements="force:appHostable">
+    <aura:attribute name="BootOrRepair" type="String" />
+    <aura:attribute name="isOpen" type="Boolean" default="false" access="private"/>
+    
+	<div style="width:100%" align="center">
+        <div>
+        	<h2 style="font-family: Verdana, sans-serif;"><b>Please click on an option to continue</b></h2>
+        </div>
+    	<div class="boxCards" onclick="{!c.handleCardClick}" data-value="allocateBootStock">
+        	<span class="cardText">Allocate stock as boot stock</span>
+        </div>
+		<div class="boxCards" onclick="{!c.handleCardClick}" data-value="allocateRepairStock">
+            <span class="cardText">Allocate stock for repairs</span>
+        </div>
+		<div class="boxCards" onclick="{!c.handleCardClick}" data-value="unallocateStock">
+        	<span style="margin-left: 43%;">Unallocate stock</span>
+        </div>
+    </div>
+    
+    <aura:if isTrue="{!v.isOpen}">
+        <div style="height: 640px;">
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header slds-modal__header_empty">
+                        <lightning:buttonIcon iconName="utility:close" class="slds-modal__close" onclick="{!c.closeFlowModal}"/>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <lightning:flow aura:id="allocateFlowId" onstatuschange="{!c.closeModalOnFinish}" />
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div> 
+    </aura:if>
+</aura:component>

@@ -1,0 +1,6 @@
+<design:component >
+    <design:attribute name="contactData" label="Contact Data"/>
+    <design:attribute name="columnsString" label="Columns"/>
+    <design:attribute name="title" label="Title"/>
+    <design:attribute name="iconName" label="Icon Name"/>
+</design:component>

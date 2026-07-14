@@ -1,0 +1,7 @@
+<apex:component controller="CancellationCaseController" access="global">
+    <apex:attribute name="caseId" description="Case Id" assignTo="{!cancellationCaseId}" type="Id"/>
+
+    <p>You cancelled your business, <strong>{!cancellation.Account.Name}</strong>, with us on <strong><apex:outputText value="{0,date,dd/MM/yyyy}"><apex:param value="{!cancellation.CreatedDate}" /></apex:outputText></strong>. Because one calendar month&rsquo;s notice is required to cancel your agreement, this will be effective on <strong><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!cancellation.Effective_Date__c}" /></apex:outputText></strong>.</p>
+    <p>You signed a contract with us which is only due to expire on <strong><apex:outputText value="{0,date,dd/MM/yyyy}"><apex:param value="{!cancellation.RelatedQuote__r.SBQQ__StartDate__c}" /></apex:outputText></strong>. Your early cancellation fee is <strong>R {!canellationFee.SBQQ__NetPrice__c}</strong> (ex.  VAT) for the remainder of your contract.</p>
+    <p>As you know, our invoicing is done one month in arrears, so your final  debit order will be processed on <strong><apex:outputText value="{0,date,dd/MM/yyyy}"><apex:param value="{!lastInvoiceDate}" /></apex:outputText></strong>. This invoice will  include rental of your card machine, connectivity costs &amp; any relevant  transactional fees.</p>
+</apex:component>

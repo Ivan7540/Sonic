@@ -1,0 +1,5 @@
+<design:component >
+    <design:attribute name="recordId" label="Record Id" />
+    <design:attribute name="contentDocumentIds" label="Content Document Ids"/>
+    <design:attribute name="selectedFile" label="Selected File"/>
+</design:component>

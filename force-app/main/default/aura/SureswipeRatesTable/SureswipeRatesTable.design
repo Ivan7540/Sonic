@@ -1,0 +1,8 @@
+<design:component>
+    <design:attribute name="recordId" label="Record Id"/>
+    <sfdc:objects>
+        <sfdc:object>Account</sfdc:object>
+        <sfdc:object>Opportunity</sfdc:object>
+        <sfdc:object>ProcessInstanceWorkitem</sfdc:object>
+    </sfdc:objects>
+</design:component>

@@ -1,0 +1,88 @@
+<!--
+ - Created by JurgitaG on 11/4/2021.
+ -->
+
+<apex:page id="SureswipeResolutionLetter" renderAs="PDF" controller="SureswipeResolutionLetterController"
+           showHeader="false" sideBar="false" standardStylesheets="false" applyHtmlTag="false">
+    <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <style>
+                @page {
+                    size: A4;
+                    @bottom-center {
+                        font-family: Arial Unicode MS;
+                        font-size: 10px;
+                        content: "Page " counter(page) " of " counter(pages);
+                    }
+                    @top-center {
+                        font-family: Arial Unicode MS;
+                        font-size: 10px;
+                    }
+                }
+                .page-break {
+                    display:block;
+                    page-break-after:always;
+                }
+                body {
+                    font-family: Arial Unicode MS;
+                    font-size: 10px;
+                }
+                .explainBox{
+                    border-width:1px;
+                    border-style:solid;
+                    border-color:black;
+                    padding:10px;
+                }
+                div.footer {
+                    position: fixed;
+                    bottom: 0;
+                    width: 100%;
+                }
+                table { border-spacing:0; }
+                p{
+                    line-height: 1.5;
+                }
+        </style>
+    </head>
+    <body>
+    <div class="header">
+        <apex:image url="{!$Resource.SureswipeLetterHeader}" style="width:100%;"/>
+    </div>
+    <div>
+
+
+        <p style="font-size:10pt;">It was resolved that&nbsp;<apex:outputText value="{!company}"/>&nbsp;with registration number
+            &nbsp;<apex:outputText value="{!registrationNumber}"/>&nbsp;enters into an Agreement with
+            Sureswipe in respect of the provision of Merchant Services for Debit and Credit Cards.</p>
+        <p style="font-size:10pt;"> It was further resolved that&nbsp;<apex:outputText value="{!mainDirectorName}"/>&nbsp;
+            with ID number&nbsp;<apex:outputText value="{!mainDirectorId}"/>&nbsp;in his/her capacity as a Director
+            hereby authorised to sign all relevant documentation and agreements for and behalf of the above mentioned business entity.</p>
+    <br/>
+        <p style="font-size:10pt;">Signed at&nbsp;<apex:outputText value="{!shippingCity}"/>&nbsp;on the
+            &nbsp;<apex:outputText value="{!resolutionDay}"/>&nbsp;day of&nbsp;<apex:outputText value="{!resolutionMonth}"/>
+            &nbsp;<apex:outputText value="{!resolutionYear}"/>&nbsp;</p>
+
+        <div>
+            <h6 style="font-size:10pt;">SIGNATURES:</h6>
+            <table style="width:100%;margin-top:12px">
+                <apex:repeat value="{!principles}" var="eachSignatory">
+                    <tr style="font-size:10pt;margin-top:50px;">
+                        <td style="padding-bottom: 10px;width:50%;">Name:
+                            <span style="font-size:10pt;">{!eachSignatory.principleName}</span>
+                        </td>
+                        <td style="padding-bottom: 10px;width:50%;">Signature:
+                            <span style="color:white;font-size:10pt;">[sig|req|{!eachSignatory.signaturetext}]</span>
+                        </td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <apex:image url="{!$Resource.SureswipeLetterFooter}" style="width:100%;"/>
+    </div>
+    </body>
+    </html>
+</apex:page>

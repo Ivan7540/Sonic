@@ -1,0 +1,58 @@
+<!--
+ - Created by JurgitaG on 4/8/2021.
+ -->
+
+<!-- Rebate Configuration -->
+<template>
+    <div class="slds-p-top_medium">
+        <lightning-button label="Add Rebate" variant="brand" onclick={handleAddRow} disabled={noOptions}>
+        </lightning-button>
+        <div class="slds-p-horizontal_small">
+            <template for:each={rebates} for:item="item" for:index="index">
+                <c-rebate-line-item record-id={item.Id}
+                                    item-key={item.key}
+                                    rebated-product={item.RebatedProduct__c}
+                                    bundle-id={item.BundleId__c}
+                                    selected-option={item.selectedProduct}
+                                    selected-option-label= {item.selectedProductLabel}
+                                    available-options={availableOptions}
+                                    key={item.key}
+                                    max-quantity={item.Quantity__c}
+                                    onfieldchange={saveItem}
+                                    ondeleteline={removeRebate}
+                                    onrefreshoptions={handleOptions}></c-rebate-line-item>
+                <!--                <div class="slds-p-horizontal_small">-->
+                <!--                    <template for:each={products} for:item="item" for:index="index">-->
+
+                <!--                <lightning-record-edit-form object-api-name="Deal_Line__c" key={item.key}>-->
+                <!--                    <lightning-messages>-->
+                <!--                    </lightning-messages>-->
+                <!--                    <div class="slds-grid slds-wrap slds-gutters">-->
+                <!--                        <lightning-input-field class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12" accesskey={item.key} field-name="Product__c" value={item.Product__c} onchange={handleChange} variant="label-stacked" disabled=true>-->
+                <!--                        </lightning-input-field>-->
+
+                <!--                        <lightning-input-field class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12" accesskey={item.key} field-name="Device__c" value={item.Device__c} onchange={handleChange} variant="label-stacked" disabled=true>-->
+                <!--                        </lightning-input-field>-->
+
+                <!--                        <lightning-input-field class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12" accesskey={item.key} field-name="RebatedQuantity__c" onchange={handleQuantity} variant="label-stacked" >-->
+                <!--                            <lightning-helptext></lightning-helptext>-->
+                <!--                        </lightning-input-field>-->
+                <!--                        <lightning-input-field class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12" accesskey={item.key} field-name="RebateMonths__c" onchange={handleChange} variant="label-stacked">-->
+                <!--                        </lightning-input-field>-->
+                <!--                        <lightning-input-field class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12" accesskey={item.key} field-name="RebateDiscountPercentage__c" onchange={handleDiscount} variant="label-stacked" disabled={item.amountFilled}>-->
+                <!--                        </lightning-input-field>-->
+                <!--                        <lightning-input-field class="slds-col slds-size_1-of-1 slds-medium-size_1-of-12 slds-large-size_1-of-12" accesskey={item.key} field-name="RebateDiscountAmount__c"  onchange={handleDiscountAmount} variant="label-stacked" disabled={item.discountFilled}>-->
+                <!--                        </lightning-input-field>-->
+
+                <!--                        <div class="slds-col slds-align-middle slds-size_1-of-1 slds-medium-size_1-of-12 slds-large-size_1-of-12">-->
+                <!--                            <lightning-button-icon variant="brand" onclick={removeProduct} icon-name="utility:delete"-->
+                <!--                                                   accesskey={item.key}>-->
+                <!--                            </lightning-button-icon>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </lightning-record-edit-form>-->
+
+            </template>
+        </div>
+    </div>
+</template>

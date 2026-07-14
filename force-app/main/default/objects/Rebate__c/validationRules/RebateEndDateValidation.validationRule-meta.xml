@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RebateEndDateValidation</fullName>
+    <active>false</active>
+    <errorConditionFormula>SubscriptionEndDate__c &lt; EndDate__c</errorConditionFormula>
+    <errorDisplayField>EndDate__c</errorDisplayField>
+    <errorMessage>Rebate End Date cannot be after Subscription End Date</errorMessage>
+</ValidationRule>

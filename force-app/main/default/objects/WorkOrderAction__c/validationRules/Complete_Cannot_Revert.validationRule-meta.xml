@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complete_Cannot_Revert</fullName>
+    <active>true</active>
+    <description>Prevents user from reverting a completed Action to incomplete</description>
+    <errorConditionFormula>PRIORVALUE(Complete__c) = TRUE &amp;&amp; ISCHANGED(Complete__c)</errorConditionFormula>
+    <errorMessage>Completed action cannot be rolled back</errorMessage>
+</ValidationRule>

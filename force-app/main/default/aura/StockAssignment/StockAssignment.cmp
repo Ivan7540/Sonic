@@ -1,0 +1,32 @@
+<aura:component controller="StockAssignmentController" implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:availableForFlowScreens,lightning:availableForFlowActions" access="global">
+    <aura:attribute name="workOrder" type="Object"/>
+    <aura:attribute name="assetList" type="Object" />
+    <aura:attribute name="assetId" type="String" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <force:recordData aura:id="recordLoader"
+        fields="Id, Order__c, Order__r.OriginatingWarehouse__c, Account__c"
+        recordId="{!v.recordId}"
+        targetFields="{!v.workOrder}"
+        targetError="{!v.recordLoadError}"
+        recordUpdated="{!c.recordUpdate}"
+    />
+    <lightning:card iconName="custom:custom98" title="Assets to Assign">
+        <lightning:datatable data="{! v.assetList }"
+            columns="{! v.columns }"
+            keyField="Id"
+            hideCheckboxColumn="true"
+            aura:id="assetTable"
+            onrowaction="{!c.handleRowAction}"
+        />
+        <aura:if isTrue="{!v.assetId != null}">
+            <lightning:recordEditForm recordId="{!v.assetId}" objectApiName="Asset" onsuccess="{!c.handleSuccess}">
+                <lightning:messages />
+                <lightning:outputField fieldName="Name" />
+                <lightning:inputField fieldName="AssignedStock__c" />
+                <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update" />
+            </lightning:recordEditForm>
+        </aura:if>
+    </lightning:card>
+</aura:component>

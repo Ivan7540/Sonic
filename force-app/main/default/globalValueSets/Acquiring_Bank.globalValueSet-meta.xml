@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Nedbank</fullName>
+        <default>true</default>
+        <label>Nedbank</label>
+    </customValue>
+    <customValue>
+        <fullName>Mercantile</fullName>
+        <default>false</default>
+        <label>Mercantile</label>
+    </customValue>
+    <customValue>
+        <fullName>Capitec</fullName>
+        <default>false</default>
+        <label>Capitec</label>
+    </customValue>
+    <customValue>
+        <fullName>N/A</fullName>
+        <default>false</default>
+        <label>N/A</label>
+    </customValue>
+    <customValue>
+        <fullName>First Data</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>First Data</label>
+    </customValue>
+    <customValue>
+        <fullName>ABSA</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>ABSA</label>
+    </customValue>
+    <customValue>
+        <fullName>SBSA</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>SBSA</label>
+    </customValue>
+    <masterLabel>Acquiring Bank</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

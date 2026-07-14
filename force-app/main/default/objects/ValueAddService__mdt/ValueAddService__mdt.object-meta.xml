@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Record indicating that additional actions need to be performed on installation/amendments of devices at a specific status of the Work Order</description>
+    <label>Value Add Service</label>
+    <pluralLabel>Value Add Services</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

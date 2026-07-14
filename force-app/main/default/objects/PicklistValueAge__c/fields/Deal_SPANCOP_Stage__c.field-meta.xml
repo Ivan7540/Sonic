@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deal_SPANCOP_Stage__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(TrackedFieldValue__c, &apos;New&apos;, &apos;Suspect&apos;, &apos;Qualified&apos;, &apos;Prospect&apos;,
+&apos;Quote Submitted&apos;, &apos;Analyse&apos;,
+&apos;Quote Rejected&apos;, &apos;Analyse&apos;,
+&apos;Quote Approved&apos;, &apos;Analyse&apos;,
+&apos;Sent To Client&apos;, &apos;Negotiate&apos;,
+&apos;Client Declined&apos;, &apos;Negotiate&apos;,
+&apos;Client Signed&apos;, &apos;Negotiate&apos;,
+&apos;Document Gathering&apos;, &apos;Contract&apos;,
+&apos;Documents Submitted&apos;, &apos;Contract&apos;,
+&apos;Contract Rejected&apos;, &apos;Contract&apos;,
+&apos;Contract Approved&apos;, &apos;Contract&apos;,
+&apos;Risk Submitted&apos;, &apos;Contract&apos;,
+&apos;Risk Rejected&apos;, &apos;Contract&apos;,
+&apos;Risk Approved&apos;, &apos;Contract&apos;,
+&apos;Waiting Merchant Number&apos;, &apos;Order&apos;,
+&apos;Bank Rejected&apos;, &apos;Order&apos;,
+&apos;Closed Lost&apos;, &apos;Closed/Lost&apos;,
+&apos;Contract Completed/Won&apos;, &apos;Contract Completed/Won&apos;,
+&apos;N/A&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Deal SPANCOP Stage</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rsk1_Watchlist_Manual_Refund_trxns__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>If merchant on the watchlist has a manual or refund transaction</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If merchant on the watchlist has a manual or refund transaction</inlineHelpText>
+    <label>Rsk1: Watchlist - Manual/ Refund trxns</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

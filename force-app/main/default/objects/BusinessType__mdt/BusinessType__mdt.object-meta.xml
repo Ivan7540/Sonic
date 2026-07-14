@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SWW:2021-05-04:: Entity type of the company</description>
+    <label>Business Type</label>
+    <pluralLabel>Business Types</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

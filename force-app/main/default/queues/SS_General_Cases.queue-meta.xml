@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>SS General Cases</name>
+    <queueMembers>
+        <users>
+            <user>ajit@sureswipe.co.za.sonic</user>
+            <user>eduardo@adumo.com.sonic</user>
+            <user>eduardosalia@outlook.com.sonic</user>
+            <user>gaurav@adumo.com.sonic</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

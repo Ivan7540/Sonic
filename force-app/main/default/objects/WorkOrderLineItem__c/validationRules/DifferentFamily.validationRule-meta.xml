@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DifferentFamily</fullName>
+    <active>false</active>
+    <description>Prevents mixing of devices by family for installation Work Orders</description>
+    <errorConditionFormula>ISPICKVAL(WorkOrder__r.Type__c, &apos;Installation&apos;) &amp;&amp;  WorkOrder__r.ProductFamily__c &lt;&gt; TEXT(Asset__r.SBQQ__RequiredBySubscription__r.SBQQ__Product__r.Family) &amp;&amp;  NOT( ISBLANK(WorkOrder__r.ProductFamily__c))</errorConditionFormula>
+    <errorMessage>Attempting to install different device types under the same Work Order</errorMessage>
+</ValidationRule>

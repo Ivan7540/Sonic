@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deal__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The Deal that this Work Order is being carried out for. Value is set in a flow trigger of the Work Order, relies on there being only a single Deal for an Opportunity, and uses the latest Deal by created date if this happens to not be the case.</description>
+    <externalId>false</externalId>
+    <label>Deal</label>
+    <referenceTo>Deal__c</referenceTo>
+    <relationshipLabel>Work Orders</relationshipLabel>
+    <relationshipName>WorkOrders</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

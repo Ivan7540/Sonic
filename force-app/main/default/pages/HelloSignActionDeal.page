@@ -1,0 +1,2 @@
+<apex:page standardController="Deal__c" extensions="HelloSign.HSignActionExtension" action="{!action}">
+</apex:page>

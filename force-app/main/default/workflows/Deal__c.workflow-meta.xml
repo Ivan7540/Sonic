@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Deal_Approved_Email</fullName>
+        <description>Deal Approved Email</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Deal_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>Deal_Approved_GAAP</fullName>
+        <ccEmails>sureswipe@gaap.co.za</ccEmails>
+        <description>Deal Approved - GAAP</description>
+        <protected>false</protected>
+        <senderAddress>no-reply@sureswipe.co.za</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Deal_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>Deal_Has_been_approved</fullName>
+        <description>Deal Has been approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>system@sureswipe.co.za</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Deal_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>Deal_Rejected</fullName>
+        <description>Deal Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>system@sureswipe.co.za</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Deal_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Sorry_we_can_not_assist_you</fullName>
+        <description>Sorry we can not assist you</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Lead_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>system@sureswipe.co.za</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Red_Flow_Customer_Journey/Send_customer_sorry_we_couldn_t_assist</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>DealApproved</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Deal Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Deal_Approved</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Deal Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Deal_Quote_Update_Status</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Deal Quote Update Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Deal_Update_Status</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Deal Update Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Quote_Status_Update</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Quote Status Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reject_Deal</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Rejected</literalValue>
+        <name>Reject Deal</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reject_Deal2</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Rejected</literalValue>
+        <name>Reject Deal</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Status_Approved</fullName>
+        <field>Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Set Status Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Status_Rejected</fullName>
+        <field>Status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Set Status Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Submitted</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Submitted</literalValue>
+        <name>Status Submitted</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Submitted2</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Submitted</literalValue>
+        <name>Status Submitted</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Update</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Status Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Update Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status2</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Update Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status3</fullName>
+        <field>Status__c</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Update Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Deal Approved - GAAP</fullName>
+        <actions>
+            <name>Deal_Approved_GAAP</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Deal__c.ThirdParty__c</field>
+            <operation>equals</operation>
+            <value>GAAP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Deal__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Contract Completed/Won</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Deal Approved%2FClosed Notification</fullName>
+        <actions>
+            <name>Deal_Approved_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Deal__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Contract Completed/Won</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,53 @@
+<aura:component controller="WorkOrderInfoController" implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="workOrder" type="Object"/>
+    <aura:attribute name="dealId" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+
+    <aura:attribute name="dealFields" type="String[]" default="['Name','AcquiringBank__c','SwipeValue__c','OwnerId','Sale_Type__c']"/>
+    <aura:attribute name="opportunityFields" type="String[]" default="['Name','StageName','CloseDate']"/>
+
+    <force:recordData aura:id="recordLoader"
+        fields="Id, Account__c, Order__c, Order__r.SBQQ__Quote__r.SBQQ__Opportunity2__c, Deal__c"
+        recordId="{!v.recordId}"
+        targetFields="{!v.workOrder}"
+        targetError="{!v.recordLoadError}"
+        recordUpdated="{!c.recordUpdate}"
+    />
+
+    <lightning:card iconName="custom:custom18" title="Deal Information">
+        <aura:if isTrue="{!v.workOrder.Deal__c != null}">
+            <lightning:recordForm
+                recordId="{!v.workOrder.Deal__c}"
+                objectApiName="Deal__c"
+                fields="{!v.dealFields}"
+                mode="readonly"
+                columns="2"
+            />
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.dealId != null}">
+                    <lightning:recordForm
+                        recordId="{!v.dealId}"
+                        objectApiName="Deal__c"
+                        fields="{!v.dealFields}"
+                        mode="readonly"
+                        columns="2"
+                    />
+                    <aura:set attribute="else">
+                        No Deal available
+                    </aura:set>                                                 
+                </aura:if> 
+            </aura:set>                                                 
+        </aura:if> 
+    </lightning:card>    
+
+    <lightning:card iconName="standard:opportunity" title="Opportunity Information">
+        <lightning:recordForm
+            recordId="{!v.workOrder.Order__r.SBQQ__Quote__r.SBQQ__Opportunity2__c}"
+            objectApiName="Opportunity"
+            fields="{!v.opportunityFields}"
+            mode="readonly"
+            columns="2"
+        />
+    </lightning:card>
+
+</aura:component>

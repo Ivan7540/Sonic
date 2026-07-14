@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason__c</fullName>
+    <description>Indicates reason that the Work Order is on hold</description>
+    <externalId>false</externalId>
+    <label>Reason</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Merchant not available</fullName>
+                <default>false</default>
+                <label>Merchant not available</label>
+            </value>
+            <value>
+                <fullName>Site not ready</fullName>
+                <default>false</default>
+                <label>Site not ready</label>
+            </value>
+            <value>
+                <fullName>Reassign</fullName>
+                <default>false</default>
+                <label>Reassign</label>
+            </value>
+            <value>
+                <fullName>Requires AM action</fullName>
+                <default>false</default>
+                <label>Requires AM action</label>
+            </value>
+            <value>
+                <fullName>Referred to Debtors</fullName>
+                <default>false</default>
+                <label>Referred to Debtors</label>
+            </value>
+            <value>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+                <label>Duplicate</label>
+            </value>
+            <value>
+                <fullName>Incorrectly logged</fullName>
+                <default>false</default>
+                <label>Incorrectly logged</label>
+            </value>
+            <value>
+                <fullName>Compromised Device</fullName>
+                <default>false</default>
+                <label>Compromised Device</label>
+            </value>
+            <value>
+                <fullName>Site is dodgy</fullName>
+                <default>false</default>
+                <label>Site is dodgy</label>
+            </value>
+            <value>
+                <fullName>Unable to Collect - Bill</fullName>
+                <default>false</default>
+                <label>Unable to Collect - Bill</label>
+            </value>
+            <value>
+                <fullName>Telephonically Resolved</fullName>
+                <default>false</default>
+                <label>Telephonically Resolved</label>
+            </value>
+            <value>
+                <fullName>Physically Resolved: Technician not needed</fullName>
+                <default>false</default>
+                <label>Physically Resolved: Technician not needed</label>
+            </value>
+            <value>
+                <fullName>Client Paid</fullName>
+                <default>false</default>
+                <label>Client Paid</label>
+            </value>
+            <value>
+                <fullName>Client Wants to Pay</fullName>
+                <default>false</default>
+                <label>Client Wants to Pay</label>
+            </value>
+            <value>
+                <fullName>Client Unreachable</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Client Unreachable</label>
+            </value>
+            <value>
+                <fullName>Stock Deficit</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Stock Deficit</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Scheduled</controllingFieldValue>
+            <controllingFieldValue>Rescheduled</controllingFieldValue>
+            <controllingFieldValue>On Hold</controllingFieldValue>
+            <valueName>Merchant not available</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Scheduled</controllingFieldValue>
+            <controllingFieldValue>Rescheduled</controllingFieldValue>
+            <controllingFieldValue>On Hold</controllingFieldValue>
+            <valueName>Site not ready</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Scheduled</controllingFieldValue>
+            <controllingFieldValue>Rescheduled</controllingFieldValue>
+            <valueName>Reassign</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Scheduled</controllingFieldValue>
+            <controllingFieldValue>Completed</controllingFieldValue>
+            <controllingFieldValue>Rescheduled</controllingFieldValue>
+            <valueName>Requires AM action</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Scheduled</controllingFieldValue>
+            <controllingFieldValue>Completed</controllingFieldValue>
+            <controllingFieldValue>Rescheduled</controllingFieldValue>
+            <valueName>Referred to Debtors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Scheduled</controllingFieldValue>
+            <controllingFieldValue>Rescheduled</controllingFieldValue>
+            <valueName>Duplicate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Scheduled</controllingFieldValue>
+            <controllingFieldValue>Rescheduled</controllingFieldValue>
+            <valueName>Incorrectly logged</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Scheduled</controllingFieldValue>
+            <controllingFieldValue>Rescheduled</controllingFieldValue>
+            <valueName>Compromised Device</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <valueName>Client Paid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <valueName>Client Wants to Pay</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unable to collect - Bill</controllingFieldValue>
+            <valueName>Unable to Collect - Bill</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Completed</controllingFieldValue>
+            <controllingFieldValue>Rescheduled</controllingFieldValue>
+            <valueName>Telephonically Resolved</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Completed</controllingFieldValue>
+            <valueName>Physically Resolved: Technician not needed</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

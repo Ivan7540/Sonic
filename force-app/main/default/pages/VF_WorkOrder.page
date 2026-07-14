@@ -1,0 +1,184 @@
+<apex:page controller="WorkOrderController" applyHtmlTag="false" applyBodyTag="false" showHeader="false" sidebar="false">
+    <head>
+        <style>
+            .uppercase {
+                text-transform: uppercase;
+            }
+            .orange {
+                color: rgb(255, 102, 0);
+            }
+            .indicator {
+                background-color: rgb(0, 83, 139);
+                color: white;
+                border-radius: 0.2em;
+                font-weight: bold;
+            }
+            table {
+                border: 1px solid;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            td {
+                border: 1px solid;
+            }
+            th{
+                background-color: rgb(53, 0, 139);
+                color: white;
+            }
+        </style>
+    </head>
+    <div style="width: 94%; margin-left: 3%;">
+        <label style="font-size:large;">SureSwipe Work Order</label><br/>
+        Technician: {!workOrder.Technician__r.Name}<br/>
+        <table>
+            <th colspan="3">Merchant Details</th>
+            <tr>
+                <td colspan="2">
+                    Merchant name:<br/>
+                    {!workOrder.Account__r.Name}
+                </td>
+                <td>
+                    Merchant number:<br/>
+                    {!workOrder.Account__r.DebtorCode__c}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    Merchant address:<br/>
+                    {!merchantAddress}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone:<br/>
+                    {!workOrder.Contact__r.Phone}
+                </td>
+                <td>
+                    Mobile:<br/>
+                    {!workOrder.Contact__r.MobilePhone}
+                </td>  
+                <td>
+                    Email:<br/>
+                    {!workOrder.Contact__r.Email}
+                </td>
+            </tr>
+        </table>
+
+        <br/>
+
+        <c:CMP_WorkOrderSummary product="{!workOrder.ProductFamily__c}" type="{!workOrder.Type__c}" customerName="{!workOrder.Account__r.Name}"/><br/>
+        Service Delivery Work Order
+        <table>
+            <th colspan="6">Call details</th>
+            <tr>
+                <td>
+                    Case type<br/>
+                    <label class="indicator">{!workOrder.Type__c}</label>
+                </td>
+                <td>
+                    Date<br/>
+                    <apex:outputText value="{0, date, dd-MM-yyyy}">
+                        <apex:param value="{!workOrder.AppointmentDate__c}"/>
+                    </apex:outputText>                    
+                </td>
+                <td>
+                    Arrival time<br/>
+                    {!arrivalTime}
+                </td>
+                <td>
+                    Depart time<br/>
+                    {!departTime}
+                </td>
+                <td>
+                    Charge call out fee<br/>
+                </td>
+                <td>
+                    KM's travelled<br/>
+                </td>
+            </tr>
+        </table>
+
+        <br/>
+
+        Installed Stock Details<br/>
+        <table>
+            <th colspan="6">Currently Installed Stock</th>
+            <tr>
+                <td>
+                    Stock Name
+                </td>
+                <td>
+                    Model
+                </td>
+                <td>
+                    Component
+                </td>
+                <td>
+                    Serial Number
+                </td>
+                <td>
+                    Mercantile SN
+                </td>
+                <td>
+                    Status
+                </td>
+            </tr>
+            <apex:repeat value="{!installedStock}" var="line" >
+                <tr>
+                    <td>
+                        {!line.AssignedStock__r.Name}
+                    </td>
+                    <td>
+                        {!line.AssignedStock__r.Model__c}
+                    </td>
+                    <td>
+                        {!line.AssignedStock__r.Component__c}
+                    </td>
+                    <td>
+                        {!line.SerialNumber}
+                    </td>
+                    <td>
+                        <!-- Mercnatile SN?? -->
+                    </td>
+                    <td>
+                        <label class="indicator">{!line.AssignedStock__r.Status__c}</label>
+                    </td>
+                </tr>
+            </apex:repeat>
+        </table>
+
+        <br/>
+
+        <c:CMP_WorkOrderSummary product="{!workOrder.ProductFamily__c}" type="{!workOrder.Type__c}" customerName="{!workOrder.Account__r.Name}"/>
+        Fraud Training Certification<br/>
+        <label style="offset-left: 4em;">Fraud Training Certification</label> <label style="font-size:small;">Required</label>
+        <table>
+            <tr>
+                <td>
+                    Merchant Name: <b>{!workOrder.Account__r.Name}</b>
+                </td>
+                <td>
+                    Merchant Number: <b>{!workOrder.Account__r.DebtorCode__c}</b>
+                </td>
+            </tr>
+        </table>
+
+        <br/>
+
+        <c:CMP_WorkOrderSummary product="{!workOrder.ProductFamily__c}" type="{!workOrder.Type__c}" customerName="{!workOrder.Account__r.Name}"/>
+        <br/>
+        Client Sign Off
+        <table >
+            <th>I understand the following</th>
+            <tr >
+                <td >
+                    This an accurate reflection and acknowledgement of services rendered or of the condition of the card machine installed or removed.
+                </td>
+            </tr>
+        </table>
+        
+        <br/>
+
+        <c:CMP_SignatureLine merchantRepName="{!workOrder.Contact__r.Name}" technicianName="{!workOrder.Technician__r.Name}" />
+    </div>
+</apex:page>

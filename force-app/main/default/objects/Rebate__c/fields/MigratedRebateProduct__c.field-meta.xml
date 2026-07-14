@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MigratedRebateProduct__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>SWW:2021-07-14:: Added field to accommodate migrated rates. they are not linked to subscription so need another fiell.
+This should not be used for non migrated data.</description>
+    <externalId>false</externalId>
+    <label>Migrated Rebate Product</label>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>Migrated Rebates</relationshipLabel>
+    <relationshipName>MigratedRebates</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

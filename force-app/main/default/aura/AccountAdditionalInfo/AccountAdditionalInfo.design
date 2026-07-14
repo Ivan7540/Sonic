@@ -1,0 +1,4 @@
+<design:component >
+    <design:attribute name="mode" label="Mode" dataSource="view, edit, readonly"/>
+    <design:attribute name="accountMode" label="accountMode" dataSource="view, edit, readonly"/>
+</design:component>

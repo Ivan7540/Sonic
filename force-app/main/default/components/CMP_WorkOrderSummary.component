@@ -1,0 +1,6 @@
+<apex:component >
+    <apex:attribute name="product" description="The product that the Work Order installed" type="String" required="true"/>
+    <apex:attribute name="type" description="The type of the Work Order" type="String" required="true"/>
+    <apex:attribute name="customerName" description="The name of the customer for the Work Order" type="String" required="true"/>
+    <label class="uppercase orange">{!product}</label> / <label class="uppercase">{!type}</label> for <label class="uppercase">{!customerName}</label>
+</apex:component>

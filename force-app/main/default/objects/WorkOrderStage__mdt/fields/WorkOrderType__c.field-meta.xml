@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WorkOrderType__c</fullName>
+    <description>Matches the type field on the Work Order and is meant for matching records to metarecords</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Work Order Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Repair</fullName>
+                <default>true</default>
+                <label>Repair</label>
+            </value>
+            <value>
+                <fullName>Installation</fullName>
+                <default>false</default>
+                <label>Installation</label>
+            </value>
+            <value>
+                <fullName>Collection</fullName>
+                <default>false</default>
+                <label>Collection</label>
+            </value>
+            <value>
+                <fullName>Collection/Installation</fullName>
+                <default>false</default>
+                <label>Collection/Installation</label>
+            </value>
+            <value>
+                <fullName>Terminal Suspension</fullName>
+                <default>false</default>
+                <label>Terminal Suspension</label>
+            </value>
+            <value>
+                <fullName>Terminal Reactivation</fullName>
+                <default>false</default>
+                <label>Terminal Reactivation</label>
+            </value>
+            <value>
+                <fullName>Card Design</fullName>
+                <default>false</default>
+                <label>Card Design</label>
+            </value>
+            <value>
+                <fullName>Programme Setup</fullName>
+                <default>false</default>
+                <label>Programme Setup</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

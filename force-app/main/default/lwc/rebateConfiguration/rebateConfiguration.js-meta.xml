@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <description>Rebate Configuration</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Rebate Configuration</masterLabel>
+
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <!--            <propertyType name="PT" extends="SObject" label="Select a sObject" description="Select a sObject"/>-->
+            <property name="records" type="@salesforce/schema/Deal_Line__c[]" label="Records" description="Record List Variable"/>
+            <property name="rebates" type="@salesforce/schema/Deal_Line__c[]" label="Records" description="Rebates Variable"/>
+            <property name="additionalRebates" type="@salesforce/schema/Deal_Line__c[]" label="Additional rebates" description="Additional Rebate Variable"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

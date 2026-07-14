@@ -1,0 +1,20 @@
+{	
+	"message": [
+		{
+			"terminalId": 41194,
+			"productResponse": [
+				{
+					"productType": 10,
+					"productError": false,
+					"message": "Success"
+				}
+			],
+			"terminalError": false,
+			"message": null
+		}
+	],
+	"error": {
+		"isError": false,
+		"errorMessage": ""
+	}
+}

@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>N/A</fullName>
+        <default>false</default>
+        <label>N/A</label>
+    </customValue>
+    <customValue>
+        <fullName>Aloha</fullName>
+        <default>false</default>
+        <label>Aloha</label>
+    </customValue>
+    <customValue>
+        <fullName>Micros</fullName>
+        <default>false</default>
+        <label>Micros</label>
+    </customValue>
+    <customValue>
+        <fullName>BlueBox</fullName>
+        <default>false</default>
+        <label>BlueBox</label>
+    </customValue>
+    <customValue>
+        <fullName>Pilot</fullName>
+        <default>false</default>
+        <label>Pilot</label>
+    </customValue>
+    <customValue>
+        <fullName>Alien</fullName>
+        <default>false</default>
+        <label>Alien</label>
+    </customValue>
+    <customValue>
+        <fullName>Gaap</fullName>
+        <default>false</default>
+        <label>Gaap</label>
+    </customValue>
+    <customValue>
+        <fullName>Platinum</fullName>
+        <default>false</default>
+        <label>Platinum</label>
+    </customValue>
+    <customValue>
+        <fullName>Arch</fullName>
+        <default>false</default>
+        <label>Arch</label>
+    </customValue>
+    <customValue>
+        <fullName>Legend</fullName>
+        <default>false</default>
+        <label>Legend</label>
+    </customValue>
+    <customValue>
+        <fullName>Info Dynamics</fullName>
+        <default>false</default>
+        <label>Info Dynamics</label>
+    </customValue>
+    <customValue>
+        <fullName>React Pos</fullName>
+        <default>false</default>
+        <label>React Pos</label>
+    </customValue>
+    <customValue>
+        <fullName>Vision</fullName>
+        <default>false</default>
+        <label>Vision</label>
+    </customValue>
+    <customValue>
+        <fullName>POS Lite</fullName>
+        <default>false</default>
+        <label>POS Lite</label>
+    </customValue>
+    <customValue>
+        <fullName>Humble</fullName>
+        <default>false</default>
+        <label>Humble</label>
+    </customValue>
+    <customValue>
+        <fullName>TallOrder</fullName>
+        <default>false</default>
+        <label>TallOrder</label>
+    </customValue>
+    <customValue>
+        <fullName>4DTech</fullName>
+        <default>false</default>
+        <label>4DTech</label>
+    </customValue>
+    <customValue>
+        <fullName>4POS</fullName>
+        <default>false</default>
+        <label>4POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Active Retail</fullName>
+        <default>false</default>
+        <label>Active Retail</label>
+    </customValue>
+    <customValue>
+        <fullName>Alien POS</fullName>
+        <default>false</default>
+        <label>Alien POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Anchor Data</fullName>
+        <default>false</default>
+        <label>Anchor Data</label>
+    </customValue>
+    <customValue>
+        <fullName>Arch POS</fullName>
+        <default>false</default>
+        <label>Arch POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Argility</fullName>
+        <default>false</default>
+        <label>Argility</label>
+    </customValue>
+    <customValue>
+        <fullName>AVI</fullName>
+        <default>false</default>
+        <label>AVI</label>
+    </customValue>
+    <customValue>
+        <fullName>Axle</fullName>
+        <default>false</default>
+        <label>Axle</label>
+    </customValue>
+    <customValue>
+        <fullName>CAD</fullName>
+        <default>false</default>
+        <label>CAD</label>
+    </customValue>
+    <customValue>
+        <fullName>Cistech</fullName>
+        <default>false</default>
+        <label>Cistech</label>
+    </customValue>
+    <customValue>
+        <fullName>CKS</fullName>
+        <default>false</default>
+        <label>CKS</label>
+    </customValue>
+    <customValue>
+        <fullName>Cow Hills</fullName>
+        <default>false</default>
+        <label>Cow Hills</label>
+    </customValue>
+    <customValue>
+        <fullName>Falcon</fullName>
+        <default>false</default>
+        <label>Falcon</label>
+    </customValue>
+    <customValue>
+        <fullName>GAAP QSR</fullName>
+        <default>false</default>
+        <label>GAAP QSR</label>
+    </customValue>
+    <customValue>
+        <fullName>HRK</fullName>
+        <default>false</default>
+        <label>HRK</label>
+    </customValue>
+    <customValue>
+        <fullName>ID Technologies</fullName>
+        <default>false</default>
+        <label>ID Technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>iGroup</fullName>
+        <default>false</default>
+        <label>iGroup</label>
+    </customValue>
+    <customValue>
+        <fullName>InfoCentral</fullName>
+        <default>false</default>
+        <label>InfoCentral</label>
+    </customValue>
+    <customValue>
+        <fullName>InfoMasters</fullName>
+        <default>false</default>
+        <label>InfoMasters</label>
+    </customValue>
+    <customValue>
+        <fullName>Integrity Retail</fullName>
+        <default>false</default>
+        <label>Integrity Retail</label>
+    </customValue>
+    <customValue>
+        <fullName>InTouch</fullName>
+        <default>false</default>
+        <label>InTouch</label>
+    </customValue>
+    <customValue>
+        <fullName>IQ Retail</fullName>
+        <default>false</default>
+        <label>IQ Retail</label>
+    </customValue>
+    <customValue>
+        <fullName>iStream</fullName>
+        <default>false</default>
+        <label>iStream</label>
+    </customValue>
+    <customValue>
+        <fullName>iVend</fullName>
+        <default>false</default>
+        <label>iVend</label>
+    </customValue>
+    <customValue>
+        <fullName>Kerridge (Babbage)</fullName>
+        <default>false</default>
+        <label>Kerridge (Babbage)</label>
+    </customValue>
+    <customValue>
+        <fullName>KRS</fullName>
+        <default>false</default>
+        <label>KRS</label>
+    </customValue>
+    <customValue>
+        <fullName>Legend POS</fullName>
+        <default>false</default>
+        <label>Legend POS</label>
+    </customValue>
+    <customValue>
+        <fullName>LS Retail</fullName>
+        <default>false</default>
+        <label>LS Retail</label>
+    </customValue>
+    <customValue>
+        <fullName>Mercury App</fullName>
+        <default>false</default>
+        <label>Mercury App</label>
+    </customValue>
+    <customValue>
+        <fullName>Nexion</fullName>
+        <default>false</default>
+        <label>Nexion</label>
+    </customValue>
+    <customValue>
+        <fullName>Next POS</fullName>
+        <default>false</default>
+        <label>Next POS</label>
+    </customValue>
+    <customValue>
+        <fullName>PCMS (VBS)</fullName>
+        <default>false</default>
+        <label>PCMS (VBS)</label>
+    </customValue>
+    <customValue>
+        <fullName>POSWORX</fullName>
+        <default>false</default>
+        <label>POSWORX</label>
+    </customValue>
+    <customValue>
+        <fullName>Pro POS</fullName>
+        <default>false</default>
+        <label>Pro POS</label>
+    </customValue>
+    <customValue>
+        <fullName>ProdevTech</fullName>
+        <default>false</default>
+        <label>ProdevTech</label>
+    </customValue>
+    <customValue>
+        <fullName>Protill</fullName>
+        <default>false</default>
+        <label>Protill</label>
+    </customValue>
+    <customValue>
+        <fullName>React Solutions</fullName>
+        <default>false</default>
+        <label>React Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail Directions</fullName>
+        <default>false</default>
+        <label>Retail Directions</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail POS</fullName>
+        <default>false</default>
+        <label>Retail POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Revelations POS</fullName>
+        <default>false</default>
+        <label>Revelations POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Sage Evolution</fullName>
+        <default>false</default>
+        <label>Sage Evolution</label>
+    </customValue>
+    <customValue>
+        <fullName>Sage Softline</fullName>
+        <default>false</default>
+        <label>Sage Softline</label>
+    </customValue>
+    <customValue>
+        <fullName>Sicom</fullName>
+        <default>false</default>
+        <label>Sicom</label>
+    </customValue>
+    <customValue>
+        <fullName>Store Master</fullName>
+        <default>false</default>
+        <label>Store Master</label>
+    </customValue>
+    <customValue>
+        <fullName>Truck Fuel Network</fullName>
+        <default>false</default>
+        <label>Truck Fuel Network</label>
+    </customValue>
+    <customValue>
+        <fullName>UCSTS / UNISOLV</fullName>
+        <default>false</default>
+        <label>UCSTS / UNISOLV</label>
+    </customValue>
+    <customValue>
+        <fullName>Unity</fullName>
+        <default>false</default>
+        <label>Unity</label>
+    </customValue>
+    <customValue>
+        <fullName>Unity Forecourt POS</fullName>
+        <default>false</default>
+        <label>Unity Forecourt POS</label>
+    </customValue>
+    <customValue>
+        <fullName>WPRO Cellular</fullName>
+        <default>false</default>
+        <label>WPRO Cellular</label>
+    </customValue>
+    <customValue>
+        <fullName>WPRO Dolfin</fullName>
+        <default>false</default>
+        <label>WPRO Dolfin</label>
+    </customValue>
+    <customValue>
+        <fullName>WPRO FMCG</fullName>
+        <default>false</default>
+        <label>WPRO FMCG</label>
+    </customValue>
+    <customValue>
+        <fullName>XPOS</fullName>
+        <default>false</default>
+        <label>XPOS</label>
+    </customValue>
+    <customValue>
+        <fullName>Humble Pay</fullName>
+        <default>false</default>
+        <label>Humble Pay</label>
+    </customValue>
+    <customValue>
+        <fullName>ACS - Embrace</fullName>
+        <default>false</default>
+        <label>ACS - Embrace</label>
+    </customValue>
+    <customValue>
+        <fullName>Ankerdata</fullName>
+        <default>false</default>
+        <label>Ankerdata</label>
+    </customValue>
+    <customValue>
+        <fullName>Aspire Software</fullName>
+        <default>false</default>
+        <label>Aspire Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Aura Cosoft  - Hospitality</fullName>
+        <default>false</default>
+        <label>Aura Cosoft  - Hospitality</label>
+    </customValue>
+    <customValue>
+        <fullName>AURO POS</fullName>
+        <default>false</default>
+        <label>AURO POS</label>
+    </customValue>
+    <customValue>
+        <fullName>AXLE POS</fullName>
+        <default>false</default>
+        <label>AXLE POS</label>
+    </customValue>
+    <customValue>
+        <fullName>BLUE BIRD</fullName>
+        <default>false</default>
+        <label>BLUE BIRD</label>
+    </customValue>
+    <customValue>
+        <fullName>Bovertis</fullName>
+        <default>false</default>
+        <label>Bovertis</label>
+    </customValue>
+    <customValue>
+        <fullName>BUDINET</fullName>
+        <default>false</default>
+        <label>BUDINET</label>
+    </customValue>
+    <customValue>
+        <fullName>CAD SYSTEM</fullName>
+        <default>false</default>
+        <label>CAD SYSTEM</label>
+    </customValue>
+    <customValue>
+        <fullName>CARMASYSTEMS</fullName>
+        <default>false</default>
+        <label>CARMASYSTEMS</label>
+    </customValue>
+    <customValue>
+        <fullName>Carpro Systems</fullName>
+        <default>false</default>
+        <label>Carpro Systems</label>
+    </customValue>
+    <customValue>
+        <fullName>CC Trader - Cash Converters In House POS</fullName>
+        <default>false</default>
+        <label>CC Trader - Cash Converters In House POS</label>
+    </customValue>
+    <customValue>
+        <fullName>CEGID</fullName>
+        <default>false</default>
+        <label>CEGID</label>
+    </customValue>
+    <customValue>
+        <fullName>Cimso Innkeeper</fullName>
+        <default>false</default>
+        <label>Cimso Innkeeper</label>
+    </customValue>
+    <customValue>
+        <fullName>City Works</fullName>
+        <default>false</default>
+        <label>City Works</label>
+    </customValue>
+    <customValue>
+        <fullName>Code Collective</fullName>
+        <default>false</default>
+        <label>Code Collective</label>
+    </customValue>
+    <customValue>
+        <fullName>COLTRONICS</fullName>
+        <default>false</default>
+        <label>COLTRONICS</label>
+    </customValue>
+    <customValue>
+        <fullName>Compubyte POS</fullName>
+        <default>false</default>
+        <label>Compubyte POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Copper POS</fullName>
+        <default>false</default>
+        <label>Copper POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Cow Hills NL</fullName>
+        <default>false</default>
+        <label>Cow Hills NL</label>
+    </customValue>
+    <customValue>
+        <fullName>Easy Pos</fullName>
+        <default>false</default>
+        <label>Easy Pos</label>
+    </customValue>
+    <customValue>
+        <fullName>Easyy Computers</fullName>
+        <default>false</default>
+        <label>Easyy Computers</label>
+    </customValue>
+    <customValue>
+        <fullName>ECLB</fullName>
+        <default>false</default>
+        <label>ECLB</label>
+    </customValue>
+    <customValue>
+        <fullName>Elite POS</fullName>
+        <default>false</default>
+        <label>Elite POS</label>
+    </customValue>
+    <customValue>
+        <fullName>ESP POS</fullName>
+        <default>false</default>
+        <label>ESP POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Eyethu Pos</fullName>
+        <default>false</default>
+        <label>Eyethu Pos</label>
+    </customValue>
+    <customValue>
+        <fullName>FINCON</fullName>
+        <default>false</default>
+        <label>FINCON</label>
+    </customValue>
+    <customValue>
+        <fullName>FP Teller</fullName>
+        <default>false</default>
+        <label>FP Teller</label>
+    </customValue>
+    <customValue>
+        <fullName>Fusion Web Technologies</fullName>
+        <default>false</default>
+        <label>Fusion Web Technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Genesis POS</fullName>
+        <default>false</default>
+        <label>Genesis POS</label>
+    </customValue>
+    <customValue>
+        <fullName>HRK Africa</fullName>
+        <default>false</default>
+        <label>HRK Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>I Q Pos</fullName>
+        <default>false</default>
+        <label>I Q Pos</label>
+    </customValue>
+    <customValue>
+        <fullName>IMPRESS</fullName>
+        <default>false</default>
+        <label>IMPRESS</label>
+    </customValue>
+    <customValue>
+        <fullName>In House POS</fullName>
+        <default>false</default>
+        <label>In House POS</label>
+    </customValue>
+    <customValue>
+        <fullName>IN TOUCH</fullName>
+        <default>false</default>
+        <label>IN TOUCH</label>
+    </customValue>
+    <customValue>
+        <fullName>Incomati</fullName>
+        <default>false</default>
+        <label>Incomati</label>
+    </customValue>
+    <customValue>
+        <fullName>InfoStar Software (POS)</fullName>
+        <default>false</default>
+        <label>InfoStar Software (POS)</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRITY</fullName>
+        <default>false</default>
+        <label>INTEGRITY</label>
+    </customValue>
+    <customValue>
+        <fullName>Integrity New POS</fullName>
+        <default>false</default>
+        <label>Integrity New POS</label>
+    </customValue>
+    <customValue>
+        <fullName>ITBLUE Solutions</fullName>
+        <default>false</default>
+        <label>ITBLUE Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>iVend Retail</fullName>
+        <default>false</default>
+        <label>iVend Retail</label>
+    </customValue>
+    <customValue>
+        <fullName>Kerridge CS</fullName>
+        <default>false</default>
+        <label>Kerridge CS</label>
+    </customValue>
+    <customValue>
+        <fullName>KRS Software</fullName>
+        <default>false</default>
+        <label>KRS Software</label>
+    </customValue>
+    <customValue>
+        <fullName>LabOS</fullName>
+        <default>false</default>
+        <label>LabOS</label>
+    </customValue>
+    <customValue>
+        <fullName>Lorge</fullName>
+        <default>false</default>
+        <label>Lorge</label>
+    </customValue>
+    <customValue>
+        <fullName>M S Dynamics</fullName>
+        <default>false</default>
+        <label>M S Dynamics</label>
+    </customValue>
+    <customValue>
+        <fullName>Marconi POS Software</fullName>
+        <default>false</default>
+        <label>Marconi POS Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Matrix Software</fullName>
+        <default>false</default>
+        <label>Matrix Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Meat Matrix</fullName>
+        <default>false</default>
+        <label>Meat Matrix</label>
+    </customValue>
+    <customValue>
+        <fullName>MICRO ACE</fullName>
+        <default>false</default>
+        <label>MICRO ACE</label>
+    </customValue>
+    <customValue>
+        <fullName>Mountain Hops (Kiosk Software)</fullName>
+        <default>false</default>
+        <label>Mountain Hops (Kiosk Software)</label>
+    </customValue>
+    <customValue>
+        <fullName>Neowave</fullName>
+        <default>false</default>
+        <label>Neowave</label>
+    </customValue>
+    <customValue>
+        <fullName>NetScore Technologies (India)</fullName>
+        <default>false</default>
+        <label>NetScore Technologies (India)</label>
+    </customValue>
+    <customValue>
+        <fullName>nextpos</fullName>
+        <default>false</default>
+        <label>nextpos</label>
+    </customValue>
+    <customValue>
+        <fullName>Odessy POS</fullName>
+        <default>false</default>
+        <label>Odessy POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Odoo POS</fullName>
+        <default>false</default>
+        <label>Odoo POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Odyssey Durban</fullName>
+        <default>false</default>
+        <label>Odyssey Durban</label>
+    </customValue>
+    <customValue>
+        <fullName>Omni POS</fullName>
+        <default>false</default>
+        <label>Omni POS</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenNet (Marcom)</fullName>
+        <default>false</default>
+        <label>OpenNet (Marcom)</label>
+    </customValue>
+    <customValue>
+        <fullName>Palladium</fullName>
+        <default>false</default>
+        <label>Palladium</label>
+    </customValue>
+    <customValue>
+        <fullName>Pilot Software</fullName>
+        <default>false</default>
+        <label>Pilot Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Pinnacle</fullName>
+        <default>false</default>
+        <label>Pinnacle</label>
+    </customValue>
+    <customValue>
+        <fullName>Platinum Pos</fullName>
+        <default>false</default>
+        <label>Platinum Pos</label>
+    </customValue>
+    <customValue>
+        <fullName>PNA In House POS</fullName>
+        <default>false</default>
+        <label>PNA In House POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Point of Sale Solutions</fullName>
+        <default>false</default>
+        <label>Point of Sale Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Polaris POS</fullName>
+        <default>false</default>
+        <label>Polaris POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Posibolt</fullName>
+        <default>false</default>
+        <label>Posibolt</label>
+    </customValue>
+    <customValue>
+        <fullName>Positron PMB  ( Cobsolv)</fullName>
+        <default>false</default>
+        <label>Positron PMB  ( Cobsolv)</label>
+    </customValue>
+    <customValue>
+        <fullName>POWERLITE</fullName>
+        <default>false</default>
+        <label>POWERLITE</label>
+    </customValue>
+    <customValue>
+        <fullName>Preffered Solutions</fullName>
+        <default>false</default>
+        <label>Preffered Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Price Point / Retail Pro</fullName>
+        <default>false</default>
+        <label>Price Point / Retail Pro</label>
+    </customValue>
+    <customValue>
+        <fullName>Railway Furniture Pretoria West</fullName>
+        <default>false</default>
+        <label>Railway Furniture Pretoria West</label>
+    </customValue>
+    <customValue>
+        <fullName>Rapid Soft</fullName>
+        <default>false</default>
+        <label>Rapid Soft</label>
+    </customValue>
+    <customValue>
+        <fullName>RED PANDA</fullName>
+        <default>false</default>
+        <label>RED PANDA</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail Point</fullName>
+        <default>false</default>
+        <label>Retail Point</label>
+    </customValue>
+    <customValue>
+        <fullName>REVELATION</fullName>
+        <default>false</default>
+        <label>REVELATION</label>
+    </customValue>
+    <customValue>
+        <fullName>SA Cash Reg - Duplicate account</fullName>
+        <default>false</default>
+        <label>SA Cash Reg - Duplicate account</label>
+    </customValue>
+    <customValue>
+        <fullName>Sculpter POS</fullName>
+        <default>false</default>
+        <label>Sculpter POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Spitzkoppe (Arch Namibia)</fullName>
+        <default>false</default>
+        <label>Spitzkoppe (Arch Namibia)</label>
+    </customValue>
+    <customValue>
+        <fullName>Store Pro (Tadelink)</fullName>
+        <default>false</default>
+        <label>Store Pro (Tadelink)</label>
+    </customValue>
+    <customValue>
+        <fullName>STOWE</fullName>
+        <default>false</default>
+        <label>STOWE</label>
+    </customValue>
+    <customValue>
+        <fullName>Syspro</fullName>
+        <default>false</default>
+        <label>Syspro</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech Finity</fullName>
+        <default>false</default>
+        <label>Tech Finity</label>
+    </customValue>
+    <customValue>
+        <fullName>Tecovation</fullName>
+        <default>false</default>
+        <label>Tecovation</label>
+    </customValue>
+    <customValue>
+        <fullName>Test</fullName>
+        <default>false</default>
+        <label>Test</label>
+    </customValue>
+    <customValue>
+        <fullName>UCS TS</fullName>
+        <default>false</default>
+        <label>UCS TS</label>
+    </customValue>
+    <customValue>
+        <fullName>Ultimate Solutions</fullName>
+        <default>false</default>
+        <label>Ultimate Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Unicorn POS</fullName>
+        <default>false</default>
+        <label>Unicorn POS</label>
+    </customValue>
+    <customValue>
+        <fullName>UniPos</fullName>
+        <default>false</default>
+        <label>UniPos</label>
+    </customValue>
+    <customValue>
+        <fullName>UNISOLV</fullName>
+        <default>false</default>
+        <label>UNISOLV</label>
+    </customValue>
+    <customValue>
+        <fullName>Unknown / Undecided</fullName>
+        <default>false</default>
+        <label>Unknown / Undecided</label>
+    </customValue>
+    <customValue>
+        <fullName>URS</fullName>
+        <default>false</default>
+        <label>URS</label>
+    </customValue>
+    <customValue>
+        <fullName>VBS</fullName>
+        <default>false</default>
+        <label>VBS</label>
+    </customValue>
+    <customValue>
+        <fullName>Velocity POS</fullName>
+        <default>false</default>
+        <label>Velocity POS</label>
+    </customValue>
+    <customValue>
+        <fullName>VEXALL (POS)</fullName>
+        <default>false</default>
+        <label>VEXALL (POS)</label>
+    </customValue>
+    <customValue>
+        <fullName>Vision POS</fullName>
+        <default>false</default>
+        <label>Vision POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Voyage POS</fullName>
+        <default>false</default>
+        <label>Voyage POS</label>
+    </customValue>
+    <customValue>
+        <fullName>Winbranch</fullName>
+        <default>false</default>
+        <label>Winbranch</label>
+    </customValue>
+    <customValue>
+        <fullName>WPRO Merchandising</fullName>
+        <default>false</default>
+        <label>WPRO Merchandising</label>
+    </customValue>
+    <customValue>
+        <fullName>XI-POS</fullName>
+        <default>false</default>
+        <label>XI-POS</label>
+    </customValue>
+    <masterLabel>POS Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

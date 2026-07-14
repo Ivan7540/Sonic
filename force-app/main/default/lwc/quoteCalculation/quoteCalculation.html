@@ -1,0 +1,21 @@
+<template>
+    <div>
+        <div class="slds-clearfix slds-p-top_medium">
+
+            <template if:true={calculationDone}>
+                Quote Pricing Calculated!
+                <div class=" slds-float_right">
+                    <lightning-button
+                            label="Next"
+                            title="Next"
+                            onclick={handleGoNext}>
+                    </lightning-button>
+                </div>
+
+            </template>
+            <template if:false={calculationDone}>
+                Calculating...
+            </template>
+        </div>
+    </div>
+</template>

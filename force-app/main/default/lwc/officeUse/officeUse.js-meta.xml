@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <description>Office Use</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Office Use</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="recordId" type="String" label="Account Id" description="Account Id"/>
+            <property name="merchantId" type="String" label="Merchant Id" description="Merchant Id"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

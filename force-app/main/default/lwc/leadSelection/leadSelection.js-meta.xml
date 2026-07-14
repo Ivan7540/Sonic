@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <description>Component displays a list of possible duplicates</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Lead Selection</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="firstName" type="String" label="First Name" description="First Name"/>
+            <property name="lastName" type="String" label="Last Name" description="Last Name"/>
+            <property name="companyName" type="String" label="Company Name" description="Company Name"/>
+            <property name="phone" type="String" label="Phone Number" description="Phone Number"/>
+            <property name="leadId" type="String" label="Lead Id" description="Lead Id"/>
+            <property name="accountId" type="String" label="Account Id" description="Account Id"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

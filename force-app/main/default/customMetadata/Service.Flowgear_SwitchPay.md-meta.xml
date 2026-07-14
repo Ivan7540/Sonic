@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Flowgear SwitchPay</label>
+    <protected>false</protected>
+    <values>
+        <field>AccountNumber__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Endpoint__c</field>
+        <value xsi:type="xsd:string">https://adumo.flowgear.net/switchPayMerchant</value>
+    </values>
+    <values>
+        <field>ErrorAddress__c</field>
+        <value xsi:type="xsd:string">ivan@sureswipe.co.za</value>
+    </values>
+    <values>
+        <field>Password__c</field>
+        <value xsi:type="xsd:string">A2a8B496axautFv5EXKE2gWuTHc05aKLSXBRcqbJf4Bkii-bTEk4M0vl_cDPZme6lxv7nmdohRMsg11gkBwFaQ</value>
+    </values>
+    <values>
+        <field>SendErrorAlerts__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Username__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

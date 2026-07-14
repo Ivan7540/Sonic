@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Work Order Line Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Work Order Line Items</value>
+    </caseValues>
+    <layouts>
+        <layout>Work Order Line Item Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>ReplaceDevice</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Replace_Stock</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>DifferentFamily</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Stock_or_Asset</name>
+    </validationRules>
+</CustomObjectTranslation>

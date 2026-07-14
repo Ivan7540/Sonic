@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <description>SWW:2021-04-15:: Now checks if subscription line is not a revised line</description>
+    <formulas>
+        <name>fmlEndDate</name>
+        <dataType>Date</dataType>
+        <expression>DATE(
+YEAR({!$Record.SBQQ__StartDate__c}),
+MONTH({!$Record.SBQQ__StartDate__c})  + 3,
+DAY({!$Record.SBQQ__StartDate__c})
+)</expression>
+    </formulas>
+    <interviewLabel>Subscription After Update: Create Rebate Line {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Subscription After Update: Create Rebate Line</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Rebate_Record</name>
+        <label>Create Rebate Record</label>
+        <locationX>636</locationX>
+        <locationY>148</locationY>
+        <inputAssignments>
+            <field>EndDate__c</field>
+            <value>
+                <elementReference>fmlEndDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Quantity__c</field>
+            <value>
+                <elementReference>$Record.RebateQuantity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RebateAmount__c</field>
+            <value>
+                <elementReference>$Record.RebateAmount__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RebatePercent__c</field>
+            <value>
+                <elementReference>$Record.RebatePercent__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StartDate__c</field>
+            <value>
+                <elementReference>$Record.SBQQ__StartDate__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subscription__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Rebate__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Create_Rebate_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RebateMonths__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SBQQ__RevisedSubscription__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>SBQQ__Subscription__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

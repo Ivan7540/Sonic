@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>SS_Account Management</name>
+    <queueMembers>
+        <users>
+            <user>cindy-lee@sureswipe.co.za.sonic</user>
+            <user>dina.motloung@sureswipe.co.za.sonic</user>
+            <user>godfrey@sureswipe.co.za.sonic</user>
+            <user>kaylyn@sureswipe.co.za.sonic</user>
+            <user>kyle.dossantos@sureswipe.co.za.sonic</user>
+            <user>kyle@sureswipe.co.za.sonic</user>
+            <user>lindi@sureswipe.co.za.sonic</user>
+            <user>lize@sureswipe.co.za.sonic</user>
+            <user>lungi@sureswipe.co.za.sonic</user>
+            <user>myrtle@sureswipe.co.za.sonic</user>
+            <user>neil@sureswipe.co.za.sonic</user>
+            <user>shirleigh@sureswipe.co.za.sonic</user>
+            <user>thabo@sureswipe.co.za.sonic</user>
+            <user>trevor@sureswipe.co.za.sonic</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>SS_Set_Team</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>WorkOrder__c</sobjectType>
+    </queueSobject>
+</Queue>

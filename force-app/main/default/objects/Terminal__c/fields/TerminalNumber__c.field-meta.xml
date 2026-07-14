@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TerminalNumber__c</fullName>
+    <description>The legacy number that the Terminal had in the old Salesforce org (prior to June 2021). It has been migrated because existing Terminals are registered on the switches with those terminal Ids, and it is too difficult to update them all. New Terminals will use the terminal Ids generated in Salesforce.</description>
+    <externalId>false</externalId>
+    <label>Terminal Number</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

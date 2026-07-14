@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>EFT</fullName>
+        <default>false</default>
+        <label>EFT</label>
+    </customValue>
+    <customValue>
+        <fullName>Gift and Loyalty</fullName>
+        <default>false</default>
+        <label>Gift and Loyalty</label>
+    </customValue>
+    <customValue>
+        <fullName>Integrated</fullName>
+        <default>false</default>
+        <label>Integrated</label>
+    </customValue>
+    <customValue>
+        <fullName>Lite</fullName>
+        <default>false</default>
+        <label>Lite</label>
+    </customValue>
+    <customValue>
+        <fullName>Rate Bundle</fullName>
+        <default>false</default>
+        <label>Rate Bundle</label>
+    </customValue>
+    <description>SWW:2021-07-19::Contract Type.</description>
+    <masterLabel>Contract Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

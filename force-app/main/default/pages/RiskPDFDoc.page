@@ -1,0 +1,165 @@
+<apex:page renderAs="PDF" controller="RiskPDFDocController" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" >
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+            <style>
+                @page {
+                    size: A4;
+                    @bottom-center {
+                        font-family: Arial Unicode MS;
+                        font-size: 10px;
+                        content: "Page " counter(page) " of " counter(pages);
+                    }
+                    @top-center {
+                        font-family: Arial Unicode MS;
+                        font-size: 12px;
+                        content: "Sureswipe Risk Report";
+                    }
+                }
+                .page-break {
+                    display:block;
+                    page-break-after:always;
+                }
+                body {
+                    font-family: Arial Unicode MS;
+                    font-size: 10px;
+                }
+                .explainBox{
+                    border-width:1px;
+                    border-style:solid;
+                    border-color:black;
+                    padding:10px;
+                }
+            </style>
+        </head>
+        <body>
+            <div>
+                <apex:image url="{!$Resource.SureswipeLogoHorizontal}" style="width:40%;"/> 
+                <br/>
+                <span style="font-size:12pt;">Company Name: <apex:outputText value="{!deal.Account__r.Name}"/></span>
+                <br/>
+                <span style="font-size:12pt;">BAM Name: <apex:outputText value="{!deal.Owner.Name}"/></span>
+                <p>
+                    <span style="font-size:12pt;">Description / Category</span>
+                </p>
+                <table style="width:60%;">
+                    <tr>
+                        <td style="width:90%;">Area: does the area have a stigma attached to it?</td>
+                        <td>{!if(areaStigma, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            If Yes:
+                            <div class="explainBox">
+                                {!explainAreaStigma}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    <span style="font-size:12pt;">Business / Stock</span>
+                </p>
+                <table style="width:60%">
+                    <tr>
+                        <td style="width:90%;">Are the premises established and functional?</td>
+                        <td>{!if(premisesFunctional, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            If No:
+                            <div class="explainBox">
+                                {!explainPremisesFunctional}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:90%;">Is the stock held elsewhere?</td>
+                        <td>{!if(stockHeldElsewhere, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td style="width:90%;">If yes, did you do a full stock inspection of the other site?</td>
+                        <td>{!if(didStockInspection, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td style="width:90%;">Does the owner speak English?</td>
+                        <td>{!if(ownerSpeaksEnglish, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td style="width:90%;">If no, was there a translator present?</td>
+                        <td>{!if(wasTranslatorPresent, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td>Provide translator contact no: {!translatorContactNo}</td>
+                    </tr>
+                    <tr>
+                        <td style="width:90%;">Does the merchant sell high value items?</td>
+                        <td>{!if(merchantSellHighValueItems, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="explainBox">
+                                {!explainHighValueItems}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:90%;">Do they trade in fake / illegal goods or services?</td>
+                        <td>{!if(fakeIllegalItems, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="explainBox">
+                                {!explainFakeIllegalItems}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:90%;">Do they accept card not present transactions (MOTO)?</td>
+                        <td>{!if(acceptMOTO, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="explainBox">
+                                {!explainMOTO}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    <span style="font-size:12pt;">General</span>
+                </p>
+                <table style="width:60%">
+                    <tr>
+                        <td style="width:90%;">Did the merchant seem over eager to sign e.g. did not investigate competitor offerings, had all FICA available in less time than average etc?</td>
+                        <td>{!if(merchantOverEager, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            If Yes:
+                            <div class="explainBox">
+                                {!explainMerchantOverEager}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:90%;">When you did a google search for the business, did they appear in the search?</td>
+                        <td>{!if(googleSearch, 'YES', 'NO')}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="explainBox">
+                                {!explainGoogleSearch}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:90%;">I confirm that I have filled in this form to my best knowledge.</td>
+                        <td>{!if(BAMConfirmation, 'YES', 'NO')}</td>
+                    </tr>
+                </table>
+                <br/>
+                <span style="font-size:12pt;">Agent: {!$User.FirstName + ' ' + $User.LastName}</span>
+            </div>
+        </body>
+    </html>
+</apex:page>

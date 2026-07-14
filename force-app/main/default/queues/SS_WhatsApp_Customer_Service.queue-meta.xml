@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>SS WhatsApp Customer Service</name>
+    <queueMembers>
+        <users>
+            <user>bronwyn@innervation.co.za</user>
+            <user>candice.wilson@sureswipe.co.za.sonic</user>
+            <user>celeste@innervation.co.za.sonic</user>
+            <user>gina@innervation.co.za.sonic</user>
+            <user>gugulethu@innervation.co.za.sonic</user>
+            <user>kagiso@sureswipe.co.za</user>
+            <user>luigi@innervation.co.za.sonic</user>
+            <user>nhlamulo.mabaso@sureswipe.co.za.sonic</user>
+            <user>nomagugu@sureswipe.co.za.sonic</user>
+            <user>nthabiseng@innervation.co.za.sonic</user>
+            <user>pierre@innervation.co.za.sonic</user>
+            <user>portia@sureswipe.co.za.sonic</user>
+            <user>roland@sureswipe.co.za.sonic</user>
+            <user>wisani@innervation.co.za.sonic</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>SS_WhatsApp_Customer_Service</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>MessagingSession</sobjectType>
+    </queueSobject>
+</Queue>

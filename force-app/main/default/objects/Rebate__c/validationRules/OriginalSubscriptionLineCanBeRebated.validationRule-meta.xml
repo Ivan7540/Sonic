@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OriginalSubscriptionLineCanBeRebated</fullName>
+    <active>false</active>
+    <errorConditionFormula>Not(ISBLANK(Subscription__r.SBQQ__RevisedSubscription__c))</errorConditionFormula>
+    <errorMessage>Only Original Subscription line can be rebated, please check Revised Subscription field for original line</errorMessage>
+</ValidationRule>

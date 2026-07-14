@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor__c</fullName>
+    <externalId>false</externalId>
+    <label>Competitor</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Nedbank</fullName>
+                <default>false</default>
+                <label>Nedbank</label>
+            </value>
+            <value>
+                <fullName>ABSA</fullName>
+                <default>false</default>
+                <label>ABSA</label>
+            </value>
+            <value>
+                <fullName>Standard Bank</fullName>
+                <default>false</default>
+                <label>Standard Bank</label>
+            </value>
+            <value>
+                <fullName>FNB</fullName>
+                <default>false</default>
+                <label>FNB</label>
+            </value>
+            <value>
+                <fullName>Capitech</fullName>
+                <default>false</default>
+                <label>Capitech</label>
+            </value>
+            <value>
+                <fullName>Ikhoka</fullName>
+                <default>false</default>
+                <label>Ikhoka</label>
+            </value>
+            <value>
+                <fullName>Yoco</fullName>
+                <default>false</default>
+                <label>Yoco</label>
+            </value>
+            <value>
+                <fullName>Vodacom</fullName>
+                <default>false</default>
+                <label>Vodacom</label>
+            </value>
+            <value>
+                <fullName>HelloPay</fullName>
+                <default>false</default>
+                <label>HelloPay</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>No Provider</fullName>
+                <default>false</default>
+                <label>No Provider</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

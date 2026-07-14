@@ -1,0 +1,9 @@
+<apex:component access="global">
+    <table>
+        <tr>
+            <td bgcolor="#ffffff" valign="top" colspan="5">
+                <a href="http://www.sureswipe.co.za/"><img src="https://c.eu7.content.force.com/servlet/servlet.ImageServer?id=0150J000004kPFm&oid=00D20000000BFfY&lastMod=1518415842000" width="640" height="116" alt="sureswipe footer"/></a>
+            </td>
+        </tr>
+    </table>
+</apex:component>

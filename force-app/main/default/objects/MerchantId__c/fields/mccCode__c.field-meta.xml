@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>mccCode__c</fullName>
+    <description>Ivan (25/03/2021): A field needed for data migration, it was present in the old org, not sure what it&apos;s purpose is unfortunately</description>
+    <externalId>false</externalId>
+    <label>MCC Code</label>
+    <length>20</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

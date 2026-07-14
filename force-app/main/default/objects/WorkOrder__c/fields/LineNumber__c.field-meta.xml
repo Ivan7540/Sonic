@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LineNumber__c</fullName>
+    <description>Counts number of Work Order Line Items related to the specific Work Order. Used to determine if Work Order is ready to be dispatched. All relevant Assets related to the Order should have a corresponding Work Order Line Item before that can happen.</description>
+    <externalId>false</externalId>
+    <label>Line Number</label>
+    <summaryForeignKey>WorkOrderLineItem__c.WorkOrder__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

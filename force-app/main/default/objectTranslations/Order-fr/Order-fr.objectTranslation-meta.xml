@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <quickActions>
+        <label></label>
+        <name>AddStock</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Add_Credit_Rate</name>
+    </quickActions>
+    <recordTypes>
+        <label></label>
+        <name>Credit_Order</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>CustomerOrder</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>InternalOrder</name>
+    </recordTypes>
+</CustomObjectTranslation>

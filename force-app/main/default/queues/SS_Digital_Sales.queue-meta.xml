@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>SS Digital Sales</name>
+    <queueMembers>
+        <users>
+            <user>ajit@sureswipe.co.za.sonic</user>
+            <user>cassim@sureswipe.co.za.sonic</user>
+            <user>joseph@sureswipe.co.za.sonic</user>
+            <user>lesego@sureswipe.co.za.sonic</user>
+            <user>masixole@sureswipe.co.za.sonic</user>
+            <user>nicole@sureswipe.co.za.sonic</user>
+            <user>nomsa@adumo.com.sonic</user>
+            <user>thabo@sureswipe.co.za.sonic</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>SS_Digital_Sales</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

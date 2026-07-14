@@ -1,0 +1,15 @@
+<!--
+ - Created by JurgitaG on 11/12/2021.
+ -->
+
+<!-- Record Selector -->
+<template>
+    <lightning-datatable
+            data={contactList}
+            columns={columns}
+            key-field="Id"
+            max-row-selection="1"
+            onrowselection={getSelectedName}
+    >
+    </lightning-datatable>
+</template>

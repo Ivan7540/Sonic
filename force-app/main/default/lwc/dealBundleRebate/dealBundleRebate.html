@@ -1,0 +1,46 @@
+<!--
+ - Created by JurgitaG on 2/3/2022.
+ -->
+
+<!-- Deal Bundle Rebate -->
+<template>
+    <div class="slds-p-top_medium">
+        <lightning-button label="Add Rebate / Discount" variant="brand" onclick={handleAddRow} disabled={noOptions}>
+        </lightning-button>
+        <div class="slds-text-body_regular slds-text-color_error">
+            {validationMessage}
+        </div>
+        <div class="slds-m-top_medium">
+            <template for:each={rebates} for:item="item" for:index="index">
+                <c-rebate-line-item record-id={item.Id}
+                                    item-key={item.key}
+                                    rebated-product={item.itemName}
+                                    bundle-id={item.itemName}
+                                    selected-option={item.itemName}
+                                    selected-option-label= {item.itemLabel}
+                                    rebate-amount={item.rebateAmount}
+                                    rebate-discount={item.rebateDiscount}
+                                    discount={item.discount}
+                                    discount-amount={item.discountAmount}
+                                    rebate-quantity={item.quantity}
+                                    rebate-months={item.numberOfMonths}
+                                    available-options={availableOptions}
+                                    key={item.key}
+                                    max-quantity={item.maxQuantity}
+                                    onfieldchange={saveItem}
+                                    ondeleteline={removeRebate}
+                                    disable-quantity={item.disableQuantity}
+                                    disable-amount={item.disableDiscountAmount}
+                                    disable-rebate-amount= {item.disableRebateAmount}
+                                    disable-months= {item.disableNumberOfMonths}
+                                    disable-discount={item.disableDiscount}
+                                    disable-rebate-discount={item.disableRebateDiscount}
+                                    onrefreshoptions={handleOptions}></c-rebate-line-item>
+
+            </template>
+            <div class="slds-m-top_small slds-float_right">
+                <lightning-button variant="brand" label="Save" title="Save & Next" onclick={onDiscountSubmit} ></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

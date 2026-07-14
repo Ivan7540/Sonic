@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Provider__c</fullName>
+    <description>The switch to which the terminal is linked to</description>
+    <externalId>false</externalId>
+    <label>Provider</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACS</fullName>
+                <default>false</default>
+                <label>ACS</label>
+            </value>
+            <value>
+                <fullName>Innervation</fullName>
+                <default>false</default>
+                <label>Innervation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

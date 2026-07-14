@@ -1,0 +1,31 @@
+<template>
+    <lightning-record-edit-form object-api-name="Deal_Line__c">
+        <lightning-messages>
+        </lightning-messages>
+            <lightning-input-field field-name="Product__c" onchange={handleProduct} value={selectedProduct} variant="label-stacked">
+            </lightning-input-field>
+
+
+            <lightning-input-field field-name="Device__c" onchange={handleDevice} value={device} variant="label-stacked">
+            </lightning-input-field>
+
+            <lightning-input-field field-name="ContractTerm__c" onchange={handleTerm} value={contractTerm} variant="label-stacked">
+            </lightning-input-field>
+        <template if:true={showDeviceType}>
+            <lightning-input-field field-name="DeviceType__c" onchange={handleDeviceType} value={deviceType} variant="label-stacked" disabled={disableDeviceType}>
+            </lightning-input-field>
+        </template>
+        <template if:true={showPaymentServer}>
+        <lightning-input-field field-name="PaymentServer__c" onchange={handlePaymentServer} value={paymentServer} variant="label-stacked" disabled={disablePaymentServer}>
+            </lightning-input-field>
+        </template>
+
+        <lightning-input-field field-name="Quantity__c" onchange={handleQuantity} value={quantity} variant="label-stacked">
+        </lightning-input-field>
+        <template if:true={showBluetooth}>
+            <lightning-input-field field-name="BluetoothPrinterQuantity__c" onchange={handleBluetoothPrinterQty} value={bluetoothPrinterQty} variant="label-stacked">
+            </lightning-input-field>
+        </template>
+
+    </lightning-record-edit-form>
+</template>

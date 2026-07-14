@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product__c</fullName>
+    <externalId>false</externalId>
+    <label>Product</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Classic</fullName>
+                <default>false</default>
+                <label>Classic</label>
+            </value>
+            <value>
+                <fullName>ClassicPlus</fullName>
+                <default>false</default>
+                <label>Classic Plus</label>
+            </value>
+            <value>
+                <fullName>Lite</fullName>
+                <default>false</default>
+                <label>Lite</label>
+            </value>
+            <value>
+                <fullName>ClassicPlusWithPOS</fullName>
+                <default>false</default>
+                <label>Classic Plus with POS</label>
+            </value>
+            <value>
+                <fullName>Humble</fullName>
+                <default>false</default>
+                <label>Humble</label>
+            </value>
+            <value>
+                <fullName>GAAP</fullName>
+                <default>false</default>
+                <label>GAAP</label>
+            </value>
+            <value>
+                <fullName>SureswipeAcquiring</fullName>
+                <default>false</default>
+                <label>Sureswipe Acquiring</label>
+            </value>
+            <value>
+                <fullName>GiftAndLoyalty</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gift And Loyalty</label>
+            </value>
+            <value>
+                <fullName>RateBundle</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Rate Bundle</label>
+            </value>
+            <value>
+                <fullName>WelcomeBox</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Welcome Box</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

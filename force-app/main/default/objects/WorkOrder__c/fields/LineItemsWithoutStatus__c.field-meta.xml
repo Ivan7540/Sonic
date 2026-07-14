@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LineItemsWithoutStatus__c</fullName>
+    <description>Counts</description>
+    <externalId>false</externalId>
+    <label>Line Items Without Status</label>
+    <summaryFilterItems>
+        <field>WorkOrderLineItem__c.StockStatus__c</field>
+        <operation>equals</operation>
+        <value></value>
+    </summaryFilterItems>
+    <summaryForeignKey>WorkOrderLineItem__c.WorkOrder__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,62 @@
+<aura:component implements="force:lightningQuickAction,flexipage:availableForAllPageTypes,lightning:availableForFlowScreens,lightning:availableForFlowActions,force:hasRecordId,force:hasSObjectName"
+                controller="LCC_AddMerchantNumberController">
+                
+    <aura:attribute name="merchantIds" type="MerchantId__c[]"/>
+    <aura:attribute name="acquiringBank" type="String"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="editMerchantId" type="String"/>
+    <aura:attribute name="showEditor" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card iconName="custom:custom40" title="Add Merchant Number">
+         <aura:set attribute="actions">
+            <lightning:buttonIcon iconName="utility:add"
+                                  variant="border-filled"
+                                  alternativeText="add"
+                                  onclick="{!c.addNewRecord}"/>
+        </aura:set>
+        
+        <lightning:datatable columns="{!v.columns}"
+                             data="{!v.merchantIds}"
+                             keyField="Id"
+                             showRowNumberColumn="true"
+                             hideCheckboxColumn="true"
+                             onrowaction="{!c.handleRowAction}"/>
+    </lightning:card>
+
+    <aura:if isTrue="{!v.showEditor}">
+        <!--###### MODAL BOX Start######--> 
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Start ######-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                            onclick="{!c.closeModel}"
+                                            alternativeText="close"
+                                            variant="bare-inverse"
+                                            class="slds-modal__close"/>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning:recordEditForm aura:id="form"
+                                              recordId="{!v.editMerchantId}" 
+                                              objectApiName="MerchantId__c"
+                                              onsuccess="{!c.recordFormSuccess}">
+                        <lightning:messages/>
+                        
+                        <lightning:inputField fieldName="Name"/>
+                        <!--<lightning:inputField fieldName="mccCode__c"/>-->
+                        <lightning:inputField fieldName="Type__c"/>
+                        <lightning:inputField fieldName="Description__c"/>
+                        <lightning:inputField fieldName="Product_Family__c"/>
+                        <lightning:inputField fieldName="AcquiringBank__c" value="{!v.acquiringBank}"/>
+                        <lightning:inputField fieldName="Account__c"  disabled="true" value="{!v.recordId}"/>
+                        <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="Submit" label="Submit" />
+                    </lightning:recordEditForm>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+</aura:component>

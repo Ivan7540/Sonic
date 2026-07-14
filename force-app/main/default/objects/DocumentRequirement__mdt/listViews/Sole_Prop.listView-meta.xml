@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sole_Prop</fullName>
+    <columns>MasterLabel</columns>
+    <columns>BusinessType__c</columns>
+    <columns>Disabled__c</columns>
+    <columns>DocumentType1__c</columns>
+    <columns>DocumentType2__c</columns>
+    <columns>DocumentType3__c</columns>
+    <columns>DocumentType4__c</columns>
+    <columns>DocumentType5__c</columns>
+    <columns>Required__c</columns>
+    <columns>RequirementType__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>BusinessType__c</field>
+        <operation>equals</operation>
+        <value>Sole Proprietor</value>
+    </filters>
+    <label>Sole Prop</label>
+</ListView>

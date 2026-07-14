@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <description>Dependent Picklist Cmp</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Dependent Picklist Cmp</masterLabel>
+
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+    <targetConfig targets="lightning__FlowScreen">
+        <property name="selectedProduct" type="String" label="Product" description="Product Variable"/>
+        <property name="contractTerm" type="String" label="Contract Term" description="Contract Term Variable"/>
+        <property name="device" type="String" label="Device" description="Device Variable"/>
+        <property name="deviceType" type="String" label="Device Type" description="Device Type Variable"/>
+        <property name="paymentServer" type="String" label="Payment Server" description="Payment Server Variable"/>
+        <property name="bluetoothPrinterQty" type="Integer" label="Bluetooth Printer Qty" description="Bluetooth Printer Quantity"/>
+    </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <description>Record Selector</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Record Selector</masterLabel>
+
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="contactList" type="@salesforce/schema/Contact[]" label="Records" description="Record List Variable"/>
+            <property name="selectedContactId" type="String" label="Selected Contact" description=""/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

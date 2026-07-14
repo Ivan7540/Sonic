@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Services_Deactivated__c</name>
+    <picklistValues>
+        <masterLabel>Manual Transactions</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Refunds</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

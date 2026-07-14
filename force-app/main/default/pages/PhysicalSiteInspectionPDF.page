@@ -1,0 +1,143 @@
+<apex:page controller="PhysicalSiteInspectionController" renderAs="PDF" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" >
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <style>
+            @page {
+            size: A4;
+            margin:0in;
+            @bottom-center {
+            font-family: Arial Unicode MS;
+            font-size: 10px;
+            /*content: "Page " counter(page) " of " counter(pages);*/
+            }
+            @top-center {
+            font-family: Arial Unicode MS;
+            font-size: 12px;
+            /*content: "Sureswipe Physical Site Inspection Report";*/
+            }
+            }
+            .page-break {
+            display:block;
+            page-break-after:always;
+            }
+            body {
+            font-family: Arial Unicode MS;
+            font-size: 10px;
+            font-weight: normal;
+            }
+            .footer {
+            position:fixed;
+            bottom:0;
+            }
+            h2 {
+  			font-weight: bold;
+            }
+            .underline{
+            border-bottom: 1px solid black;
+            display: block;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="header">
+            <apex:image url="{!$Resource.SureswipeSiteVerificationHeader}" style="width: 100%; padding: 0px !important;"/>
+        </div>
+        
+        <!-- content -->
+        <div style="padding: 5%;">
+            <h2 style="color: #f47621;"><strong>Conduced for Verification purposes</strong></h2>
+            
+            <br/>
+            
+            <div style="width: 100%; display: flex;">
+                <div style="width: 30%; display: inline-block;">
+                    <h2>Company trading name:</h2>
+                </div>
+                <div style="width: 60%; display: inline-block;">
+                    <h2><span class="underline" style="width: 116%;">{!companyTradingName}</span></h2>
+                </div>
+                
+                <div style="width: 30%; display: inline-block;">
+                    <h2>Sureswipe employee name:</h2>
+                </div>
+                <div style="width: 60%; display: inline-block;">
+                    <h2><span class="underline" style="width: 116%;">{!ssEmployeeName}</span></h2>
+                </div>
+            </div>
+            
+            <br/>
+            
+            <div style="width: 100%; display: flex;">
+                <div style="width: 2%; display: inline-block;">
+                    <h2>I, </h2>
+                </div>
+                <div style="width: 30%; display: inline-block;">
+                    <h2><span class="underline" style="width: 100%;">{!undersignerName}</span></h2>
+                </div>
+                <div style="width: 30%; display: inline-block;">
+                    <h2>the undersigned, employee no</h2>
+                </div>
+                <div style="width: 30%; display: inline-block;">
+                    <h2><span class="underline" style="width: 123%;">{!undersignerEmplNo}</span></h2>
+                </div>
+                
+                <div style="width: 52%; display: inline-block;">
+                     <h2>hereby confirm that I conducted a physical site visit on</h2>
+                </div>
+				<div style="width: 38%; display: inline-block;">
+                    <h2>
+                        <span class="underline" style="width: 125%;">
+                            <apex:outputText value="{0, date,  dd/MM/yyyy}">
+                                <apex:param value="{!dateSiteVisited}" />
+                            </apex:outputText> 
+                        </span>
+                    </h2>
+                </div>
+                
+                <div style="width: 100%; display: inline-block;">
+                    <h2>at the following address</h2>
+                </div>
+                <div style="width: 100%; display: inline-block;">
+                    <h2><span class="underline" style="width: 100%;">{!siteAddress}</span></h2>
+                </div>
+				<div style="width: 100%; display: inline-block;">
+                    <h2><span class="underline" style="width: 100%;"></span></h2>
+                </div>
+            </div>
+            
+            <div style="width: 100%; display: flex;">
+                <div style="width: 100%; display: inline-block;">
+                    <h2>I confirm that I am satisfied with the above mentioned address, and is the residential/business address of:</h2>
+                </div>
+                <div style="width: 100%; display: inline-block;">
+                    <h2><span class="underline" style="width: 100%;">{!tradingNameConfirmation}</span></h2>
+                </div>
+                <div style="width: 100%; display: inline-block;">
+                    <h2><span class="underline" style="width: 100%;"></span></h2>
+                </div>
+            </div>
+            
+            <br/>
+            
+            <h2>
+                I am fully confident that the trading name of the above mentioned business address is accurate in terms of what is stipulated on the merchant agreement. 
+            </h2>
+            
+            <br/>
+			
+            <div style="width: 30% !important; display: table;">
+                <h2 style="text-align:center; font-family: Helvetica;
+                           font-style: italic;
+                           font-variant: petite-caps;">{!SFUsername}</h2>
+                <h2><span class="underline" style="width: 100%;"></span></h2>
+            </div>
+
+            <h2>
+                Signature (<strong>Sureswipe</strong> employee)
+            </h2>
+        </div>
+        
+		<div class="footer"><apex:image value="{!$Resource.SureswipeSiteVerificationFooter}" style="width:100%;"/></div>
+    </body>
+</apex:page>

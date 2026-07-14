@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Adumo Payments</fullName>
+        <default>false</default>
+        <label>Adumo Payments</label>
+    </customValue>
+    <customValue>
+        <fullName>Adumo Payments Botswana</fullName>
+        <default>false</default>
+        <label>Adumo Payments Botswana</label>
+    </customValue>
+    <customValue>
+        <fullName>Adumo Payments Kenya</fullName>
+        <default>false</default>
+        <label>Adumo Payments Kenya</label>
+    </customValue>
+    <customValue>
+        <fullName>Adumo Payments Namibia</fullName>
+        <default>false</default>
+        <label>Adumo Payments Namibia</label>
+    </customValue>
+    <customValue>
+        <fullName>GAAP</fullName>
+        <default>false</default>
+        <label>GAAP</label>
+    </customValue>
+    <customValue>
+        <fullName>Humble</fullName>
+        <default>false</default>
+        <label>Humble</label>
+    </customValue>
+    <masterLabel>Division</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute name="recordId" label="Record Id"/>
+    <design:attribute name="documentLabel" label="Component Label"/>
+    <design:attribute name="documentType" label="Document Type"/>
+    <design:attribute name="contentDocumentId" label="Content Document Id"/>
+    <design:attribute name="contentVersionId" label="Content Version Id"/>
+</design:component>

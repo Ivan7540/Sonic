@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Acknowledge_Customer_expression</fullName>
+        <description>Acknowledge Customer expression</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>system@sureswipe.co.za</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Green_Flow_Customer_Journey/Acknowledge_Customer_expression</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_Assigned</fullName>
+        <description>Lead Assigned</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SalesPerson__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderAddress>no-reply@sureswipe.co.za</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Lead_Templates/Lead_Assignment</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_customer_sorry_we_couldn_t_assist</fullName>
+        <description>Send customer ‘sorry we couldn’t assist</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <recipient>ajit@sureswipe.co.za.sonic</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>system@sureswipe.co.za</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Red_Flow_Customer_Journey/Send_customer_sorry_we_couldn_t_assist</template>
+    </alerts>
+    <rules>
+        <fullName>Lead Assignment</fullName>
+        <actions>
+            <name>Lead_Assigned</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>ISPICKVAL(Status, &apos;Assigned&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

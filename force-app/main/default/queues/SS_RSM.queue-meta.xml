@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>SS RSM</name>
+    <queueMembers>
+        <users>
+            <user>cassim@sureswipe.co.za.sonic</user>
+            <user>david@sureswipe.co.za.sonic</user>
+            <user>emile@sureswipe.co.za.sonic</user>
+            <user>vishal@sureswipe.co.za.sonic</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Deal__c</sobjectType>
+    </queueSobject>
+</Queue>

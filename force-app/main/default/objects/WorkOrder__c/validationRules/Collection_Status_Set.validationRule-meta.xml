@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Collection_Status_Set</fullName>
+    <active>true</active>
+    <description>Ensures that all Work Order Line Items have a status set before Work Order can be completed</description>
+    <errorConditionFormula>ISPICKVAL(Status__c, &apos;Completed&apos;) &amp;&amp; (ISPICKVAL(Type__c, &apos;Collection&apos;) || ISPICKVAL(Type__c, &apos;Installation&apos;)) &amp;&amp; LineItemsWithoutStatus__c &gt; 0</errorConditionFormula>
+    <errorMessage>Cannot complete Work Order until all Line Items are marked as either collected/installed or lost/not installed.</errorMessage>
+</ValidationRule>

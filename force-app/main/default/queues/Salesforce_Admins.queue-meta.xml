@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Salesforce Admins</name>
+    <queueMembers>
+        <users>
+            <user>ajit@sureswipe.co.za.sonic</user>
+            <user>brian@sureswipe.co.za.sonic</user>
+            <user>connor@sureswipe.co.za.sonic</user>
+            <user>eduardo@adumo.com.sonic</user>
+            <user>gaurav@adumo.com.sonic</user>
+            <user>ivan@sureswipe.co.za.sonic.prod</user>
+            <user>swapnil.walse@tetrad.co.za.sonic</user>
+            <user>tshepo@sureswipe.co.za.sonic</user>
+            <user>vinay@sureswipe.co.za.sonic</user>
+            <user>vusi@adumo.com.sonic</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

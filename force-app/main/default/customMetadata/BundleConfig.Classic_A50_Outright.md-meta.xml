@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Classic A50 Outright</label>
+    <protected>false</protected>
+    <values>
+        <field>AdditionalFields__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ContractTerm__c</field>
+        <value xsi:type="xsd:string">None</value>
+    </values>
+    <values>
+        <field>Device__c</field>
+        <value xsi:type="xsd:string">SS_A50</value>
+    </values>
+    <values>
+        <field>EnableDiscountAmount__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>EnableDiscount__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Is_Standalone__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>PaymentServer__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Product_Code__c</field>
+        <value xsi:type="xsd:string">SS_CLASSIC_OUTRIGHT_PURCHASE_BUNDLE</value>
+    </values>
+    <values>
+        <field>Product__c</field>
+        <value xsi:type="xsd:string">Classic</value>
+    </values>
+    <values>
+        <field>RebatableProducts__c</field>
+        <value xsi:type="xsd:string">SS_OUTRIGHT_PURCHASE_MONTHLY_CONNECTIVITY_FEE</value>
+    </values>
+    <values>
+        <field>Sale_Type__c</field>
+        <value xsi:type="xsd:string">Outright Purchase</value>
+    </values>
+    <values>
+        <field>StaticResourceName__c</field>
+        <value xsi:type="xsd:string">QM_ClassicSS_A50None</value>
+    </values>
+    <values>
+        <field>Third_Party__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

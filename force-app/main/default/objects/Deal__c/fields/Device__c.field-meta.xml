@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Device__c</fullName>
+    <externalId>false</externalId>
+    <label>Device</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Product__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SP630</fullName>
+                <default>false</default>
+                <label>SP630</label>
+            </value>
+            <value>
+                <fullName>M4</fullName>
+                <default>false</default>
+                <label>M4</label>
+            </value>
+            <value>
+                <fullName>Move 2500</fullName>
+                <default>false</default>
+                <label>Move 2500</label>
+            </value>
+            <value>
+                <fullName>Bluebird</fullName>
+                <default>false</default>
+                <label>Bluebird</label>
+            </value>
+            <value>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+                <label>Not Applicable</label>
+            </value>
+            <value>
+                <fullName>A50</fullName>
+                <default>false</default>
+                <label>A50</label>
+            </value>
+            <value>
+                <fullName>A920 Pro</fullName>
+                <default>false</default>
+                <label>A920 Pro</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Classic</controllingFieldValue>
+            <controllingFieldValue>Classic Plus</controllingFieldValue>
+            <controllingFieldValue>Classic Plus with POS</controllingFieldValue>
+            <valueName>SP630</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Classic</controllingFieldValue>
+            <valueName>M4</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Classic</controllingFieldValue>
+            <valueName>A50</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Classic Plus</controllingFieldValue>
+            <controllingFieldValue>Classic Plus with POS</controllingFieldValue>
+            <valueName>Move 2500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Classic Plus</controllingFieldValue>
+            <controllingFieldValue>Classic Plus with POS</controllingFieldValue>
+            <valueName>Bluebird</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Classic Plus with POS</controllingFieldValue>
+            <valueName>A920 Pro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gift And Loyalty</controllingFieldValue>
+            <valueName>Not Applicable</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

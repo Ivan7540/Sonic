@@ -1,0 +1,18 @@
+.THIS .boxCards {
+    width: 45%;
+    height: 20vh;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    margin-top: 1%;
+    background: beige;
+}
+
+.THIS .boxCards:hover {
+    background-color: #f47721;
+    cursor: pointer;
+}
+
+.THIS .cardText {
+    margin-left: 40%;
+}

@@ -1,0 +1,74 @@
+<!--
+ - Created by JurgitaG on 12/6/2021.
+ -->
+
+<!-- Deal Product Options -->
+<template>
+
+    <div class="slds-text-heading_small services-helpText">
+        Please select available VAS services.
+    </div>
+    <div class="slds-text-body_regular services-helpText">
+        Masterpass is required when SwitchPay or MoreTyme is selected.
+    </div>
+    <div class="slds-text-body_regular slds-text-color_error">
+        {errorMessage}
+    </div>
+
+
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small"
+           aria-labelledby="element-with-table-label other-element-with-table-label">
+        <thead>
+        <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+                <div class="slds-truncate" title="Device Name">Device</div>
+            </th>
+            <template for:each={deviceServiceSettings} for:item="item" for:index="index">
+                <th class="" scope="col" key={item.metadataId}>
+                    <div class="slds-truncate" title={item.name}>{item.name}</div>
+                    <lightning-input data-key={item.metadataId} checked={item.defaultValue} disabled={item.isDisabled}
+                                     name="options" onchange={handleSelectAll} type="checkbox"
+                                     label=""></lightning-input>
+                </th>
+            </template>
+
+        </tr>
+        </thead>
+        <tbody>
+        <template for:each={devices} for:item="itemD" for:index="index">
+            <c-deal-service-device key={itemD.key}
+                                   line-number={index}
+                                   device-id={itemD.lineId}
+                                   device-label={itemD.label}
+                                   all-device-serv-conf={itemD.serviceList}
+                                   ondevicevasselected={handleVasSelected}
+                                   item-key={itemD.key}></c-deal-service-device>
+
+        </template>
+
+        </tbody>
+    </table>
+
+
+    <!--    <div class="slds-p-top_medium">-->
+    <!--        <lightning-button label="Add Item" variant="brand" onclick={handleAddRow}>-->
+    <!--        </lightning-button>-->
+    <!--        <div class="slds-p-horizontal_small">-->
+    <!--            <template for:each={items} for:item="item" for:index="index">-->
+    <!--                <c-deal-option-item item-key={item.key}-->
+    <!--                                    available-options={allOptions}-->
+    <!--                                    key={item.key}-->
+    <!--                                    ondeleteline={removeLine}-->
+    <!--                                    ></c-deal-option-item>-->
+    <!--            </template>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <div class="slds-m-top_small slds-float_left">
+        <lightning-button variant="brand" label="Back" title="Back" onclick={onBundleBack}
+                          class="slds-m-left_x-small slds-m-top_small"></lightning-button>
+    </div>
+    <div class="slds-m-top_small slds-float_right">
+        <lightning-button variant="brand" label="Save" title="Save & Next" onclick={handleSave}
+                          class="slds-m-left_x-small slds-m-top_small"></lightning-button>
+    </div>
+</template>

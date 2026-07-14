@@ -1,0 +1,23 @@
+<aura:component controller="CourierStatusController" implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="workOrder" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="shipmentStatus" type="String"/>
+
+    <force:recordData 
+        aura:id="recordLoader"
+        fields="Id, Waybill_Number__c"
+        recordId="{!v.recordId}"
+        targetFields="{!v.workOrder}"
+        targetError="{!v.recordLoadError}"
+    />
+
+    <lightning:card title="Get Waybill Status" iconName="standard:asset_action">
+        <div class="slds-align_absolute-center">
+            <lightning:button aura:id="btnStatus" disabled="{!v.workOrder.Waybill_Number__c == null}" label="Check Status" title="Check the status with the delivery company" variant="brand" onclick="{!c.getStatus}"/>
+        </div>
+        <div class="slds-align_absolute-center slds-m-top_small slds-text-color_success">
+            {!v.shipmentStatus}
+        </div>
+    </lightning:card>
+
+</aura:component>

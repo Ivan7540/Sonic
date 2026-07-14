@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsInstallation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates whether the parent Work Order is of type &apos;Installation&apos;. Value set in the before flow trigger</description>
+    <externalId>false</externalId>
+    <label>Is Installation</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

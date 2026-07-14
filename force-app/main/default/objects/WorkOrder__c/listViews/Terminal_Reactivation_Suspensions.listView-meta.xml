@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Terminal_Reactivation_Suspensions</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Type__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>Terminal Deactivation,Terminal Reactivation,Terminal Suspension</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed</value>
+    </filters>
+    <label>Terminal Reactivation/Suspensions</label>
+    <sharedTo>
+        <role>SS_Operations</role>
+        <role>SS_Operations_Manager</role>
+        <role>SS_Service_Excellence_User</role>
+    </sharedTo>
+</ListView>

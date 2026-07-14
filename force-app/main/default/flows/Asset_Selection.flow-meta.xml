@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <assignments>
+        <description>Adds the serial number of the non-existent Asset to Work Order description</description>
+        <name>Change_Work_Order</name>
+        <label>Change Work Order</label>
+        <locationX>50</locationX>
+        <locationY>1118</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Work_Order.Description__c</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Merchant requested help with Asset of serial number {!SerialNumber} which was never assigned to them. Investigation required.</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Work_Order</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign number to the count of Work Order Line Items</description>
+        <name>Count_Lines</name>
+        <label>Count Lines</label>
+        <locationX>182</locationX>
+        <locationY>758</locationY>
+        <assignmentItems>
+            <assignToReference>NumberOfLines</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>GetLineItems</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ItemsCreated</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <description>User indicates they clicked on the &apos;Next&apos; button in error</description>
+        <name>Mistake</name>
+        <choiceText>No, I clicked the &apos;Next&apos; button by mistake</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>false</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <description>User indicates that they intended to move past the previous screen without selecting an Asset, and is therefore prompted to enter the serial number of the non-existent Asset for the technicians to investigate.</description>
+        <name>Yes</name>
+        <choiceText>I have not found the requisite Asset in the list provided</choiceText>
+        <dataType>String</dataType>
+        <userInput>
+            <isRequired>true</isRequired>
+            <promptText>Asset serial number</promptText>
+        </userInput>
+        <value>
+            <stringValue>true</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <description>Checks if any Work Order Line Items were created on the screen or not, and routes accordingly</description>
+        <name>ItemsCreated</name>
+        <label>Items Created</label>
+        <locationX>182</locationX>
+        <locationY>878</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NumberOfLines</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Prompt</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <description>Flow used to select Assets for a Work Order</description>
+    <interviewLabel>Asset Selection {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Asset Selection</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Gets the newly created Work Order</description>
+        <name>Get_Work_Order</name>
+        <label>Get Work Order</label>
+        <locationX>182</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Asset_Selection</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Case__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>RepairCase.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>WorkOrder__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the Work Order Line Items created on the previous screen</description>
+        <name>GetLineItems</name>
+        <label>Get Line Items</label>
+        <locationX>182</locationX>
+        <locationY>518</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Work_Order_Description</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WorkOrder__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Work_Order.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>WorkOrderLineItem__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the Work Order in the database</description>
+        <name>Update_Work_Order</name>
+        <label>Update Work Order</label>
+        <locationX>50</locationX>
+        <locationY>1238</locationY>
+        <inputReference>Get_Work_Order</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Work_Order_Description</name>
+        <label>Update Work Order Description</label>
+        <locationX>182</locationX>
+        <locationY>638</locationY>
+        <connector>
+            <targetReference>Count_Lines</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Work_Order.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Description__c</field>
+            <value>
+                <elementReference>Description_of_Fault</elementReference>
+            </value>
+        </inputAssignments>
+        <object>WorkOrder__c</object>
+    </recordUpdates>
+    <screens>
+        <name>Asset_Selection</name>
+        <label>Asset Selection</label>
+        <locationX>182</locationX>
+        <locationY>278</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Fault_Description1</targetReference>
+        </connector>
+        <fields>
+            <name>FaultDevice</name>
+            <extensionName>lbpm:flowScript</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>script</name>
+                <value>
+                    <stringValue>Select the device/s that requires a repair</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>AssetSelector</name>
+            <extensionName>c:AssetSelection</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>Get_Work_Order.Id</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Fault_Description1</name>
+        <label>Fault Description</label>
+        <locationX>182</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>GetLineItems</targetReference>
+        </connector>
+        <fields>
+            <name>Text</name>
+            <extensionName>lbpm:flowScript</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>script</name>
+                <value>
+                    <stringValue>Type in the description of the fault experienced by the customer on the device/s selected</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>Description_of_Fault</name>
+            <fieldText>Description of Fault</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Prompt</name>
+        <label>Prompt</label>
+        <locationX>50</locationX>
+        <locationY>998</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Change_Work_Order</targetReference>
+        </connector>
+        <fields>
+            <name>PromptText</name>
+            <fieldText>&lt;p&gt;Enter the serial number that the merchant provided, and you were unable to find in the list, in order for the Operations department to verify what caused the confusion. If you have clicked the &apos;Next&apos; button without selecting an Asset from the list in error, use the &apos;Previous&apos; button below.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>SerialNumber</name>
+            <dataType>String</dataType>
+            <fieldText>Serial Number</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Work_Order</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Field names to be used on the first screen</description>
+        <name>FirstScreenFields</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Number of Work Order Line Items created</description>
+        <name>NumberOfLines</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>The record being created</description>
+        <name>RepairCase</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+</Flow>

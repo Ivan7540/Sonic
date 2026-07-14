@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Deals_Lost</fullName>
+    <columns>NAME</columns>
+    <columns>SwipeValue__c</columns>
+    <columns>TransactionMargin__c</columns>
+    <columns>Deal_Owner__c</columns>
+    <columns>CloseDate__c</columns>
+    <columns>UnqualifiedReason__c</columns>
+    <columns>UnqualifiedComment__c</columns>
+    <columns>UnqualifiedCategory__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Closed Lost</value>
+    </filters>
+    <label>All Deals - Lost</label>
+</ListView>

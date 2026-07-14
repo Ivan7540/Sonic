@@ -1,0 +1,12 @@
+<aura:component implements="lightning:availableForFlowScreens,force:hasRecordId,force:hasSObjectName"
+                controller="LCC_FilePreviewAndSelector">
+    <aura:attribute name="contentDocumentIds" type="String[]"/>
+    <aura:attribute name="selectedFile" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+    <aura:iteration var="eachId" items="{!v.contentDocumentIds}">
+        <lightning:fileCard fileId="{!eachId}" 
+                            hideDescription="false"/>
+    </aura:iteration>
+</aura:component>

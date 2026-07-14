@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>FICA Submitted</fullName>
+        <default>false</default>
+        <label>FICA Submitted</label>
+    </customValue>
+    <customValue>
+        <fullName>FICA Rejected</fullName>
+        <default>false</default>
+        <label>FICA Rejected</label>
+    </customValue>
+    <customValue>
+        <fullName>FICA Approved</fullName>
+        <default>false</default>
+        <label>FICA Approved</label>
+    </customValue>
+    <customValue>
+        <fullName>MATCH Rejected</fullName>
+        <default>false</default>
+        <label>MATCH Rejected</label>
+    </customValue>
+    <customValue>
+        <fullName>MATCH Approved</fullName>
+        <default>false</default>
+        <label>MATCH Approved</label>
+    </customValue>
+    <customValue>
+        <fullName>OFAC Rejected</fullName>
+        <default>false</default>
+        <label>OFAC Rejected</label>
+    </customValue>
+    <customValue>
+        <fullName>OFAC Approved</fullName>
+        <default>false</default>
+        <label>OFAC Approved</label>
+    </customValue>
+    <customValue>
+        <fullName>ITC Rejected</fullName>
+        <default>false</default>
+        <label>ITC Rejected</label>
+    </customValue>
+    <customValue>
+        <fullName>ITC Approved</fullName>
+        <default>false</default>
+        <label>ITC Approved</label>
+    </customValue>
+    <customValue>
+        <fullName>ITC Documents Required</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>ITC Documents Required</label>
+    </customValue>
+    <masterLabel>DocumentCheck</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

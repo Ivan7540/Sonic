@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BAMs_cannot_change_owner</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Profile.Name = &apos;SS Sales Users&apos; &amp;&amp; ISCHANGED( OwnerId )</errorConditionFormula>
+    <errorMessage>You do not have access to change a deal&apos;s owner</errorMessage>
+</ValidationRule>

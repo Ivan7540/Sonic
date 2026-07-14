@@ -1,0 +1,29 @@
+<aura:component
+        implements="lightning:availableForFlowScreens,lightning:availableForFlowActions,flexipage:availableForAllPageTypes"
+        access="global">
+
+    <!-- Holds the streaming event subscription -->
+    <aura:attribute name="subscription" type="Map"/>
+    <aura:attribute name="quoteId" type="String"/>
+    <aura:attribute name="calculationDone" type="Boolean" default="false"/>
+
+    <!-- Calls the onInit controller function on component initalization -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <!-- EMP API component -->
+    <lightning:empApi aura:id="empApi"/>
+    <div>
+        <div class="slds-clearfix slds-p-top_medium">
+
+            <aura:if isTrue="{! v.calculationDone }">
+                Quote Pricing Calculated!
+                <div class=" slds-float_right">
+                    <lightning:button label="Next" aura:id="Next" variant="brand" onclick="{!c.handleChange}"/>
+                </div>
+                <aura:set attribute="else">
+                    Calculating...
+                </aura:set>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

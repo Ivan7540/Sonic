@@ -1,0 +1,22 @@
+<!--Custom file uploader, for flows, automatically sets the document type tag-->
+<aura:component implements="lightning:availableForFlowScreens,force:hasRecordId,force:hasSObjectName">
+    <aura:attribute name="documentLabel" type="String"/>
+    <aura:attribute name="documentType" type="String"/>
+    <aura:attribute name="contentDocumentId" type="String"/>
+    <aura:attribute name="contentVersionId" type="String"/>
+    <aura:attribute name="documentName" type="String"/>
+    
+    <aura:attribute name="filetype" type="List" default="['.png', '.jpg', '.jpeg', '.pdf', '.xml', '.html', '.xlsx', '.xls']" />
+    
+    <lightning:fileUpload label="{!v.documentLabel}"
+                          name="{!v.documentLabel}"
+                          multiple="false"
+                          accept="{!v.filetype}"
+                          recordId="{!v.recordId}"
+                          fileFieldName="DocumentType_fileupload__c"
+                          fileFieldValue="{!v.documentType}"
+                          onuploadfinished="{!c.handleUploadFinished}"/>
+    <aura:If isTrue="{!not(empty(v.documentName))}">
+        <div class="slds-text-color_success">Success, file {!v.documentName} uploaded</div>
+    </aura:If>
+</aura:component>

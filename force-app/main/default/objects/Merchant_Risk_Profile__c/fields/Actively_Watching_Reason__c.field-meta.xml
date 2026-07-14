@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actively_Watching_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Actively Watching Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Actively_Watching__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Chain authorised or declines detected</fullName>
+                <default>false</default>
+                <label>Chain authorised or declines detected</label>
+            </value>
+            <value>
+                <fullName>Inconsistent transaction values</fullName>
+                <default>false</default>
+                <label>Inconsistent transaction values</label>
+            </value>
+            <value>
+                <fullName>Irregular number of transactions</fullName>
+                <default>false</default>
+                <label>Irregular number of transactions</label>
+            </value>
+            <value>
+                <fullName>Slip requests not honoured</fullName>
+                <default>false</default>
+                <label>Slip requests not honoured</label>
+            </value>
+            <value>
+                <fullName>Suspicious Contract</fullName>
+                <default>false</default>
+                <label>Suspicious Contract</label>
+            </value>
+            <value>
+                <fullName>Too many voucher requests</fullName>
+                <default>false</default>
+                <label>Too many voucher requests</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Chain authorised or declines detected</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Inconsistent transaction values</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Irregular number of transactions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Slip requests not honoured</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Suspicious Contract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Too many voucher requests</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

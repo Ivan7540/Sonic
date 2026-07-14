@@ -1,0 +1,187 @@
+<aura:component implements="force:lightningQuickAction,lightning:availableForFlowScreens,lightning:availableForFlowActions,force:hasRecordId,force:hasSObjectName"
+                controller="LCC_SureswipeSalesProductSelector">
+    
+    <aura:attribute name="dealLines" type="Deal_Line__c[]"/>
+    <aura:attribute name="dealItemId" type="String"/>
+    <aura:attribute name="saleType" type="String"/>
+    <aura:attribute name="thirdParty" type="String"/>
+    <aura:attribute name="activeSections" type="List"/>
+
+    <aura:attribute name="disableAdd" type="Boolean" default="false"/>
+    <aura:attribute name="showEditor" type="Boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.showEditor}" action="{!c.showEditorChange}"/>
+
+    
+    <lightning:card iconName="standard:product_item" title="Select Product" >
+        <aura:set attribute="actions">
+            <lightning:buttonIcon iconName="utility:add"
+                                  variant="border-filled"
+                                  alternativeText="add"
+                                  disabled="{!v.disableAdd}"
+                                  onclick="{!c.addNewRecord}"/>
+        </aura:set>
+        <lightning:accordion aura:id="accordion"
+                             allowMultipleSectionsOpen="true"
+                             activeSectionName="{! v.activeSections }">
+            <aura:iteration var="item" items="{!v.dealLines}">
+                <lightning:accordionSection name="{!item.Id}" label="{!item.Product__c}">
+                    <aura:set attribute="actions">
+                        <lightning:buttonGroup>
+                            <lightning:buttonIcon iconName="utility:edit" value="{!item.Id}" onclick="{!c.editLine}" size="small"/>
+                            <lightning:buttonIcon iconName="utility:delete" value="{!item.Id}" onclick="{!c.deleteLine}" size="small"/>
+                        </lightning:buttonGroup>
+                    </aura:set>
+                    <aura:set attribute="body">
+                        <lightning:layout multipleRows="true">
+                            <lightning:layoutItem size="3">
+                                <lightning:input name="Product"
+                                                 readonly="true"
+                                                 value="{!item.Device__c}"
+                                                 label="Device" />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="3">
+                                <lightning:input name="Quantity"
+                                                 readonly="true"
+                                                 value="{!item.Quantity__c}"
+                                                 label="Quantity" />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="3">
+                                <lightning:input name="Contract Term"
+                                                 readonly="true"
+                                                 value="{!item.ContractTerm__c}"
+                                                 label="Contract Term" />
+                            </lightning:layoutItem>
+                             <lightning:layoutItem size="3">
+                                <lightning:input name="Discount"
+                                                 readonly="true"
+                                                 value="{!item.LineDiscount__c}"
+                                                 label="Discount %" />
+                            </lightning:layoutItem>
+                            <aura:if isTrue="{! not(empty(item.DeviceType__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="Device Type"
+                                                     readonly="true"
+                                                     value="{!item.DeviceType__c}"
+                                                     label="Device Type" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                            <aura:if isTrue="{! not(empty(item.PaymentServer__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="Payment Server"
+                                                     readonly="true"
+                                                     value="{!item.PaymentServer__c}"
+                                                     label="Payment Server" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                            <aura:if isTrue="{! not(empty(item.PaymentServerQuantity__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="Payment Server Quantity"
+                                                     readonly="true"
+                                                     value="{!item.PaymentServerQuantity__c}"
+                                                     label="Payment Server Quantity" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                            <aura:if isTrue="{! not(empty(item.BluetoothPrinterQuantity__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="Bluetooth Printer Quantity"
+                                                     readonly="true"
+                                                     value="{!item.BluetoothPrinterQuantity__c}"
+                                                     label="Bluetooth Printer Quantity" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                            <aura:if isTrue="{! not(empty(item.MasterpassQuantity__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="Masterpass Quantity"
+                                                     readonly="true"
+                                                     value="{!item.MasterpassQuantity__c}"
+                                                     label="Masterpass Quantity" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                            <aura:if isTrue="{! not(empty(item.SwitchpayQuantity__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="Switchpay Quantity"
+                                                     readonly="true"
+                                                     value="{!item.SwitchpayQuantity__c}"
+                                                     label="SwitchPay Quantity" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                            <aura:if isTrue="{! not(empty(item.VAS__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="VAS"
+                                                     readonly="true"
+                                                     value="{!item.VAS__c}"
+                                                     label="VAS" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                            <aura:if isTrue="{! not(empty(item.GiftLoyaltyPaymentType__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="GiftLoyaltyPaymentType"
+                                                     readonly="true"
+                                                     value="{!item.GiftLoyaltyPaymentType__c}"
+                                                     label="Gift &amp; Loyalty Payment Type" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                            <aura:if isTrue="{! not(empty(item.CardDesignType__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="CardDesignType"
+                                                     readonly="true"
+                                                     value="{!item.CardDesignType__c}"
+                                                     label="Card Design Type" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                            <aura:if isTrue="{! not(empty(item.AdditionalBrandedCards__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="AdditionalBrandedCards"
+                                                     readonly="true"
+                                                     value="{!item.AdditionalBrandedCards__c}"
+                                                     label="Additional Branded Cards" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                            <aura:if isTrue="{! not(empty(item.AdditionalEnrolmentForms__c))}">
+                                <lightning:layoutItem size="3">
+                                    <lightning:input name="AdditionalEnrolmentForms"
+                                                     readonly="true"
+                                                     value="{!item.AdditionalEnrolmentForms__c}"
+                                                     label="Additional Enrolment Forms" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                        </lightning:layout>
+                    </aura:set>
+                </lightning:accordionSection>
+            </aura:iteration>
+        </lightning:accordion>
+    </lightning:card>
+    
+    <aura:if isTrue="{!v.showEditor}">
+        <!--###### MODAL BOX Start######--> 
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container" id="bundleConfigModal">
+                <!-- ###### MODAL BOX HEADER Start ######-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{!c.closeModel}"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <c:dealBundleConfig recordId="{!v.recordId}" bundleId="{!v.dealItemId}" showEditor="{!v.showEditor}" onbundleclose="{!c.closeModel}" />
+ 
+<!--                    <c:SureswipeSalesProductSelector dealItemId="{!v.dealItemId}"-->
+<!--                                                     recordId="{!v.recordId}"-->
+<!--                                                     preventSave="false"-->
+<!--                                                     disableAdd="{!v.disableAdd}"-->
+<!--                                                     thirdParty="{!v.thirdParty}"-->
+<!--                                                     saleType="{!v.saleType}"-->
+<!--                                                     showEditor="{!v.showEditor}"-->
+<!--                    />-->
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+</aura:component>

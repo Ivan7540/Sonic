@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Watchlist_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Watchlist Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Watchlist__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Client Overeager</fullName>
+                <default>false</default>
+                <label>Client Overeager</label>
+            </value>
+            <value>
+                <fullName>Foreign National</fullName>
+                <default>false</default>
+                <label>Foreign National</label>
+            </value>
+            <value>
+                <fullName>High Risk Area</fullName>
+                <default>false</default>
+                <label>High Risk Area</label>
+            </value>
+            <value>
+                <fullName>Industry</fullName>
+                <default>false</default>
+                <label>Industry</label>
+            </value>
+            <value>
+                <fullName>ITC Override</fullName>
+                <default>false</default>
+                <label>ITC Override</label>
+            </value>
+            <value>
+                <fullName>Precautionary Measure</fullName>
+                <default>false</default>
+                <label>Precautionary Measure</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Client Overeager</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Foreign National</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>High Risk Area</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Industry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>ITC Override</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>checked</controllingFieldValue>
+            <valueName>Precautionary Measure</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

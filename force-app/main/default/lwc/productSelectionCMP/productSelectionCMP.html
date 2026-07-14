@@ -1,0 +1,47 @@
+<template>
+    <div class="slds-p-top_medium">
+        <lightning-button label="Add Product" variant="brand" onclick={handleAddProduct}>
+        </lightning-button>
+        <c-deal-item-modal onaddproductevent={saveItem}></c-deal-item-modal>
+
+
+        <div class="slds-p-horizontal_small">
+            <template for:each={products} for:item="item" for:index="index">
+
+                <lightning-record-edit-form object-api-name="Deal_Line__c" key={item.key}>
+                    <lightning-messages>
+                    </lightning-messages>
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <lightning-input-field class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12" accesskey={item.key} field-name="Product__c"
+                                               value={item.Product__c} onchange={handleProduct} variant="label-stacked">
+                        </lightning-input-field>
+
+                        <lightning-input-field class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12" accesskey={item.key} field-name="Device__c"
+                                               value={item.Device__c} onchange={handleDevice} variant="label-stacked">
+                        </lightning-input-field>
+
+                        <lightning-input-field class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12" accesskey={item.key} field-name="ContractTerm__c"
+                                               value={item.ContractTerm__c} onchange={handleTerm}
+                                               variant="label-stacked">
+                        </lightning-input-field>
+
+
+                        <lightning-input-field class="slds-col slds-size_1-of-1 slds-medium-size_1-of-12 slds-large-size_1-of-12" accesskey={item.key} field-name="Quantity__c"
+                                               value={item.Quantity__c} onchange={handleQuantity}
+                                               variant="label-stacked">
+
+                        </lightning-input-field>
+                        <div class="slds-col slds-align-middle slds-size_1-of-1 slds-medium-size_1-of-12 slds-large-size_1-of-12">
+                            <lightning-button-icon variant="brand" onclick={removeProduct} icon-name="utility:delete"
+                                                   accesskey={item.key}>
+                            </lightning-button-icon>
+                        </div>
+                    </div>
+                </lightning-record-edit-form>
+
+            </template>
+
+            </br>
+        </div>
+    </div>
+</template>

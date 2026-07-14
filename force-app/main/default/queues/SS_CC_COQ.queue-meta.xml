@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>SS CC COQ</name>
+    <queueMembers>
+        <users>
+            <user>nhlamulo.mabaso@sureswipe.co.za.sonic</user>
+            <user>nomagugu@sureswipe.co.za.sonic</user>
+            <user>roland@sureswipe.co.za.sonic</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>SS_Call_Center_COQ</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

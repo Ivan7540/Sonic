@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model__c</fullName>
+    <externalId>false</externalId>
+    <label>Model</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bluebird MT280 3G</fullName>
+                <default>false</default>
+                <label>Bluebird MT280 3G</label>
+            </value>
+            <value>
+                <fullName>Bluebird MT280 Type A</fullName>
+                <default>false</default>
+                <label>Bluebird MT280 Type A</label>
+            </value>
+            <value>
+                <fullName>Bluebird MT280 Type ACS</fullName>
+                <default>false</default>
+                <label>Bluebird MT280 Type ACS</label>
+            </value>
+            <value>
+                <fullName>Bluetooth Printer</fullName>
+                <default>false</default>
+                <label>Bluetooth Printer</label>
+            </value>
+            <value>
+                <fullName>D-Link</fullName>
+                <default>false</default>
+                <label>D-Link</label>
+            </value>
+            <value>
+                <fullName>Epad</fullName>
+                <default>false</default>
+                <label>Epad</label>
+            </value>
+            <value>
+                <fullName>EtherPad</fullName>
+                <default>false</default>
+                <label>EtherPad</label>
+            </value>
+            <value>
+                <fullName>Giada Windows Media Box</fullName>
+                <default>false</default>
+                <label>Giada Windows Media Box</label>
+            </value>
+            <value>
+                <fullName>Gpad</fullName>
+                <default>false</default>
+                <label>Gpad</label>
+            </value>
+            <value>
+                <fullName>Handheld Device</fullName>
+                <default>false</default>
+                <label>Handheld Device</label>
+            </value>
+            <value>
+                <fullName>Hi-Five</fullName>
+                <default>false</default>
+                <label>Hi-Five</label>
+            </value>
+            <value>
+                <fullName>HiPro</fullName>
+                <default>false</default>
+                <label>HiPro</label>
+            </value>
+            <value>
+                <fullName>ICT220</fullName>
+                <default>false</default>
+                <label>ICT220</label>
+            </value>
+            <value>
+                <fullName>Imprinter</fullName>
+                <default>false</default>
+                <label>Imprinter</label>
+            </value>
+            <value>
+                <fullName>iPhone SE</fullName>
+                <default>false</default>
+                <label>iPhone SE</label>
+            </value>
+            <value>
+                <fullName>IUP250</fullName>
+                <default>false</default>
+                <label>IUP250</label>
+            </value>
+            <value>
+                <fullName>IWL200</fullName>
+                <default>false</default>
+                <label>IWL200</label>
+            </value>
+            <value>
+                <fullName>IWL200 B/T</fullName>
+                <default>false</default>
+                <label>IWL200 B/T</label>
+            </value>
+            <value>
+                <fullName>IWL221</fullName>
+                <default>false</default>
+                <label>IWL221</label>
+            </value>
+            <value>
+                <fullName>IWL222 B/T</fullName>
+                <default>false</default>
+                <label>IWL222 B/T</label>
+            </value>
+            <value>
+                <fullName>M4 Series</fullName>
+                <default>false</default>
+                <label>M4 Series</label>
+            </value>
+            <value>
+                <fullName>M4 Series Wifi</fullName>
+                <default>false</default>
+                <label>M4 Series Wifi</label>
+            </value>
+            <value>
+                <fullName>Mediabox</fullName>
+                <default>false</default>
+                <label>Mediabox</label>
+            </value>
+            <value>
+                <fullName>MiniLink</fullName>
+                <default>false</default>
+                <label>MiniLink</label>
+            </value>
+            <value>
+                <fullName>Mobile Gateway</fullName>
+                <default>false</default>
+                <label>Mobile Gateway</label>
+            </value>
+            <value>
+                <fullName>MPED-400</fullName>
+                <default>false</default>
+                <label>MPED-400</label>
+            </value>
+            <value>
+                <fullName>M Series</fullName>
+                <default>false</default>
+                <label>M Series</label>
+            </value>
+            <value>
+                <fullName>Multi Gateway</fullName>
+                <default>false</default>
+                <label>Multi Gateway</label>
+            </value>
+            <value>
+                <fullName>Newland SP630</fullName>
+                <default>false</default>
+                <label>Newland SP630</label>
+            </value>
+            <value>
+                <fullName>P 3</fullName>
+                <default>false</default>
+                <label>P 3</label>
+            </value>
+            <value>
+                <fullName>Pay@Counter v240</fullName>
+                <default>false</default>
+                <label>Pay@Counter v240</label>
+            </value>
+            <value>
+                <fullName>Pay@Counter e285</fullName>
+                <default>false</default>
+                <label>Pay@Counter e285</label>
+            </value>
+            <value>
+                <fullName>Sim Card</fullName>
+                <default>false</default>
+                <label>Sim Card</label>
+            </value>
+            <value>
+                <fullName>Spad</fullName>
+                <default>false</default>
+                <label>Spad</label>
+            </value>
+            <value>
+                <fullName>Standard</fullName>
+                <default>false</default>
+                <label>Standard</label>
+            </value>
+            <value>
+                <fullName>Tpad</fullName>
+                <default>false</default>
+                <label>Tpad</label>
+            </value>
+            <value>
+                <fullName>TP-Link</fullName>
+                <default>false</default>
+                <label>TP-Link</label>
+            </value>
+            <value>
+                <fullName>Twincom</fullName>
+                <default>false</default>
+                <label>Twincom</label>
+            </value>
+            <value>
+                <fullName>Versa Link</fullName>
+                <default>false</default>
+                <label>Versa Link</label>
+            </value>
+            <value>
+                <fullName>VX820</fullName>
+                <default>false</default>
+                <label>VX820</label>
+            </value>
+            <value>
+                <fullName>W</fullName>
+                <default>false</default>
+                <label>W</label>
+            </value>
+            <value>
+                <fullName>X4 Series</fullName>
+                <default>false</default>
+                <label>X4 Series</label>
+            </value>
+            <value>
+                <fullName>X 5</fullName>
+                <default>false</default>
+                <label>X 5</label>
+            </value>
+            <value>
+                <fullName>X 8</fullName>
+                <default>false</default>
+                <label>X 8</label>
+            </value>
+            <value>
+                <fullName>Microtik Wifi Router</fullName>
+                <default>false</default>
+                <label>Microtik Wifi Router</label>
+            </value>
+            <value>
+                <fullName>Move 2500</fullName>
+                <default>false</default>
+                <label>Move 2500</label>
+            </value>
+            <value>
+                <fullName>P400</fullName>
+                <default>false</default>
+                <label>P400</label>
+            </value>
+            <value>
+                <fullName>VeriFone E285(standalone)</fullName>
+                <default>false</default>
+                <label>VeriFone E285(standalone)</label>
+            </value>
+            <value>
+                <fullName>VeriFone v240m Charging Base</fullName>
+                <default>false</default>
+                <label>VeriFone v240m Charging Base</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

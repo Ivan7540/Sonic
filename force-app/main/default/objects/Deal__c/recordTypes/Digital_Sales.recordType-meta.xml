@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Digital_Sales</fullName>
+    <active>true</active>
+    <description>To be used for Digital Sales</description>
+    <label>Digital Sales</label>
+    <picklistValues>
+        <picklist>AcquiringBank__c</picklist>
+        <values>
+            <fullName>Capitec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nedbank</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Channel__c</picklist>
+        <values>
+            <fullName>Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Walk-In</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Competitor__c</picklist>
+        <values>
+            <fullName>ABSA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Capitech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FNB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HelloPay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ikhoka</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nedbank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Provider</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standard Bank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vodacom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yoco</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ContractType__c</picklist>
+        <values>
+            <fullName>Physical Signing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remote Signing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contract_Term__c</picklist>
+        <values>
+            <fullName>12 Month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>24 Month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Month-to-month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None%28Outright Purchase%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Device__c</picklist>
+        <values>
+            <fullName>A50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A920 Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bluebird</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>M4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Move 2500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SP630</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DocumentCheck__c</picklist>
+        <values>
+            <fullName>FICA Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FICA Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FICA Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ITC Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ITC Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MATCH Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MATCH Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OFAC Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OFAC Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Status__c</picklist>
+        <values>
+            <fullName>Payment Not Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Received</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product__c</picklist>
+        <values>
+            <fullName>Classic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Classic Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Classic Plus with POS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gift And Loyalty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lite</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sale_Type__c</picklist>
+        <values>
+            <fullName>Outright Purchase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rental</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Setup_Fee__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Bank Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client Declined</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client Signed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract Completed%2FWon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document Gathering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Documents Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Payment Link Expired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Link Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Risk Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Risk Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Risk Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sent To Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting Merchant Number</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ThirdParty__c</picklist>
+        <values>
+            <fullName>GAAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Humble</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Change of Entity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Change of Ownership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Branch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>UnqualifiedCategory__c</picklist>
+        <values>
+            <fullName>Client Issues</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Foreigner docs not in order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Next day settlement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Offer not compelling enough</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Owner unreacheable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>POS not integrated</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>UnqualifiedReason__c</picklist>
+        <values>
+            <fullName>Bad Reviews</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Business Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Buying Aid%3A Needs Koopkrag%2C Saambou Etc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client Unavailable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client not contactable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pricing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Risk High</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

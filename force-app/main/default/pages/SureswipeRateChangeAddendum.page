@@ -1,0 +1,110 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml" controller="SureswipeAmendmentPricingController">
+    <block-container>
+        <block font-size="16" color="#142D67">
+            <inline font-weight="bold">Rate Change Request</inline>
+        </block>
+        <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10px">
+            <table-header text-align="center" background-color="#314176">
+                <table-cell display-align="center" padding="5" number-columns-spanned="8">
+                    <block font-weight="bold" text-align="center"><inline color="#FFFFFF" font-size="8">Information relating to off-site use:</inline></block>
+                </table-cell>
+            </table-header>
+            <table-body>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver">
+                        <block  text-align="left"><inline color="#E47D3A" font-size="6">Your Name</inline></block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver" number-columns-spanned="3">
+                        <block  text-align="center" font-size="8">{!currentQuote.SBQQ__PrimaryContact__r.Name}</block>
+                    </table-cell>
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver">
+                        <block  text-align="left"><inline color="#E47D3A" font-size="6">Company Name</inline></block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver" number-columns-spanned="3">
+                        <block  text-align="center" font-size="8">{!currentQuote.SBQQ__Account__r.Name}</block>
+                    </table-cell>
+                </table-row>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver">
+                        <block  text-align="left"><inline color="#E47D3A" font-size="6">Debtor's Code</inline></block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver" number-columns-spanned="3">
+                        <block  text-align="center" font-size="8">{!currentQuote.SBQQ__Account__r.DebtorCode__c}</block>
+                    </table-cell>
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver">
+                        <block  text-align="left"><inline color="#E47D3A" font-size="6">Contact Number</inline></block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver" number-columns-spanned="3">
+                        <block  text-align="center" font-size="8">{!currentQuote.SBQQ__PrimaryContact__r.MobilePhone}</block>
+                    </table-cell>
+                </table-row>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver">
+                        <block  text-align="left"><inline color="#E47D3A" font-size="6">Delivery Address</inline></block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver" number-columns-spanned="3">
+                        <block  text-align="center" font-size="8">{!HTMLENCODE(currentQuote.SBQQ__ShippingStreet__c)}, {!currentQuote.SBQQ__ShippingCity__c}</block>
+                    </table-cell>
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver">
+                        <block  text-align="left"><inline color="#E47D3A" font-size="6">Date</inline></block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver" number-columns-spanned="3">
+                        <block  text-align="center" font-size="8">
+                            <apex:outputText value="{0, date, dd'/'MMM'/'yyyy}">
+                                <apex:param value="{!currentQuote.SBQQ__StartDate__c}"/> 
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+                </table-row>
+            </table-body>
+        </table>
+    </block-container>
+        <block-container>
+            <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="40px">
+                <table-header text-align="center" background-color="#314176">
+                    <table-cell display-align="center" padding="5" number-columns-spanned="4">
+                        <block font-weight="bold" text-align="left"><inline color="#FFFFFF" font-size="8">Rate Type</inline></block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" number-columns-spanned="1">
+                        <block font-weight="bold" text-align="left"><inline color="#FFFFFF" font-size="8">New Rate</inline></block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" number-columns-spanned="1">
+                        <block font-weight="bold" text-align="center"><inline color="#FFFFFF" font-size="8"></inline></block>
+                    </table-cell>
+                </table-header>
+                <table-body>
+                    <apex:repeat value="{!rateDetails}" var="eachItem">
+                        <table-row border-top="1pt solid silver">
+                            <table-cell display-align="left" padding="5" border-top="1pt solid silver" number-columns-spanned="4">
+                                <block  text-align="left"><inline color="#5A6787" font-size="8">{!eachItem.productName}</inline></block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border-top="1pt solid silver">
+                                <block  text-align="left">
+                                    <inline color="#5A6787" font-size="8">
+                                        <apex:outputText value="{0, number, ###,###,###,##0.0000}%">
+                                            <apex:param value="{!eachItem.newRatePercent}"/>
+                                        </apex:outputText>
+                                    </inline>
+                                </block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border-top="1pt solid silver">
+                                <block  text-align="center" font-size="8" color="#FFFFFF">[initial|req|signer0]</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:repeat>
+                </table-body>
+            </table>
+        </block-container>
+    <block margin-top="40px" padding="5" border-bottom-color="#E47D3A" border-top-color="#E47D3A" font-size="8" border-top-style="solid" border-bottom-style="solid" text-align="justify" color="#E47D3A">Please note that by signing this pricing schedule The Merchant agrees and approves to the fees stated herein which will be charged by Sureswipe to The Merchant.
+        On site support consultancy work incurs no cost to the Merchant. If required consumables and other equipment such as plugs, cables, switches will be charged at
+        normal Sureswipe rates.
+    </block>
+
+    <block color="#5A6787" text-align="justify" margin-top="80px">
+        Signed By:<inline color="white" font-size="8">[text|req|signer0| Full name and surname]</inline> on: <inline color="white" font-size="8">[date|req|signer0|Date]</inline> Signature: <inline color="white" font-size="8">[sig|req|signer0]</inline>
+    </block>
+    
+    <block color="#5A6787" text-align="justify" margin-top="80px">
+        Signed By:<inline color="white" font-size="8">[text|req|signer1| Full name and surname]</inline> on: <inline color="white" font-size="8">[date|req|signer1|Date]</inline> Signature: <inline color="white" font-size="8">[sig|req|signer1]</inline>
+    </block>
+</apex:page>

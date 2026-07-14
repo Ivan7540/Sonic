@@ -1,0 +1,12 @@
+<design:component>
+    <design:attribute name="businessType"
+                      label="Business Type"
+                      datasource="Private Company,Close Corporation,Sole Proprietor,Partnership,Trust,Non Profit Organisation"
+                      description="Business Type, overwritten by what is on account"/>
+    <design:attribute name="recordId" label="Record Id" />
+    <design:attribute name="requirementType" label="Requirement Type" datasource="FICA,KYC"/>
+    <design:attribute name="canDelete" label="Allow Delete Files" />
+    <design:attribute name="canAddNew" label="Allow Add New Files" />
+    <design:attribute name="canSelect" label="Allow File Select"/>
+    <design:attribute name="selectedFiles" label="Selected Files" description="Files selected from this component, comma separated" />
+</design:component>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Deals_Committed_this_Week</fullName>
+    <booleanFilter>1 AND 2</booleanFilter>
+    <columns>NAME</columns>
+    <columns>CloseDate__c</columns>
+    <columns>Type__c</columns>
+    <columns>ContractType__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Status__c</columns>
+    <columns>SwipeValue__c</columns>
+    <columns>TransactionMargin__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CloseDate__c</field>
+        <operation>equals</operation>
+        <value>THIS_WEEK</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Closed Lost,Contract Completed/Won</value>
+    </filters>
+    <label>My Deals - Committed this Week</label>
+</ListView>

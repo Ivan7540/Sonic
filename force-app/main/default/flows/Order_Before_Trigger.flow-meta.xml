@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <assignments>
+        <name>Assign_Contracting_Method</name>
+        <label>Assign Contracting Method</label>
+        <locationX>242</locationX>
+        <locationY>551</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.SBQQ__ContractingMethod__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Single Contract</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_to_Contracted</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the contracted flag and activates Order</description>
+        <name>Set_to_Contracted</name>
+        <label>Set to Contracted</label>
+        <locationX>374</locationX>
+        <locationY>767</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.SBQQ__Contracted__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Activated</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Has_Device_Subscriptions</name>
+        <label>Has Device Subscriptions</label>
+        <locationX>374</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Set_to_Contracted</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>HasDeviceSubscriptions</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.TotalAmount</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Contracting_Method</targetReference>
+            </connector>
+            <label>Has Device Subscriptions</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Cancellation_Order</name>
+        <label>Is Cancellation Order</label>
+        <locationX>176</locationX>
+        <locationY>311</locationY>
+        <defaultConnector>
+            <targetReference>Has_Device_Subscriptions</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Is_Cancellation_Order_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancellation</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Sets Order fields when conditions are met</description>
+    <interviewLabel>Order Before Trigger {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Order Before Trigger</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Cancellation_Order</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SBQQ__PriceCalcStatus__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </filters>
+        <object>Order</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

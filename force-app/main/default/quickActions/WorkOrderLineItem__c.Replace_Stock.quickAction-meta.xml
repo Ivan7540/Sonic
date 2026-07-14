@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Runs a flow for creating Stock replacement line</description>
+    <flowDefinition>Replacement_Stock_Addition</flowDefinition>
+    <label>Replace Stock</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Merchant Risk Profile</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Merchant Risk Profiles</value>
+    </caseValues>
+    <layouts>
+        <layout>Merchant Risk Profile Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Risk Rules</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

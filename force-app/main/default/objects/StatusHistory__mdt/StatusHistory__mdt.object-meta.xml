@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Metadata record used to designate an object that is to be tracked for time spent in a status</description>
+    <label>Status History</label>
+    <pluralLabel>Status Histories</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

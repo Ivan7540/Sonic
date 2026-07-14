@@ -1,0 +1,27 @@
+<!--
+ - Created by ViktorijaR on 12/21/2021.
+ -->
+
+<!-- Deal Service Device -->
+<template>
+<!--    <tr class="slds-hint-parent">-->
+        <th data-label="Device Name" scope="row">
+            <div class="slds-truncate" title={deviceLabel}>
+                 {lineNumber}. {deviceLabel}
+            </div>
+        </th>
+
+        <template for:each={allDeviceServConf} for:item="item" for:index="index">
+                <c-deal-service-checkbox key={item.metadataId}
+                                        is-disabled={item.isDisabled}
+                                         value={item.defaultValue}
+                                         record-id={item.Id}
+                                         metadata-id={item.metadataId}
+                                         onvasselected={handleCheckbox}
+                                         item-key={item.metadataId}></c-deal-service-checkbox>
+
+        </template>
+
+
+<!--    </tr>-->
+</template>

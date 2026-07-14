@@ -1,0 +1,24 @@
+<apex:page showHeader="false" sidebar="false" cache="false"  contentType="text/xml" controller="SignatureController">
+    <block-container>
+        <block border-width="1px" color="white" background-color="#0f243e" padding="5px" font-weight="bold" margin="10px">
+            Signatures
+        </block>
+        <block font-weight="bold">For Sureswipe:</block>
+        <apex:repeat value="{!CompanySignatories}" var="eachSignatory">
+            <block border-style="dashed" linefeed-treatment="preserve" padding="10px" margin="10px">Signed at <inline color="white">[text|req|{!eachSignatory}|Signed at]</inline>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; On <inline color="white">[date|req|{!eachSignatory}|Date]</inline> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for <inline font-weight="bold">Sureswipe</inline> who warrants they are duly authorised thereto
+                Name <inline color="white">[text|req|{!eachSignatory}| Full name and surname]</inline> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Signature: <inline color="white">[sig|req|{!eachSignatory}]</inline>
+            </block>
+        </apex:repeat>
+        <block font-weight="bold">For the Client:</block>
+        <block font-weight="bold" font-size="8pt">
+            I, the undersigned signatory, on behalf of the Client, acknowledge that
+            I have read and understand the above terms and agree thereto, and warrant 
+            that I am duly authorised to enter into this SSCA on behalf of the Client.
+        </block>
+        <apex:repeat value="{!ClientSignatories}" var="eachSignatory">
+            <block border-style="dashed" linefeed-treatment="preserve" padding="10px" margin="10px">Signed at <inline color="white">[text|req|{!eachSignatory}|Signed at]</inline>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; On <inline color="white">[date|req|{!eachSignatory}|Date]</inline> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for <inline font-weight="bold">Client</inline> who warrants they are duly authorised thereto
+                Name <inline color="white">[text|req|{!eachSignatory}| Full name and surname]</inline> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Signature: <inline color="white">[sig|req|{!eachSignatory}]</inline>
+            </block>
+        </apex:repeat>
+    </block-container>
+</apex:page>

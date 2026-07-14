@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gift_Loyalty_Work_Order_Completed</fullName>
+    <active>true</active>
+    <description>Checks if Artwork or Training work order has a Contact added. Required for email sending</description>
+    <errorConditionFormula>ISPICKVAL(Status__c, &apos;Completed&apos;) &amp;&amp; OR(ISPICKVAL(Type__c, &apos;Card Design&apos;),ISPICKVAL(Type__c, &apos;Training&apos;)) &amp;&amp; ISBLANK(Contact__c)</errorConditionFormula>
+    <errorMessage>Contact must be selected before completing Work Order</errorMessage>
+</ValidationRule>

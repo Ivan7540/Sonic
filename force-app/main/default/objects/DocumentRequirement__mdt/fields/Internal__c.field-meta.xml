@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internal__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates a document is for internal use only, and should not be presented to the merchant for upload through the digital channel</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Internal</label>
+    <type>Checkbox</type>
+</CustomField>

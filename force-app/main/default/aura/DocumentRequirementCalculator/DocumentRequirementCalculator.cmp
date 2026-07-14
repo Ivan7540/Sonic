@@ -1,0 +1,240 @@
+<aura:component implements="force:lightningQuickAction,flexipage:availableForAllPageTypes,lightning:availableForFlowScreens,lightning:availableForFlowActions,force:hasRecordId,force:hasSObjectName"
+                controller="LCC_DocumentRequirementController">
+    
+    <aura:html tag="style">
+        .slds-modal__container{
+        max-width: 76rem !important;
+        width:100% !important;
+        }
+    </aura:html>
+    
+    <aura:attribute name="filetype" type="List" default="['.png', '.jpg', '.jpeg', '.pdf']" />
+    <aura:attribute name="requirementType" type="String"/>
+    <aura:attribute name="businessType" type="String"/>
+    <aura:attribute name="documentRequirement" type="Object"/>
+    <aura:attribute name="selectedFiles" type="String"/>
+    <aura:attribute name="hideDocuments" type="List" default="['Draft Contract']"/>
+    
+    <aura:attribute name="canDelete" type="Boolean" default="true"/>
+    <aura:attribute name="canAddNew" type="Boolean" default="true"/>
+    <aura:attribute name="canSelect" type="Boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:card iconName="standard:file" title="KYC">
+        <aura:set attribute="actions">
+            <lightning:buttonIcon iconName="utility:refresh" variant="border-filled" alternativeText="Refresh" onclick="{!c.doInit}"/>
+            <aura:if isTrue="{! and(or(v.documentRequirement.isRequirementsComplete, not(empty(v.documentRequirement.combinedFile))), v.canAddNew)}">
+                <lightning:button label="Confirm FICA Uploaded" title= "Confirm FICA Uploaded" onclick="{!c.submitToContracts}"/>
+            </aura:if>
+        </aura:set>
+        <aura:iteration var="eachContact" items="{!v.documentRequirement.contactDetails}">
+            <ul class="slds-has-dividers_bottom-space">
+                <li class="slds-item">
+                    <lightning:tile label="{!eachContact.contactName}" href="{! '/' + eachContact.contactId}">
+                        <aura:set attribute="media">
+                            <lightning:avatar src="/docs/component-library/app/images/examples/avatar1.jpg" fallbackIconName="standard:person_account" alternativeText="{!eachContact.contactName}"/>
+                        </aura:set>
+                        <ul class="slds-list_horizontal slds-has-dividers_right">
+                            <li class="slds-item">{!eachContact.contactRole}</li>
+                            <li class="slds-item">{!eachContact.contactEmail}</li>
+                        </ul>
+                        <aura:iteration var="each" items="{!eachContact.documents}">
+                            <div class="slds-box" style="overflow-x: auto;">
+                                <lightning:layout horizontalAlign="spread">
+                                    <lightning:layoutItem>
+                                        <div class="slds-text-title">{!v.documentRequirement.businessType + ': ' + each.documentDescription}</div>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem>
+                                        <aura:if isTrue="{!each.isComplete}">
+                                            <div class="slds-text-color_success">Complete</div>
+                                            <aura:set attribute="else">
+                                                <aura:if isTrue="{!each.isRequired}">
+                                                    <div class="slds-text-color_error">Incomplete</div>
+                                                    <aura:set attribute="else">
+                                                        <div class="slds-text-color_weak">Optional</div>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </aura:set>
+                                        </aura:if>
+                                    </lightning:layoutItem>
+                                </lightning:layout>
+                                <lightning:layout>
+                                    <aura:iteration var="eachDoc" items="{!each.attachedDocuments}">
+                                        <lightning:layoutItem>
+                                            <lightning:fileCard fileId="{!eachDoc.ContentDocumentId__c}"/>
+                                            <lightning:badge label="{!eachDoc.Tags__c}"/>
+                                            <aura:if isTrue="{!v.canDelete}">
+                                                <lightning:buttonIcon iconName="utility:delete" size="x-small" alternativeText="Delete" title="Delete" onclick="{!c.deleteFile}" name="{!eachDoc.ContentDocumentId__c}"/>
+                                            </aura:if>
+                                        </lightning:layoutItem>
+                                        <aura:if isTrue="{!v.canSelect}">
+                                            <lightning:layoutItem>
+                                                <lightning:input type="checkbox-button" label="Attach" name="{!eachDoc.ContentDocumentId__c}" aura:id="documentSelector" oncommit="{!c.onCheckboxCommit}"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                    </aura:iteration>
+                                </lightning:layout>
+                                <aura:if isTrue="{!v.canAddNew}">
+                                    <lightning:layout>
+                                        <lightning:layoutItem>
+                                            <lightning:fileUpload label="{!each.documentType[0]}" name="{!each.Id}" multiple="false" accept="{!v.filetype}" recordId="{!eachContact.contactId}" fileFieldName="DocumentType_fileupload__c" fileFieldValue="{!each.documentType[0]}" onuploadfinished="{!c.doInit}"/>
+                                        </lightning:layoutItem>
+                                        <aura:if isTrue="{!each.documentType.length > 1}">
+                                            <lightning:layoutItem>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </lightning:layoutItem>
+                                            <lightning:layoutItem>
+                                                <lightning:fileUpload label="{!each.documentType[1]}" name="{!each.Id}" multiple="false" accept="{!v.filetype}" recordId="{!eachContact.contactId}" fileFieldName="DocumentType_fileupload__c" fileFieldValue="{!each.documentType[1]}" onuploadfinished="{!c.doInit}"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                        <aura:if isTrue="{!each.documentType.length > 2}">
+                                            <lightning:layoutItem>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </lightning:layoutItem>
+                                            <lightning:layoutItem>
+                                                <lightning:fileUpload label="{!each.documentType[2]}" name="{!each.Id}" multiple="false" accept="{!v.filetype}" recordId="{!eachContact.contactId}" fileFieldName="DocumentType_fileupload__c" fileFieldValue="{!each.documentType[2]}" onuploadfinished="{!c.doInit}"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                        <aura:if isTrue="{!each.documentType.length > 3}">
+                                            <lightning:layoutItem>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </lightning:layoutItem>
+                                            <lightning:layoutItem>
+                                                <lightning:fileUpload label="{!each.documentType[3]}" name="{!each.Id}" multiple="false" accept="{!v.filetype}" recordId="{!eachContact.contactId}" fileFieldName="DocumentType_fileupload__c" fileFieldValue="{!each.documentType[3]}" onuploadfinished="{!c.doInit}"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                        <aura:if isTrue="{!each.documentType.length > 4}">
+                                            <lightning:layoutItem>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </lightning:layoutItem>
+                                            <lightning:layoutItem>
+                                                <lightning:fileUpload label="{!each.documentType[4]}" name="{!each.Id}" multiple="false" accept="{!v.filetype}" recordId="{!each.contactId}" fileFieldName="DocumentType_fileupload__c" fileFieldValue="{!each.documentType[4]}" onuploadfinished="{!c.doInit}"/>
+                                            </lightning:layoutItem>
+                                        </aura:if>
+                                    </lightning:layout>
+                                </aura:if>
+                            </div>
+                            <div class="slds-m-top_small">&nbsp;</div>
+                        </aura:iteration>
+                    </lightning:tile>
+                </li>
+            </ul>
+        </aura:iteration>
+    </lightning:card>
+    <lightning:card iconName="standard:file" title="FICA" >
+        <aura:iteration var="each" items="{!v.documentRequirement.documents}">
+            <div class="slds-box" style="overflow-x: auto;">
+                <lightning:layout horizontalAlign="spread">
+                    <lightning:layoutItem>
+                        <div class="slds-text-title">{!v.documentRequirement.businessType + ': ' + each.documentDescription}</div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem>
+                        <aura:if isTrue="{!each.isComplete}">
+                            <div class="slds-text-color_success">Complete</div>
+                            <aura:set attribute="else">
+                                <aura:if isTrue="{!each.isRequired}">
+                                    <div class="slds-text-color_error">Incomplete</div>
+                                    <aura:set attribute="else">
+                                        <div class="slds-text-color_weak">Optional</div>
+                                    </aura:set>
+                                </aura:if>
+                            </aura:set>
+                        </aura:if>
+                    </lightning:layoutItem>
+                </lightning:layout>
+                <lightning:layout>
+                    <aura:iteration var="eachDoc" items="{!each.attachedDocuments}">
+                        <lightning:layoutItem>
+                            <lightning:fileCard fileId="{!eachDoc.ContentDocumentId__c}"/>
+                            <lightning:badge label="{!eachDoc.Tags__c}"/>
+                            <aura:if isTrue="{!v.canDelete}">
+                                <lightning:buttonIcon iconName="utility:delete" size="x-small" alternativeText="Delete" title="Delete" onclick="{!c.deleteFile}" name="{!eachDoc.ContentDocumentId__c}"/>
+                            </aura:if>
+                        </lightning:layoutItem>
+                        <aura:if isTrue="{!v.canSelect}">
+                            <lightning:layoutItem>
+                                <lightning:input type="checkbox-button" label="Attach" name="{!eachDoc.ContentDocumentId__c}" aura:id="documentSelector" oncommit="{!c.onCheckboxCommit}"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                    </aura:iteration>
+                </lightning:layout>
+                <aura:if isTrue="{!v.canAddNew}">
+                    <lightning:layout>
+                        <lightning:layoutItem>
+                            <lightning:fileUpload label="{!each.documentType[0]}" name="{!each.Id}" multiple="false" accept="{!v.filetype}" recordId="{!v.recordId}" fileFieldName="DocumentType_fileupload__c" fileFieldValue="{!each.documentType[0]}" onuploadfinished="{!c.doInit}"/>
+                        </lightning:layoutItem>
+                        <aura:if isTrue="{!each.documentType.length > 1}">
+                            <lightning:layoutItem>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </lightning:layoutItem>
+                            <lightning:layoutItem>
+                                <lightning:fileUpload label="{!each.documentType[1]}" name="{!each.Id}" multiple="false" accept="{!v.filetype}" recordId="{!v.recordId}" fileFieldName="DocumentType_fileupload__c" fileFieldValue="{!each.documentType[1]}" onuploadfinished="{!c.doInit}"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                        <aura:if isTrue="{!each.documentType.length > 2}">
+                            <lightning:layoutItem>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </lightning:layoutItem>
+                            <lightning:layoutItem>
+                                <lightning:fileUpload label="{!each.documentType[2]}" name="{!each.Id}" multiple="false" accept="{!v.filetype}" recordId="{!v.recordId}" fileFieldName="DocumentType_fileupload__c" fileFieldValue="{!each.documentType[2]}" onuploadfinished="{!c.doInit}"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                        <aura:if isTrue="{!each.documentType.length > 3}">
+                            <lightning:layoutItem>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </lightning:layoutItem>
+                            <lightning:layoutItem>
+                                <lightning:fileUpload label="{!each.documentType[3]}" name="{!each.Id}" multiple="false" accept="{!v.filetype}" recordId="{!v.recordId}" fileFieldName="DocumentType_fileupload__c" fileFieldValue="{!each.documentType[3]}" onuploadfinished="{!c.doInit}"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                        <aura:if isTrue="{!each.documentType.length > 4}">
+                            <lightning:layoutItem>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </lightning:layoutItem>
+                            <lightning:layoutItem>
+                                <lightning:fileUpload label="{!each.documentType[4]}" name="{!each.Id}" multiple="false" accept="{!v.filetype}" recordId="{!v.recordId}" fileFieldName="DocumentType_fileupload__c" fileFieldValue="{!each.documentType[4]}" onuploadfinished="{!c.doInit}"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                    </lightning:layout>
+                </aura:if>
+            </div>
+            <div class="slds-m-top_small">&nbsp;</div>
+        </aura:iteration>
+        <div class="slds-text-heading_medium">OR upload combined document (which will increase processing time): </div>
+        <aura:if isTrue="{! not(empty(v.documentRequirement.combinedFile))}">
+            <lightning:fileCard fileId="{!v.documentRequirement.combinedFile.ContentDocumentId__c}"/>
+            <lightning:badge label="{!v.documentRequirement.combinedFile.Tags__c}"/>
+            <aura:if isTrue="{!v.canDelete}">
+                <lightning:buttonIcon iconName="utility:delete" size="x-small" alternativeText="Delete" title="Delete" onclick="{!c.deleteFile}" name="{!v.documentRequirement.combinedFile.ContentDocumentId__c}"/>
+            </aura:if>
+        </aura:if>
+        
+        <lightning:fileUpload label="Combined FICA Document"
+                              name="combinedFICADocument"
+                              multiple="false"
+                              accept="{!v.filetype}"
+                              recordId="{!v.recordId}"
+                              fileFieldName="DocumentType_fileupload__c"
+                              fileFieldValue="Combined FICA Documents"
+                              onuploadfinished="{!c.doInit}"/>
+        <div class="slds-text-heading_small">Other Documents: </div>
+        <lightning:layout multipleRows="true">
+            <aura:iteration var="eachDoc" items="{!v.documentRequirement.otherDocuments}">
+                <lightning:layoutItem padding="around-small">
+                    <lightning:layout>
+                        <lightning:layoutItem>
+                            <lightning:fileCard fileId="{!eachDoc.ContentDocumentId__c}"/>
+                            <lightning:badge label="{!eachDoc.Tags__c}"/>
+                        </lightning:layoutItem>
+                        <aura:if isTrue="{!v.canSelect}">
+                            <lightning:layoutItem>
+                                <lightning:input type="checkbox-button" label="Attach" name="{!eachDoc.ContentDocumentId__c}" aura:id="documentSelector" oncommit="{!c.onCheckboxCommit}"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                    </lightning:layout>
+                </lightning:layoutItem>
+            </aura:iteration>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

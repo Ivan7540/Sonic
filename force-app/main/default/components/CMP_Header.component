@@ -1,0 +1,13 @@
+<apex:component access="global">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tbody>
+            <tr>
+                <td valign="top" width="600" colspan="5">
+                    <span style="margin-bottom: 0px; margin-top: 0px;">
+                        <img src="https://c.eu7.content.force.com/servlet/servlet.ImageServer?id=0150J000004kPFh&oid=00D20000000BFfY&lastMod=1518415818000" width="640" height="96" alt="SureSwipe logo"/>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</apex:component>

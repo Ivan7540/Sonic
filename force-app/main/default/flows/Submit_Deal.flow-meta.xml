@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <decisions>
+        <description>If deal is on Quote Approved, show warning message.</description>
+        <name>Check_Deal_Status</name>
+        <label>Check Deal Status</label>
+        <locationX>182</locationX>
+        <locationY>278</locationY>
+        <defaultConnector>
+            <targetReference>Submit_Deal</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Deal_is_Quote_Approved</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Deal_for_Status.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Deal_for_Status.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Client</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Document_Warning</targetReference>
+            </connector>
+            <label>Deal is Quote Approved</label>
+        </rules>
+    </decisions>
+    <description>Added screen with text displaying a warning when this flow is started while the deal&apos;s status is at Quote Approved</description>
+    <interviewLabel>Submit Deal {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Submit Deal</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_Deal_for_Status</name>
+        <label>Get Deal for Status</label>
+        <locationX>182</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Deal_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Deal__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>GetDeal</name>
+        <label>Get Deal</label>
+        <locationX>182</locationX>
+        <locationY>854</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Opportunity_Document_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Deal__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Deal</name>
+        <label>Update Deal</label>
+        <locationX>182</locationX>
+        <locationY>734</locationY>
+        <connector>
+            <targetReference>GetDeal</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Submit_Deal_0</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Documents Submitted</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SubmitDealCompleted__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Deal__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Opportunity_Document_Status</name>
+        <label>Update Opportunity Document Status</label>
+        <locationX>182</locationX>
+        <locationY>974</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetDeal.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>DocumentCheckStatus__c</field>
+            <value>
+                <stringValue>FICA Submitted</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>Document_Warning</name>
+        <label>Document Warning</label>
+        <locationX>50</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Submit_Deal</targetReference>
+        </connector>
+        <fields>
+            <name>WrongStatusWarning</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;Please Note&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;This Deal&apos;s status is &lt;strong&gt;not&lt;/strong&gt; at &lt;em&gt;Client Signed&lt;/em&gt;. &lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;Only proceed if you have &lt;strong&gt;manually attached&lt;/strong&gt; the signed contract, &lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;and you are confident that all the of the FICA requirements have been met.&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Submit_Deal</name>
+        <label>Submit Deal</label>
+        <locationX>182</locationX>
+        <locationY>614</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_Deal</targetReference>
+        </connector>
+        <fields>
+            <name>submitDeal</name>
+            <fieldText>&lt;p&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Your deal will be submitted to Operations for processing. Please manage the customers expectations around the following:&lt;/b&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Installation TAT 4 - 7 days&lt;/li&gt;&lt;li&gt;Installations will not happen sooner than the agreed on TAT (No Exceptions)&lt;/li&gt;&lt;li&gt;If FICA documents are incomplete or incorrect, this will affect the installation TAT&lt;/li&gt;&lt;li&gt;Billing takes place on the 15th of each month&lt;/li&gt;&lt;li&gt;If you attached a combined document, please be aware that this will increase processing time&lt;/li&gt;&lt;/ul&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Submit_Deal_0</name>
+        <label>Submit Deal</label>
+        <locationX>490</locationX>
+        <locationY>854</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>errorMessage_0</name>
+            <fieldText>&lt;p&gt;Something went wrong:{!$Flow.FaultMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Deal_for_Status</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

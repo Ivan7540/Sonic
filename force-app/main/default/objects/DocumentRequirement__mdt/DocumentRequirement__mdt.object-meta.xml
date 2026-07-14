@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SWW:2021-05-04:: Custom Metadata for documents requirements such as FICA KYC etc</description>
+    <label>Document Requirement</label>
+    <pluralLabel>Document Requirements</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

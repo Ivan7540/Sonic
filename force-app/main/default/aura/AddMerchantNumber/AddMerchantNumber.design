@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="recordId" label="Account Id"/>
+    <design:attribute name="acquiringBank" label="Acquiring Bank"/>
+</design:component>

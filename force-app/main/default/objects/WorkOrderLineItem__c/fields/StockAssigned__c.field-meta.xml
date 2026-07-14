@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StockAssigned__c</fullName>
+    <description>Verifies that related Assets have Stock assigned to them</description>
+    <externalId>false</externalId>
+    <formula>NOT(ISBLANK(Asset__r.AssignedStock__c))</formula>
+    <label>Stock Assigned</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

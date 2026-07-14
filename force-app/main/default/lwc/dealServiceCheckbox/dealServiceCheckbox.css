@@ -1,0 +1,5 @@
+:host { display: table-cell }
+
+.serviceCheckbox{
+    margin-left: 8px;
+}

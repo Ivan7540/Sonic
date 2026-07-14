@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>Auto Response Email to Case</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.OwnerId</field>
+                <operation>equals</operation>
+                <value>SS_Call Centre</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subject</field>
+                <operation>notEqual</operation>
+                <value>Auto Responder</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <replyToEmail>help@sureswipe.co.za</replyToEmail>
+            <senderEmail>system@sureswipe.co.za</senderEmail>
+            <senderName>Sureswipe</senderName>
+            <template>System_Templates/Auto_Response_to_Case</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.OwnerId</field>
+                <operation>equals</operation>
+                <value>SS Product Operations</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <replyToEmail>productops@sureswipe.co.za</replyToEmail>
+            <senderEmail>system@sureswipe.co.za</senderEmail>
+            <senderName>Sureswipe</senderName>
+            <template>System_Templates/Auto_Response_to_ProductOps_Case</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.OwnerId</field>
+                <operation>equals</operation>
+                <value>SS_Account Management</value>
+            </criteriaItems>
+            <notifyCcRecipients>true</notifyCcRecipients>
+            <replyToEmail>accountmanager@sureswipe.co.za</replyToEmail>
+            <senderEmail>system@sureswipe.co.za</senderEmail>
+            <senderName>Sureswipe</senderName>
+            <template>System_Templates/Auto_Response_to_Account_Mangers_Case</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.OwnerId</field>
+                <operation>equals</operation>
+                <value>Salesforce Admins</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <replyToEmail>sonichelp@adumo.com</replyToEmail>
+            <senderEmail>system@sureswipe.co.za</senderEmail>
+            <senderName>Sureswipe</senderName>
+            <template>System_Templates/Auto_Response_to_Case_Sonic_Help</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

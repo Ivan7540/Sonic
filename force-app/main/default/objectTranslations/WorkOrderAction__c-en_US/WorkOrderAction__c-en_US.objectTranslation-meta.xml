@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Work Order Action</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Work Order Actions</value>
+    </caseValues>
+    <layouts>
+        <layout>Work Order Action Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Complete_Cannot_Revert</name>
+    </validationRules>
+</CustomObjectTranslation>

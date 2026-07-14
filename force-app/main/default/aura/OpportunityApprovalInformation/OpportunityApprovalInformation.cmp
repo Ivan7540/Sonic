@@ -1,0 +1,28 @@
+<aura:component description="OpportunityApprovalInformation"
+                implements="flexipage:availableForAllPageTypes,lightning:availableForFlowScreens,lightning:availableForFlowActions,force:hasRecordId,force:hasSObjectName"
+                controller="OpportunityApprovalInfoController">
+    <aura:attribute name="opportunityId" type="String"/>
+    <aura:attribute name="opportunityType" type="String"/>
+    <aura:attribute name="opportunityLines" type="List"/>
+    <aura:attribute name="productColumns" type="List"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+        <aura:if isTrue="{!v.opportunityType == 'Change of Rate'}">
+            <c:SureswipeRatesTable recordId="{!v.recordId}" title="Rates"/>
+            <aura:set attribute="else">
+                <lightning:card iconName="standard:product_item" title="Opportunity Products">
+                <lightning:datatable aura:id="rateTable"
+                                     keyField="quoteLineId"
+                                     data="{!v.opportunityLines}"
+                                     columns="{!v.productColumns}"
+                                     hideCheckboxColumn="true"/>
+                </lightning:card>
+            </aura:set>
+        </aura:if>
+
+
+
+
+</aura:component>

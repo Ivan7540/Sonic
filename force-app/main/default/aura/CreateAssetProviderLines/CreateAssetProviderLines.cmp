@@ -1,0 +1,66 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,lightning:availableForFlowScreens,lightning:availableForFlowActions,force:hasRecordId,force:hasSObjectName"
+                controller="LCC_CreateAssetProvidersController">
+    
+    <aura:attribute name="assetsData" type="Object"/>
+    <aura:attribute name="showButtons" type="Boolean" default="true"/>
+    <aura:attribute name="providerOptions" type="List" default="[{'label': 'ACS', 'value': 'ACS'},
+                                                                {'label': 'Innervation', 'value': 'Innervation'}]"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card iconName="standard:product_item" title="Asset Providers" >
+        <aura:set attribute="actions">
+            <lightning:buttonIcon iconName="utility:refresh" onclick="{! c.doInit}"/>
+            </aura:set>
+        <aura:iteration items="{! v.assetsData}" var="each">
+            <div class="slds-box">                
+                <div class="slds-text-title slds-m-left_small">{!each.thisAsset.Name} :  {!each.thisAsset.SerialNumber}</div>                
+                <aura:iteration  items="{!each.assetProviders}" var="provider">
+                    <br></br>
+                    <lightning:layout>
+                        <lightning:layoutItem>
+                            <lightning:input name="assetProviderService"
+                                             disabled="true" 
+                                             value="{!provider.Service__c}"
+                                             label="Service" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem>
+                           
+                            <lightning:input name="terminalNumber"
+                                             disabled="true" 
+                                             value="{!provider.Terminal__r.TerminalNumber__c}"
+                                             label="Terminal#" />
+                            
+                        </lightning:layoutItem>
+                        <lightning:layoutItem>
+                            <lightning:combobox name="{!provider.Id}"
+                                                label="Merchant Id"
+                                                options="{! each.options }"
+                                                value="{! provider.MerchantId__c}"
+                                                onchange="{! c.handleMIDChange }"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem>
+                            <lightning:combobox name="{!provider.Id}"
+                                                options="{!v.providerOptions}"
+                                                value="{!provider.Terminal__r.Provider__c}"
+                                                label="Provider"
+                                                onchange="{! c.handleProviderChange}"/>
+                            
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </aura:iteration>
+                <div class="slds-text-color_destructive">{!each.validationMessage}</div>
+            </div>
+        </aura:iteration>
+        <aura:if isTrue="{!v.showButtons}">
+            <br></br>
+            <div class="slds-m-left_small" align="right">
+                <lightning:button label="Cancel"
+                                  onclick="{!c.handleCancelClick}"/>
+                              
+                <lightning:button label="Save"
+                                  variant="brand"
+                                  onclick="{!c.handleSaveClick}"/>
+            </div>
+        </aura:if>
+    </lightning:card>
+</aura:component>

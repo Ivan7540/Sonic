@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>FICA_Approval_Approved_Alert</fullName>
+        <description>FICA Approval Approved Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/FICA_Approval_Approved_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>FICA_Approval_Assignment_Alert</fullName>
+        <description>FICA Approval Assignment Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/FICA_Approval_Assignment_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>FICA_Approval_Rejected_Alert</fullName>
+        <description>FICA Approval Rejected Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/FICA_Approval_Rejected_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>ITC_Approval_Approved_Alert</fullName>
+        <description>ITC Approval Approved Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/ITC_Approval_Approved_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>ITC_Approval_Assignment_Alert</fullName>
+        <description>ITC Approval Assignment Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/ITC_Approval_Assignment_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>ITC_Approval_Rejected_Alert</fullName>
+        <description>ITC Approval Rejected Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/ITC_Approval_Rejected_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>ITC_Override_Approval_Alert</fullName>
+        <description>ITC Override Approval Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/ITC_Override_Approval_Assignment</template>
+    </alerts>
+    <alerts>
+        <fullName>ITC_Override_Approval_Approved</fullName>
+        <description>ITC Override Approval Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <field>LastModifiedById</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/ITC_Override_Approval_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>ITC_Override_Approval_Rejected</fullName>
+        <description>ITC Override Approval Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/ITC_Override_Approval_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>MATCH_Approval_Approved_Alert</fullName>
+        <description>MATCH Approval Approved Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/MATCH_Approval_Approved_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>MATCH_Approval_Assignment_Alert</fullName>
+        <description>MATCH Approval Assignment Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/MATCH_Approval_Assignment_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>MATCH_Approval_Rejected_Alert</fullName>
+        <description>MATCH Approval Rejected Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/MATCH_Approval_Rejected_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>OFAC_Approval_Approved_Alert</fullName>
+        <description>OFAC Approval Approved Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/OFAC_Approval_Approved_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>OFAC_Approval_Assignment_Alert</fullName>
+        <description>OFAC Approval Assignment Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/OFAC_Approval_Assignment_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>OFAC_Approval_Rejected_Alert</fullName>
+        <description>OFAC Approval Rejected Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/OFAC_Approval_Rejected_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Opportunity_Amendment_Approval</fullName>
+        <description>Opportunity Amendment Approval</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/Amendment_Approval_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Opportunity_Amendment_Rejected</fullName>
+        <description>Opportunity Amendment Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/Amendment_Rejected_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Risk_Approval_Approved_Alert</fullName>
+        <description>Risk Approval Approved Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/Risk_Approval_Approved_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Risk_Approval_Assignment_Alert</fullName>
+        <description>Risk Approval Assignment Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>janinelouw@sureswipe.co.za.sonic</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>phumudzo@sureswipe.co.za.sonic</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/Risk_Approval_Assignment_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Risk_Approval_Rejected_Alert</fullName>
+        <description>Risk Approval Rejected Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Approval_Templates/Risk_Approval_Rejected_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>test</fullName>
+        <description>test</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>brian@sureswipe.co.za.sonic</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Opportunity_Templates/Opportunity_Approved</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Opportunity_Contract_Rejected</fullName>
+        <field>StageName</field>
+        <literalValue>Closed Lost</literalValue>
+        <name>Opportunity Contract Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_FICA_Approved</fullName>
+        <field>DocumentCheckStatus__c</field>
+        <literalValue>FICA Approved</literalValue>
+        <name>Opportunity FICA Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_FICA_Rejected</fullName>
+        <field>DocumentCheckStatus__c</field>
+        <literalValue>FICA Rejected</literalValue>
+        <name>Opportunity FICA Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_ITC_Approved</fullName>
+        <field>DocumentCheckStatus__c</field>
+        <literalValue>ITC Approved</literalValue>
+        <name>Opportunity ITC Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_ITC_Rejected</fullName>
+        <field>DocumentCheckStatus__c</field>
+        <literalValue>ITC Rejected</literalValue>
+        <name>Opportunity ITC Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_MATCH_Approved</fullName>
+        <field>DocumentCheckStatus__c</field>
+        <literalValue>MATCH Approved</literalValue>
+        <name>Opportunity MATCH Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_MATCH_Rejected</fullName>
+        <field>DocumentCheckStatus__c</field>
+        <literalValue>MATCH Rejected</literalValue>
+        <name>Opportunity MATCH Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_OFAC_Approved</fullName>
+        <field>DocumentCheckStatus__c</field>
+        <literalValue>OFAC Approved</literalValue>
+        <name>Opportunity OFAC Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_OFAC_Rejected</fullName>
+        <field>DocumentCheckStatus__c</field>
+        <literalValue>OFAC Rejected</literalValue>
+        <name>Opportunity OFAC Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_Risk_Submitted</fullName>
+        <field>StageName</field>
+        <literalValue>Risk Submitted</literalValue>
+        <name>Opportunity Risk Submitted</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_Stage_Contract_Rejected</fullName>
+        <field>StageName</field>
+        <literalValue>Contract Rejected</literalValue>
+        <name>Opportunity Stage Contract Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_Stage_Documents_Gathering</fullName>
+        <field>StageName</field>
+        <literalValue>Document Gathering</literalValue>
+        <name>Opportunity Stage: Documents Gathering</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_Stage_Quote_Approved</fullName>
+        <field>StageName</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Opportunity Stage Quote Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_Stage_Quote_Approved_R</fullName>
+        <description>Update Stage and Re-evaluate rules</description>
+        <field>StageName</field>
+        <literalValue>Quote Approved</literalValue>
+        <name>Opportunity Stage Quote Approved (R)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_Stage_Quote_Rejected</fullName>
+        <field>StageName</field>
+        <literalValue>Quote Rejected</literalValue>
+        <name>Opportunity Stage Quote Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opportunity_Stage_Quote_Submitted</fullName>
+        <field>StageName</field>
+        <literalValue>Quote Submitted</literalValue>
+        <name>Opportunity Stage Quote Submitted</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Opportunity_to_Risk_Rejected</fullName>
+        <field>StageName</field>
+        <literalValue>Risk Rejected</literalValue>
+        <name>Set Opportunity to Risk Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Opportunity_To_Risk_Approved</fullName>
+        <field>StageName</field>
+        <literalValue>Risk Approved</literalValue>
+        <name>Update Opportunity To Risk Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Test email</fullName>
+        <actions>
+            <name>test</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Contract Completed/Won</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

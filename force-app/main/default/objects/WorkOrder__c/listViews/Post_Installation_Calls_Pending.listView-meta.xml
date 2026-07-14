@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Post_Installation_Calls_Pending</fullName>
+    <columns>NAME</columns>
+    <columns>Province__c</columns>
+    <columns>Account__c</columns>
+    <columns>Trading_Name__c</columns>
+    <columns>Contact__c</columns>
+    <columns>AppointmentDate__c</columns>
+    <columns>Completed_Date__c</columns>
+    <columns>Technician__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Completed</value>
+    </filters>
+    <filters>
+        <field>Completed_Date__c</field>
+        <operation>equals</operation>
+        <value>YESTERDAY</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>WorkOrder__c.HighTouch</value>
+    </filters>
+    <filters>
+        <field>WorkOrderType__c</field>
+        <operation>equals</operation>
+        <value>New Business,New Branch</value>
+    </filters>
+    <filters>
+        <field>Debtors_Code__c</field>
+        <operation>notEqual</operation>
+        <value>GAA001,HUM017</value>
+    </filters>
+    <label>Post Installation Calls Pending</label>
+    <sharedTo>
+        <role>SS_Contracts_User</role>
+        <role>SS_Fulfillment_User</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>SWW:2021-04-05:: Callback event for CPQ API, needed to ensure processes wait for pricing to be updated before further actions happen</description>
+    <eventType>HighVolume</eventType>
+    <label>CPQ Calculate API Callback</label>
+    <pluralLabel>CPQ Calculate API Callbacks</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

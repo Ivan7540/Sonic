@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Either_Rebate_Amount_or_Percentage</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(BLANKVALUE(RebatePercent__c, 0) &gt; 0,
+    BLANKVALUE(RebateAmount__c, 0) &gt; 0
+			)</errorConditionFormula>
+    <errorMessage>Only Rebate Percent or Rebate Amount can be used, not both.</errorMessage>
+</ValidationRule>

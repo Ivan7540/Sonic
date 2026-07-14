@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Product</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Classic</fullName>
+                <default>true</default>
+                <label>Classic</label>
+            </value>
+            <value>
+                <fullName>ClassicPlus</fullName>
+                <default>false</default>
+                <label>Classic Plus</label>
+            </value>
+            <value>
+                <fullName>Lite</fullName>
+                <default>false</default>
+                <label>Lite</label>
+            </value>
+            <value>
+                <fullName>ClassicPlusWithPOS</fullName>
+                <default>false</default>
+                <label>Classic Plus With POS</label>
+            </value>
+            <value>
+                <fullName>Humble</fullName>
+                <default>false</default>
+                <label>Humble</label>
+            </value>
+            <value>
+                <fullName>GAAP</fullName>
+                <default>false</default>
+                <label>GAAP</label>
+            </value>
+            <value>
+                <fullName>SureswipeAcquiring</fullName>
+                <default>false</default>
+                <label>Acquiring Only (No Device)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

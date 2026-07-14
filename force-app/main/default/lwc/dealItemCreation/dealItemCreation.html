@@ -1,0 +1,45 @@
+<template>
+    <div class="slds-p-top_medium">
+<!--        <lightning-button label="Add Rate" variant="brand" onclick={handleAddRow}>-->
+<!--        </lightning-button>-->
+        <lightning-card>
+            <template for:each={records} for:item="item" for:index="index">
+                <div key={item.key} class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col  slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                        <c-lookup-input lookup-label="Product" object-api-name="Product2" icon-name="standard:product"
+                                        selected-record-id={item.Rate__c} selected-value={item.Name}
+                                        onrecordselection={onProductSelect} accesskey={item.key}></c-lookup-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+                        <lightning-input type="number" class="rowInputs" name={item.Rate_Percentage__c}
+                                         value={item.Rate_Percentage__c} accesskey={item.key}
+                                         onchange={savePercentage} step=".001" formatter="percent-fixed"
+                                         label="Rate Percentage" disabled={item.disableRate}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+                        <lightning-input type="number" class="rowInputs" name={item.CardSplit__c}
+                                         value={item.CardSplit__c} accesskey={item.key}
+                                         onchange={saveCardSplit} step=".1" formatter="percent-fixed"
+                                         label="Card Split" disabled={item.disableRate}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+                        <lightning-input type="number" class="rowInputs" name={item.TransactionFee__c}
+                                         value={item.TransactionFee__c} accesskey={item.key}
+                                         onchange={saveTransactionFee} step=".01" formatter="currency"
+                                         label="Transaction Fee" disabled={item.disableFee}>
+                        </lightning-input>
+                    </div>
+<!--                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-12 slds-large-size_1-of-12 slds-align-bottom">-->
+<!--                    <lightning-button-icon variant="brand" onclick={removeRecord} icon-name="utility:delete"-->
+<!--                                           accesskey={item.key}>-->
+<!--                    </lightning-button-icon>-->
+<!--                </div>-->
+                </div>
+            </template>
+
+            </br>
+        </lightning-card>
+    </div>
+</template>

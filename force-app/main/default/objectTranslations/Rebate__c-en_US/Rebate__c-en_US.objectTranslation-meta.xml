@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Rebate</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Rebates</value>
+    </caseValues>
+    <layouts>
+        <layout>Rebate Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Either_Rebate_Amount_or_Percentage</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>OriginalSubscriptionLineCanBeRebated</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>RebateEndDateValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>RebatePercentageValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>RebateStartDateValidation</name>
+    </validationRules>
+</CustomObjectTranslation>

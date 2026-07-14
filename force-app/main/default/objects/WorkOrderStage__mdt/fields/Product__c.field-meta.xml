@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product__c</fullName>
+    <description>Matches the Product field value on the Work Order</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Product</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Integrated</fullName>
+                <default>false</default>
+                <label>Integrated</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Device</fullName>
+                <default>false</default>
+                <label>Device</label>
+            </value>
+            <value>
+                <fullName>Swipe Rates</fullName>
+                <default>false</default>
+                <label>Swipe Rates</label>
+            </value>
+            <value>
+                <fullName>EFT</fullName>
+                <default>false</default>
+                <label>EFT</label>
+            </value>
+            <value>
+                <fullName>Lite</fullName>
+                <default>false</default>
+                <label>Lite</label>
+            </value>
+            <value>
+                <fullName>Accessory</fullName>
+                <default>false</default>
+                <label>Accessory</label>
+            </value>
+            <value>
+                <fullName>Connectivity</fullName>
+                <default>false</default>
+                <label>Connectivity</label>
+            </value>
+            <value>
+                <fullName>Base</fullName>
+                <default>false</default>
+                <label>Base</label>
+            </value>
+            <value>
+                <fullName>Modem</fullName>
+                <default>false</default>
+                <label>Modem</label>
+            </value>
+            <value>
+                <fullName>Pin Pad</fullName>
+                <default>false</default>
+                <label>Pin Pad</label>
+            </value>
+            <value>
+                <fullName>Printer</fullName>
+                <default>false</default>
+                <label>Printer</label>
+            </value>
+            <value>
+                <fullName>Rental</fullName>
+                <default>false</default>
+                <label>Rental</label>
+            </value>
+            <value>
+                <fullName>Switch</fullName>
+                <default>false</default>
+                <label>Switch</label>
+            </value>
+            <value>
+                <fullName>Gift and Loyalty</fullName>
+                <default>false</default>
+                <label>Gift and Loyalty</label>
+            </value>
+            <value>
+                <fullName>GAAP</fullName>
+                <default>false</default>
+                <label>GAAP</label>
+            </value>
+            <value>
+                <fullName>Semi-Integrated</fullName>
+                <default>false</default>
+                <label>Semi-Integrated</label>
+            </value>
+            <value>
+                <fullName>Cash Advance</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cash Advance</label>
+            </value>
+            <value>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fixed</label>
+            </value>
+            <value>
+                <fullName>Gift</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gift</label>
+            </value>
+            <value>
+                <fullName>I need advice on the best machine type</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>I need advice on the best machine type</label>
+            </value>
+            <value>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Loyalty</label>
+            </value>
+            <value>
+                <fullName>MOVE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>MOVE</label>
+            </value>
+            <value>
+                <fullName>Portable</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Portable</label>
+            </value>
+            <value>
+                <fullName>Prepaid</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Prepaid</label>
+            </value>
+            <value>
+                <fullName>Virtual Vouchers</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Virtual Vouchers</label>
+            </value>
+            <value>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>eCommerce</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

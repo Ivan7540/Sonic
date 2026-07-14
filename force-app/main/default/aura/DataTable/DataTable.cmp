@@ -1,0 +1,21 @@
+<aura:component implements="force:lightningQuickAction,lightning:availableForFlowScreens,lightning:availableForFlowActions,force:hasRecordId,force:hasSObjectName">
+    
+    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="iconName" type="String"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="columnsString" type="String"/>
+    <aura:attribute name="contactData" type="Contact[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:card iconName="{!v.iconName}" title="{!v.title}" >
+        <aura:if isTrue="{!v.contactData.length > 0}">
+            <lightning:datatable aura:id="dataTable"
+                                keyField="Id"
+                                data="{!v.contactData}"
+                                columns="{!v.columns}"
+                                hideCheckboxColumn="true"/>
+            
+        </aura:if>
+    </lightning:card>
+</aura:component>

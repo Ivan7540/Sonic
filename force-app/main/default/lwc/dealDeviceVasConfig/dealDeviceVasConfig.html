@@ -1,0 +1,26 @@
+<!--
+ - Created by JurgitaG on 12/22/2021.
+ -->
+
+<!-- Deal Device Vas Config -->
+<template>
+    <div class="slds-text-body_regular services-helpText">
+        Please select service configurations.
+    </div>
+    <lightning-record-edit-form
+            object-api-name={objectApiName}
+            record-id={deviceLineId}
+            onsubmit={onServiceSubmit}
+    >
+        <template for:each={fields} for:item="item" for:index="index">
+            <lightning-input-field key={item} field-name={item} variant="label-stacked" required> </lightning-input-field>
+
+        </template>
+        <div class="slds-m-top_small slds-float_left">
+            <lightning-button variant="brand" label="Back" title="Back" onclick={onBundleBack} class="slds-m-left_x-small slds-m-top_small"></lightning-button>
+        </div>
+        <div class="slds-m-top_small slds-float_right">
+            <lightning-button variant="brand" type="submit" label="Save"></lightning-button>
+        </div>
+    </lightning-record-edit-form>
+</template>

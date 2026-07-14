@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <description>Business Information Summary</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Business Information Summary</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+    <targetConfig targets="lightning__FlowScreen">
+        <property name="registrationNumber" type="String" label="registrationNumber" description="Product Variable"/>
+        <property name="registeredName" type="String" label="registeredName" description="Contract Term Variable"/>
+        <property name="placeOfBusiness" type="String" label="placeOfBusiness" description="Device Variable"/>
+        <property name="entityType" type="String" label="entityType" description="Device Variable"/>
+        <property name="accName" type="String" label="accName" description="Device Variable"/>
+        <property name="bank" type="String" label="bank" description="Device Variable"/>
+        <property name="branchCode" type="String" label="branchCode" description="Device Variable"/>
+        <property name="accNumber" type="String" label="accNumber" description="Device Variable"/>
+        <property name="accType" type="String" label="accType" description="Device Variable"/>
+    </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

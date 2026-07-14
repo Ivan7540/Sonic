@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <assignments>
+        <description>Assign the count of existing Merchant Risk Profiles</description>
+        <name>Count_Merchant_Risk_Profiles</name>
+        <label>Count Merchant Risk Profiles</label>
+        <locationX>336</locationX>
+        <locationY>455</locationY>
+        <assignmentItems>
+            <assignToReference>RiskProfileCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Existing_Merchant_Risk_Profile</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Merchant_Risk_Profile_Exists</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Creates the Merchant Risk Profile record for the Account</description>
+        <name>Merchant_Risk_Profile</name>
+        <label>Merchant Risk Profile</label>
+        <locationX>182</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>MerchantProfile.Account__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Picklist_Value_Age</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Count the number of queried records</description>
+        <name>Rejection_Count</name>
+        <label>Rejection Count</label>
+        <locationX>182</locationX>
+        <locationY>935</locationY>
+        <assignmentItems>
+            <assignToReference>RejectionCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Picklist_Value_Age</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ITC_was_rejected</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets the watchlist values on Merchant Risk Profile record</description>
+        <name>Set_ITC_Watchlist</name>
+        <label>Set ITC Watchlist</label>
+        <locationX>50</locationX>
+        <locationY>1175</locationY>
+        <assignmentItems>
+            <assignToReference>MerchantProfile.Watchlist__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>MerchantProfile.Watchlist_Reason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>ITC Override</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Insert_Merchant_Risk_Profile</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Checks if there is a number of ITC rejection stage entries</description>
+        <name>ITC_was_rejected</name>
+        <label>ITC was rejected</label>
+        <locationX>182</locationX>
+        <locationY>1055</locationY>
+        <defaultConnector>
+            <targetReference>Insert_Merchant_Risk_Profile</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RejectionCount</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_ITC_Watchlist</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks if a new Merchant Risk Profile needs to be created</description>
+        <name>Merchant_Risk_Profile_Exists</name>
+        <label>Merchant Risk Profile Exists</label>
+        <locationX>336</locationX>
+        <locationY>575</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RiskProfileCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Merchant_Risk_Profile</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <description>Handles functionality for Opportunity changes</description>
+    <interviewLabel>Opportunity after trigger {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity after trigger</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Inserts the related record</description>
+        <name>Insert_Merchant_Risk_Profile</name>
+        <label>Insert Merchant Risk Profile</label>
+        <locationX>182</locationX>
+        <locationY>1391</locationY>
+        <inputReference>MerchantProfile</inputReference>
+    </recordCreates>
+    <recordLookups>
+        <description>Queries pre-existing Merchant Risk Profiles</description>
+        <name>Existing_Merchant_Risk_Profile</name>
+        <label>Existing Merchant Risk Profile</label>
+        <locationX>336</locationX>
+        <locationY>335</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Count_Merchant_Risk_Profiles</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Merchant_Risk_Profile__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the record indicating rejection of ITC</description>
+        <name>Picklist_Value_Age</name>
+        <label>Picklist Value Age</label>
+        <locationX>182</locationX>
+        <locationY>815</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Rejection_Count</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>TrackedFieldName__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>DocumentCheckStatus__c</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>TrackedFieldValue__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ITC Rejected</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>PicklistValueAge__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>210</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Existing_Merchant_Risk_Profile</targetReference>
+        </connector>
+        <filterLogic>(1 AND 2) OR (2 AND 3) OR (2 AND 4)</filterLogic>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Risk Submitted</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>New Business</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Waiting Merchant Number</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Risk Approved</stringValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Variable holding the Merchant Risk Profile record</description>
+        <name>MerchantProfile</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Merchant_Risk_Profile__c</objectType>
+    </variables>
+    <variables>
+        <description>Count of queried records</description>
+        <name>RejectionCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>Number of existing Merchant Risk Profiles</description>
+        <name>RiskProfileCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+</Flow>

@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <assignments>
+        <name>Assign_Quote_Stage_Approved</name>
+        <label>Assign Quote Stage: Approved</label>
+        <locationX>842</locationX>
+        <locationY>671</locationY>
+        <assignmentItems>
+            <assignToReference>primaryQuote.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>primaryQuote.SBQQ__Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Approved</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Quote</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Quote_Stage_Awaiting_Approval</name>
+        <label>Assign Quote Stage:  Awaiting Approval</label>
+        <locationX>314</locationX>
+        <locationY>671</locationY>
+        <assignmentItems>
+            <assignToReference>primaryQuote.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>primaryQuote.SBQQ__Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Awaiting Approval</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Quote</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Quote_Stage_Cancelled</name>
+        <label>Assign Quote Stage:  Cancelled</label>
+        <locationX>50</locationX>
+        <locationY>671</locationY>
+        <assignmentItems>
+            <assignToReference>primaryQuote.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>primaryQuote.SBQQ__Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Cancelled</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Quote</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Quote_Stage_Client_Declined</name>
+        <label>Assign Quote Stage:  Client Declined</label>
+        <locationX>1370</locationX>
+        <locationY>671</locationY>
+        <assignmentItems>
+            <assignToReference>primaryQuote.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>primaryQuote.SBQQ__Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Client Declined</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Quote</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Quote_Stage_Client_Signed</name>
+        <label>Assign Quote Stage: Client Signed</label>
+        <locationX>1634</locationX>
+        <locationY>671</locationY>
+        <assignmentItems>
+            <assignToReference>primaryQuote.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>primaryQuote.SBQQ__Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Client Signed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Quote</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Quote_Stage_Orders_Created</name>
+        <label>Assign Quote Stage: Orders Created</label>
+        <locationX>1898</locationX>
+        <locationY>671</locationY>
+        <assignmentItems>
+            <assignToReference>primaryQuote.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>primaryQuote.SBQQ__Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Orders Created</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Deal.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Contract Completed/Won</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Quote</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Quote_Stage_Rejected</name>
+        <label>Assign Quote Stage:  Rejected</label>
+        <locationX>578</locationX>
+        <locationY>671</locationY>
+        <assignmentItems>
+            <assignToReference>primaryQuote.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>primaryQuote.SBQQ__Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Rejected</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Quote</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Quote_Stage_Sent_To_Client</name>
+        <label>Assign Quote Stage:  Sent To Client</label>
+        <locationX>1106</locationX>
+        <locationY>671</locationY>
+        <assignmentItems>
+            <assignToReference>primaryQuote.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.SBQQ__PrimaryQuote__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>primaryQuote.SBQQ__Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Sent To Client</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Quote</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>SetError</name>
+        <label>SetError</label>
+        <locationX>4274</locationX>
+        <locationY>1007</locationY>
+        <assignmentItems>
+            <assignToReference>ErrorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>If Deal exists, update it</description>
+        <name>Deal_Updateable</name>
+        <label>Deal Updateable</label>
+        <locationX>2030</locationX>
+        <locationY>1007</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Deal.Id</leftValueReference>
+                <operator>WasSet</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Deal</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_Primary_Quote</name>
+        <label>Update Primary Quote?</label>
+        <locationX>3284</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>YesPrimaryQuotePresent</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__PrimaryQuote__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateQuoteStatus</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>UpdateQuoteStatus</name>
+        <label>Update Quote Status?</label>
+        <locationX>2030</locationX>
+        <locationY>551</locationY>
+        <defaultConnectorLabel>New Opportunity stage added without updating this flow</defaultConnectorLabel>
+        <rules>
+            <name>ClosedLost</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Lost</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Quote_Stage_Cancelled</targetReference>
+            </connector>
+            <label>Closed Lost</label>
+        </rules>
+        <rules>
+            <name>QuoteSubmitted</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote Submitted</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Quote_Stage_Awaiting_Approval</targetReference>
+            </connector>
+            <label>Quote Submitted</label>
+        </rules>
+        <rules>
+            <name>QuoteRejected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Quote_Stage_Rejected</targetReference>
+            </connector>
+            <label>Quote Rejected</label>
+        </rules>
+        <rules>
+            <name>QuoteApproved</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quote Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Quote_Stage_Approved</targetReference>
+            </connector>
+            <label>Quote Approved</label>
+        </rules>
+        <rules>
+            <name>SentToClient</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent To Client</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Quote_Stage_Sent_To_Client</targetReference>
+            </connector>
+            <label>Sent To Client</label>
+        </rules>
+        <rules>
+            <name>ClientDeclined</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Client Declined</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Quote_Stage_Client_Declined</targetReference>
+            </connector>
+            <label>Client Declined</label>
+        </rules>
+        <rules>
+            <name>ClientSigned</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Client Signed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Quote_Stage_Client_Signed</targetReference>
+            </connector>
+            <label>Client Signed</label>
+        </rules>
+        <rules>
+            <name>ContractCompletedWon</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Completed/Won</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Quote_Stage_Orders_Created</targetReference>
+            </connector>
+            <label>Contract Completed/Won</label>
+        </rules>
+        <rules>
+            <name>ContractRejected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Contract Rejected</label>
+        </rules>
+        <rules>
+            <name>ContractApproved</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Contract Approved</label>
+        </rules>
+        <rules>
+            <name>RiskSubmitted</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Risk Submitted</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Risk Submitted</label>
+        </rules>
+        <rules>
+            <name>RiskRejected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Risk Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Risk Rejected</label>
+        </rules>
+        <rules>
+            <name>RiskApproved</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Risk Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Risk Approved</label>
+        </rules>
+        <rules>
+            <name>WaitingMerchantNumber</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiting Merchant Number</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Waiting Merchant Number</label>
+        </rules>
+        <rules>
+            <name>Bank_Rejected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Bank Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Bank Rejected</label>
+        </rules>
+    </decisions>
+    <description>Added CPQ Permission Check</description>
+    <interviewLabel>Opportunity Stage Change: After Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity Stage Change: After Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Deal</name>
+        <label>Get Deal</label>
+        <locationX>3284</locationX>
+        <locationY>311</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Primary_Quote</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Deal__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Deal</name>
+        <label>Update Deal</label>
+        <locationX>1898</locationX>
+        <locationY>1127</locationY>
+        <inputReference>Get_Deal</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Quote</name>
+        <label>Update Quote</label>
+        <locationX>2030</locationX>
+        <locationY>887</locationY>
+        <connector>
+            <targetReference>Deal_Updateable</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>SetError</targetReference>
+        </faultConnector>
+        <inputReference>primaryQuote</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>3158</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Deal</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>StageName</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>dealId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>dealStatus</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ErrorMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>hasCPQAccess</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>primaryQuote</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>SBQQ__Quote__c</objectType>
+    </variables>
+</Flow>

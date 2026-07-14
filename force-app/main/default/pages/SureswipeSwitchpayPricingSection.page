@@ -1,0 +1,146 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml" controller="SureswipeSwitchpayPricingSection">
+    <block text-align="center" linefeed-treatment="preserve">
+        ALTERNATIVE SERVICE PROVIDER SCHEDULE – SWITCHPAY
+
+
+    </block>
+    <block font-size="6">PRICING SCHEDULE</block>
+    <block-container>
+        <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+            <table-header text-align="center" background-color="#0f243e">
+                <table-cell display-align="center" padding="5" border="1pt solid  silver" number-columns-spanned="4">
+                    <block text-align="left">
+                        <inline color="#FFFFFF" font-weight="bold">Monthly and other Service Fees</inline> <inline color="#FFFFFF"> (excluding VAT)</inline>
+                    </block>
+                </table-cell>
+                <table-cell display-align="center" padding="5" border="1pt solid  silver">
+                    <block font-weight="bold" text-align="center">
+                        <inline color="#FFFFFF"></inline>
+                    </block>
+                </table-cell>
+                <table-cell display-align="center" padding="5" border="1pt solid  silver">
+                    <block font-weight="bold" text-align="center">
+                        <inline color="#FFFFFF"></inline>
+                    </block>
+                </table-cell>
+            </table-header>
+            <table-body>
+                <table-row border="1pt solid silver">
+                    <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="4">
+                        <block  text-align="left">Monthly Loan Application Subscription Fees per activated device</block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                            <apex:outputText value="R {0, number, ###,###,###,##0.00}">
+                                <apex:param value="{!loanApplicationSubFee}" />
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                        </block>
+                    </table-cell>
+                </table-row>
+                <table-row border="1pt solid silver">
+                    <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="4">
+                        <block  text-align="left">Monthly Layby Application Subscription Fees per activated device</block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                            <apex:outputText value="R {0, number, ###,###,###,##0.00}">
+                                <apex:param value="{!laybyApplicationSubFee}" />
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                        </block>
+                    </table-cell>
+                </table-row>
+                <table-row border="1pt solid silver">
+                    <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="4">
+                        <block  text-align="left">Once Off Activation Fee</block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                           R 0.00
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                        </block>
+                    </table-cell>
+                </table-row>
+                <table-row border="1pt solid silver">
+                    <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="4">
+                        <block  text-align="left" linefeed-treatment="preserve">
+                            Disbursement Commission for Applications other than Layby – equal to current Card
+                            Acquiring rates (minimum of 2..0%)
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                            <apex:outputText value="{0, number, ###,###,###,##0.0000}%">
+                                <apex:param value="{!nonLaybyDisbursementCommission}" />
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                        </block>
+                    </table-cell>
+                </table-row>
+                <table-row border="1pt solid silver">
+                    <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="4">
+                        <block  text-align="left" linefeed-treatment="preserve">
+                            Disbursements Commissions for Layby Applications
+                            (The Disbursement Commission is a fee charged per transaction disbursed to the
+                            Client)
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                            <apex:outputText value="{0, number, ###,###,###,##0.0000}%">
+                                <apex:param value="{!laybyDisbursementCommission}" />
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                        </block>
+                    </table-cell>
+                </table-row>
+                <table-row border="1pt solid silver">
+                    <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="4">
+                        <block  text-align="left" linefeed-treatment="preserve">
+                            Discounted rates (if applicable)
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                        </block>
+                    </table-cell>
+                </table-row>
+                <table-row border="1pt solid silver" height="100px">
+                    <table-cell display-align="center" padding="5" border="1pt solid silver" number-columns-spanned="4">
+                        <block  text-align="left">
+                            Special Conditions:
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border="1pt solid silver">
+                        <block  text-align="center">
+                        </block>
+                    </table-cell>
+                </table-row>
+            </table-body>
+        </table>
+    </block-container>
+</apex:page>

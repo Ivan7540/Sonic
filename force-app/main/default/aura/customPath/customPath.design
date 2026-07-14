@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute name="picklistFieldOne" label="First Picklist"/>
+    <design:attribute name="picklistFieldTwo" label="Second Picklist"/>
+	<design:attribute name="variantOne" label="First Picklist Variant" datasource="linear,non-linear"/>
+    <design:attribute name="variantTwo" label="Second Picklist Variant" datasource="linear,non-linear"/>
+    <design:attribute name="allowEdits" label="Allow Edits"/>
+</design:component>

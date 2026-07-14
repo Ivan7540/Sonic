@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Work_Orders_Collections</fullName>
+    <columns>RECORDTYPE</columns>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Waybill_Number__c</columns>
+    <columns>Technician__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Order__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>Collection</value>
+    </filters>
+    <filters>
+        <field>WorkOrderType__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed</value>
+    </filters>
+    <label>Work Orders - Collections</label>
+    <sharedTo>
+        <role>SS_Stock_Field_Services_Manager</role>
+        <role>SS_Stock_User</role>
+        <role>SS_Technician</role>
+    </sharedTo>
+</ListView>

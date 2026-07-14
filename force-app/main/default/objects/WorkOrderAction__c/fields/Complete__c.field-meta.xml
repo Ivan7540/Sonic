@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complete__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When checked, completes the Action and executes any completion actions that may be needed</description>
+    <externalId>false</externalId>
+    <label>Complete</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

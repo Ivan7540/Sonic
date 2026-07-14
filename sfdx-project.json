@@ -5,8 +5,8 @@
       "default": true
     }
   ],
-  "name": "DEV_PreProd",
+  "name": "SONIC PROD",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "67.0"
+  "sourceApiVersion": "53.0"
 }

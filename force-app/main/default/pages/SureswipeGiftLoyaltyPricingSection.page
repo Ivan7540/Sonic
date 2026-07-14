@@ -1,0 +1,296 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml"
+           controller="SureswipeQuotePricingSectionController">
+    <apex:repeat value="{!bundlePricings}" var="each">
+        <block-container page-break-before="always">
+            <block>PRICING SCHEDULE Monthly costs ex VAT</block>
+            <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+                <table-header text-align="center" background-color="#0f243e">
+                    <table-cell display-align="center" padding="5" border="1pt solid  silver" number-columns-spanned="3">
+                        <block font-weight="bold" text-align="left">
+                            <inline color="#FFFFFF">VALUE ADDED SERVICES</inline>
+                        </block>
+                    </table-cell>
+                </table-header>
+
+                <table-body>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_MONTHLY_SERVICE_FEE')}" value=""
+                                   var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Gift and Loyalty Monthly Service Fee</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_MONTHLY_SERVICE_FEE'), each.productPriceMap['SS_GIFT_AND_LOYALTY_MONTHLY_SERVICE_FEE'], 0)}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    <inline color="white">{!each.InitialSignatories}</inline>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                     <apex:variable rendered="{!contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_CP_MONTHLY_SERVICE_FEE')}" value=""
+                                   var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Gift and Loyalty Monthly Service Fee</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_CP_MONTHLY_SERVICE_FEE'), each.productPriceMap['SS_GIFT_AND_LOYALTY_CP_MONTHLY_SERVICE_FEE'], 0)}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    <inline color="white">{!each.InitialSignatories}</inline>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_SETUP')}" value=""
+                                   var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Programme Set Up Fee</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_SETUP'), each.productPriceMap['SS_GIFT_AND_LOYALTY_SETUP'], 0)}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    <inline color="white">{!each.InitialSignatories}</inline>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_STARTER_OUTRIGHT_FEE')}" value=""
+                                   var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Gift and Loyalty Starter Once-off Fee</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_STARTER_OUTRIGHT_FEE'), each.productPriceMap['SS_GIFT_AND_LOYALTY_STARTER_OUTRIGHT_FEE'], 0)}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    <inline color="white">{!each.InitialSignatories}</inline>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable><apex:variable rendered="{!contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_STARTER_MONTHLY_FEE')}" value=""
+                                   var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Gift and Loyalty Starter Monthly Fee</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_STARTER_MONTHLY_FEE'), each.productPriceMap['SS_GIFT_AND_LOYALTY_STARTER_MONTHLY_FEE'], 0)}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    <inline color="white">{!each.InitialSignatories}</inline>
+                                </block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_SETUP_FEE')}" value=""
+                                   var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Gift and Loyalty Setup</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: {!each.ProductQtyMap['SS_GIFT_AND_LOYALTY_SETUP_FEE']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_SETUP_FEE'), each.productPriceMap['SS_GIFT_AND_LOYALTY_SETUP_FEE'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_CARD_ARTWORK_DESIGN_MERCHANT')}"
+                                   value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Card Artwork - Merchant Design</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: {!each.ProductQtyMap['SS_CARD_ARTWORK_DESIGN_MERCHANT']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_CARD_ARTWORK_DESIGN_MERCHANT'), each.productPriceMap['SS_CARD_ARTWORK_DESIGN_MERCHANT'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_CARD_ARTWORK_DESIGN_CATALOGUE')}"
+                                   value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Card Artwork Design (Catalogue)</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: {!each.ProductQtyMap['SS_CARD_ARTWORK_DESIGN_CATALOGUE']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_CARD_ARTWORK_DESIGN_CATALOGUE'), each.productPriceMap['SS_CARD_ARTWORK_DESIGN_CATALOGUE'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_CARD_ARTWORK_DESIGN_STANDARD')}" value=""
+                                   var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Card Artwork - Standard Design</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: {!each.ProductQtyMap['SS_CARD_ARTWORK_DESIGN_STANDARD']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_CARD_ARTWORK_DESIGN_STANDARD'), each.productPriceMap['SS_CARD_ARTWORK_DESIGN_STANDARD'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable><apex:variable rendered="{!contains(each.productKeySet, 'SS_CARD_ARTWORK_DESIGN_BESPOKE')}" value=""
+                                   var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Card Artwork Design (Bespoke)</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: {!each.ProductQtyMap['SS_CARD_ARTWORK_DESIGN_BESPOKE']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_CARD_ARTWORK_DESIGN_BESPOKE'), each.productPriceMap['SS_CARD_ARTWORK_DESIGN_BESPOKE'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_OUTRIGHT_FEE')}"
+                                   value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Gift and Loyalty Outright Fee</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: {!each.ProductQtyMap['SS_GIFT_AND_LOYALTY_OUTRIGHT_FEE']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_OUTRIGHT_FEE'), each.productPriceMap['SS_GIFT_AND_LOYALTY_OUTRIGHT_FEE'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_MONTHLY_FEE')}"
+                                   value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Gift and Loyalty Monthly Fee</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: {!each.ProductQtyMap['SS_GIFT_AND_LOYALTY_MONTHLY_FEE']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_GIFT_AND_LOYALTY_MONTHLY_FEE'), each.productPriceMap['SS_GIFT_AND_LOYALTY_MONTHLY_FEE'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_CUSTOM_BRANDED_CARDS')}"
+                                   value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Custom branded cards</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: {!each.ProductQtyMap['SS_CUSTOM_BRANDED_CARDS']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_CUSTOM_BRANDED_CARDS'), each.productPriceMap['SS_CUSTOM_BRANDED_CARDS'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_ENROLMENT_FORMS')}"
+                                   value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Enrolment forms</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: {!each.ProductQtyMap['SS_ENROLMENT_FORMS']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_ENROLMENT_FORMS'), each.productPriceMap['SS_ENROLMENT_FORMS'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_LOYALTY_ENROLLMENT_FORM')}"
+                                   value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Loyalty enrolment forms</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: {!each.ProductQtyMap['SS_LOYALTY_ENROLLMENT_FORM']}</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_LOYALTY_ENROLLMENT_FORM'), each.productPriceMap['SS_LOYALTY_ENROLLMENT_FORM'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_CARD_HOLDER_DISPLAY_STAND_AND_ARTWORK')}"
+                                   value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Card holder display stand and artwork</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_CARD_HOLDER_DISPLAY_STAND_AND_ARTWORK'), each.productPriceMap['SS_CARD_HOLDER_DISPLAY_STAND_AND_ARTWORK'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                    <apex:variable rendered="{!contains(each.productKeySet, 'SS_PAPER_ROLLS')}"
+                                   value="" var="">
+                        <table-row border="1pt solid silver">
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="left">Paper rolls</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    Qty: 5</block>
+                            </table-cell>
+                            <table-cell display-align="center" padding="5" border="1pt solid silver">
+                                <block text-align="center">
+                                    R {!if(contains(each.productKeySet, 'SS_PAPER_ROLLS'), each.productPriceMap['SS_PAPER_ROLLS'], 0)}</block>
+                            </table-cell>
+                        </table-row>
+                    </apex:variable>
+                </table-body>
+            </table>
+        </block-container>
+    </apex:repeat>
+    <block linefeed-treatment="preserve" text-align="justify">
+
+        <block font-weight="bold">*Please note:</block>
+        Starter pack includes 200 cards, 200 enrolment forms, card display stand and 5 paper rolls
+    </block>
+</apex:page>

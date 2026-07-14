@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <description>Quote Calculation</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Quote Calculation</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="quoteId" type="String" label="Quote Id" description="Quote Id"/>
+            <property name="dateSubmitted" type="DateTime" label="Date Submitted" description="Date Submitted"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,227 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml"
+           controller="SureswipeQuotePricingSectionController">
+    <block-container>
+        <block font-size="16" color="#142D67">
+            Acquiring Service Solution Schedule
+        </block>
+        <block margin-top="40px" font-size="8" padding="5">
+            <inline font-weight="bold">PRICING SCHEDULE – Monthly Costs</inline>
+            (Excluding VAT)
+        </block>
+
+        <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+            <table-header text-align="left" background-color="#314176">
+                <table-cell display-align="center" padding="5" number-columns-spanned="12">
+                    <block font-weight="bold">
+                        <inline color="#FFFFFF" font-size="8">Sureswipe Acquiring Service</inline>
+                    </block>
+                </table-cell>
+            </table-header>
+            <table-body>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="4">
+                        <block text-align="left" font-size="8">Transaction Rate</block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="4">
+                        <block text-align="center" font-size="8">
+                            <apex:outputText value="CR: {0, number, ###,###,###,##0.0000}%">
+                                <apex:param value="{!domesticCreditCardRate}"/>
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="4">
+                        <block text-align="left" font-size="8">
+                            <apex:outputText value="DR: {0, number, ###,###,###,##0.0000}%">
+                                <apex:param value="{!domesticDebitCardRate}"/>
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+
+                </table-row>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="4">
+                        <block text-align="left" font-size="8">International card fees (unless otherwise stated)</block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="4">
+                        <block text-align="center" font-size="8">
+                            <apex:outputText value="CR: {0, number, ###,###,###,##0.0000}%">
+                                <apex:param value="{!internationalCreditCardRate}"/>
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="4">
+                        <block text-align="left" font-size="8">
+                            <apex:outputText value="DR: {0, number, ###,###,###,##0.0000}%">
+                                <apex:param value="{!internationalDebitCardRate}"/>
+                            </apex:outputText>
+                        </block>
+                    </table-cell>
+                </table-row>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="4">
+                        <block text-align="left" font-size="8">Unpaid Debit Order Fee</block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="8">
+                        <block text-align="center" font-size="8">R 310</block>
+                    </table-cell>
+                </table-row>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="4">
+                        <block text-align="left" font-size="8" font-weight="bold">Acquiring only - Card Acceptance
+                            Devices (not supplied by Sureswipe)
+                        </block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="8">
+                        <block text-align="left" font-size="8">It is an express provision of this Schedule that
+                            <inline font-weight="bold">Sureswipe</inline> will not supply a Card Acceptance Device to the Client and the Client will procure
+                            same directly from their nominated vendor in terms of a separate agreement.
+
+                            Accordingly, <inline font-weight="bold">Sureswipe</inline> is not responsible for the supply, installation, maintenance and
+                            support of any Card Acceptance Devices and the SSCA and this Schedule must be interpreted
+                            accordingly, provided that the remaining provisions of the SSCA apply including without
+                            limitation those pertaining to the Acquiring Services.
+                        </block>
+                    </table-cell>
+                </table-row>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="4">
+                        <block text-align="left" font-size="8" font-weight="bold">Special Conditions</block>
+                    </table-cell>
+                    <table-cell display-align="center" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="8">
+                        <block text-align="center" font-size="8"></block>
+                    </table-cell>
+                </table-row>
+
+            </table-body>
+        </table>
+        <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+            <table-header text-align="center" background-color="#314176">
+                <table-cell display-align="center" padding="5" number-columns-spanned="2">
+                    <block font-weight="bold">
+                        <inline color="#FFFFFF" font-size="8">1</inline>
+                    </block>
+                </table-cell>
+                <table-cell display-align="left" padding="5" number-columns-spanned="10">
+                    <block text-align="left" font-weight="bold">
+                        <inline color="#FFFFFF" font-size="8">Introduction</inline>
+                    </block>
+                </table-cell>
+            </table-header>
+            <table-body>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver" number-columns-spanned="2">
+                        <block text-align="left" font-size="8"></block>
+                    </table-cell>
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="10">
+                        <block text-align="left" font-size="8"><inline font-weight="bold">Sureswipe</inline> will provide the Client with the Acquiring
+                            Services, in return for the consideration set out in the Pricing Schedule above. <inline font-weight="bold">If this
+                                schedule is signed after the Commencement Date defined in the SSCA, it is a material term of
+                                this schedule that same incorporates the terms of the SSCA subject to the changes provided
+                                for herein.</inline>
+                        </block>
+                    </table-cell>
+                </table-row>
+            </table-body>
+        </table>
+        <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+            <table-header text-align="center" background-color="#314176">
+                <table-cell display-align="center" padding="5" number-columns-spanned="2">
+                    <block font-weight="bold">
+                        <inline color="#FFFFFF" font-size="8">2</inline>
+                    </block>
+                </table-cell>
+                <table-cell display-align="left" padding="5" number-columns-spanned="10">
+                    <block text-align="left" font-weight="bold">
+                        <inline color="#FFFFFF" font-size="8">Definitions and Interpretation</inline>
+                    </block>
+                </table-cell>
+            </table-header>
+            <table-body>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver" number-columns-spanned="2">
+                        <block text-align="left" font-size="8"></block>
+                    </table-cell>
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="10">
+                        <block text-align="left" font-size="8">The definitions which appear in the <inline font-weight="bold">SSCA</inline> are applicable
+                            to and are specifically incorporated into this schedule, and the same principles of
+                            interpretation apply.
+                        </block>
+                    </table-cell>
+                </table-row>
+            </table-body>
+        </table>
+        <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+            <table-header text-align="center" background-color="#314176">
+                <table-cell display-align="center" padding="5" number-columns-spanned="2">
+                    <block font-weight="bold">
+                        <inline color="#FFFFFF" font-size="8">3</inline>
+                    </block>
+                </table-cell>
+                <table-cell display-align="left" padding="5" number-columns-spanned="10">
+                    <block text-align="left" font-weight="bold">
+                        <inline color="#FFFFFF" font-size="8">Commencement, Duration and Termination</inline>
+                    </block>
+                </table-cell>
+            </table-header>
+            <table-body>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver" number-columns-spanned="2">
+                        <block text-align="left" font-size="8"></block>
+                    </table-cell>
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="10">
+                        <block text-align="left" font-size="8">This Schedule will commence on the Commencement Date
+                            and will endure indefinitely provided that either party may terminate same on one month’s
+                            written notice to the other.
+                        </block>
+                    </table-cell>
+                </table-row>
+            </table-body>
+        </table>
+        <table border-bottom-style="solid" table-layout="fixed" width="100%" margin-top="10pt">
+            <table-header text-align="center" background-color="#314176">
+                <table-cell display-align="center" padding="5" number-columns-spanned="2">
+                    <block font-weight="bold">
+                        <inline color="#FFFFFF" font-size="8">4</inline>
+                    </block>
+                </table-cell>
+                <table-cell display-align="left" padding="5" number-columns-spanned="10">
+                    <block text-align="left" font-weight="bold">
+                        <inline color="#FFFFFF" font-size="8">Service Fees and Payment of Service Fees</inline>
+                    </block>
+                </table-cell>
+            </table-header>
+            <table-body>
+                <table-row border-top="1pt solid silver">
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver" number-columns-spanned="2">
+                        <block text-align="center" font-size="8">4.1</block>
+                    </table-cell>
+                    <table-cell display-align="left" padding="5" border-top="1pt solid silver"
+                                number-columns-spanned="10">
+                        <block text-align="left" font-size="8">The Authority to Debit Service Fees, Invoicing and
+                            Payment of Service Fees in respect of this Schedule is addressed in the SSCA subject to
+                            <inline font-weight="bold">Sureswipe</inline>
+                            appointing an agent or <inline font-weight="bold">Sureswipe</inline> partner to invoice and deduct the Service Fees by debit order
+                            against the Nominated Account on <inline font-weight="bold">Sureswipe’s</inline> behalf.
+                        </block>
+                    </table-cell>
+                </table-row>
+            </table-body>
+        </table>
+
+    </block-container>
+</apex:page>

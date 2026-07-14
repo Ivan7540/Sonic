@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MerchantId__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The field looking up the Merchant Id with it&apos;s related information such as settlement accounts etc.</description>
+    <externalId>false</externalId>
+    <label>Merchant Id</label>
+    <referenceTo>MerchantId__c</referenceTo>
+    <relationshipLabel>Asset Provider</relationshipLabel>
+    <relationshipName>AssetProvider</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

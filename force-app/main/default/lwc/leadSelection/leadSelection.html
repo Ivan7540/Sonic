@@ -1,0 +1,54 @@
+<template>
+    <div class="slds-p-vertical_medium">
+        <div class="slds-text-heading_small"> Duplicate Lead detected! Please select one of these existing records:</div>
+        <fieldset class="slds-form-element" if:true={showRadios}>
+            <div class="slds-form-element__control ">
+                <template for:each={leads} for:item="opt">
+          <span key={opt.Id} class="slds-radio myRadio">
+         <input
+                 class="singleRadio"
+                 type="radio"
+                 id={opt.Id}
+                 value={opt.Id}
+                 name="Leads"
+                 onchange={handleradiochange}/>
+        <label class="slds-radio__label" for={opt.Id}>
+            <div class="slds-grid slds-grid_vertical-align-center">
+                <div>
+            <span class="slds-radio_faux"></span>
+                    </div>
+            <lightning-card variant="Narrow" title={opt.Company} icon-name="standard:lead">
+                <p class="slds-p-horizontal_small">{opt.Name}</p>
+                <p class="slds-p-horizontal_small">{opt.Phone}</p>
+            </lightning-card>
+            </div>
+        </label>
+    </span>
+                </template>
+
+                <template for:each={contacts} for:item="item">
+          <span key={item.Id} class="slds-radio myRadio">
+         <input
+                 class="singleRadio"
+                 type="radio"
+                 id={item.Id}
+                 value={item.AccountId}
+                 name="Leads"
+                 onchange={handlecontactchange}/>
+        <label class="slds-radio__label" for={item.Id}>
+             <div class="slds-grid slds-grid_vertical-align-center">
+                <div>
+            <span class="slds-radio_faux"></span>
+                     </div>
+            <lightning-card variant="Narrow" title={item.Account.Name} icon-name="standard:account">
+                <p class="slds-p-horizontal_small">{item.Name}</p>
+                <p class="slds-p-horizontal_small">{item.Phone}</p>
+            </lightning-card>
+             </div>
+        </label>
+    </span>
+                </template>
+            </div>
+        </fieldset>
+    </div>
+</template>

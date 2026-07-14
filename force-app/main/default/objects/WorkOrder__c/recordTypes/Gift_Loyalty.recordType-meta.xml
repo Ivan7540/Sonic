@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gift_Loyalty</fullName>
+    <active>true</active>
+    <description>Work Order used for Gift &amp; Loyalty</description>
+    <label>Gift &amp; Loyalty</label>
+    <picklistValues>
+        <picklist>Reason__c</picklist>
+        <values>
+            <fullName>Compromised Device</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incorrectly logged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Merchant not available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reassign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred to Debtors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requires AM action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site not ready</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Card Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Programme Setup</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

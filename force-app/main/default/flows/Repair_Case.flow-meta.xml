@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <assignments>
+        <description>Set Case status to &apos;Sent to Operations&apos;</description>
+        <name>Sent_to_Operations</name>
+        <label>Sent to Operations</label>
+        <locationX>536</locationX>
+        <locationY>446</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Repair_Case.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Sent to Operations</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+    </assignments>
+    <description>SWW:Now shows error message to user</description>
+    <interviewLabel>Repair Case {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Repair Case</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Gets the Case that started the flow</description>
+        <name>Get_Repair_Case</name>
+        <label>Get Repair Case</label>
+        <locationX>536</locationX>
+        <locationY>326</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Sent_to_Operations</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update the Case status</description>
+        <name>Update_Case</name>
+        <label>Update Case</label>
+        <locationX>536</locationX>
+        <locationY>566</locationY>
+        <connector>
+            <targetReference>Select_Assets</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error</targetReference>
+        </faultConnector>
+        <inputReference>Get_Repair_Case</inputReference>
+    </recordUpdates>
+    <screens>
+        <name>Continue</name>
+        <label>Continue</label>
+        <locationX>536</locationX>
+        <locationY>206</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Get_Repair_Case</targetReference>
+        </connector>
+        <fields>
+            <name>SplashScreen</name>
+            <fieldText>&lt;p&gt;Clicking next will send this Case to operations and prompt you to select the Assets that need repair&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Error</name>
+        <label>Error</label>
+        <locationX>296</locationX>
+        <locationY>434</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>dispError</name>
+            <fieldText>&lt;p&gt;{!$Flow.FaultMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>410</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Continue</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Subflow for selecting Assets</description>
+        <name>Select_Assets</name>
+        <label>Select Assets</label>
+        <locationX>536</locationX>
+        <locationY>686</locationY>
+        <flowName>Asset_Selection</flowName>
+        <inputAssignments>
+            <name>RepairCase</name>
+            <value>
+                <elementReference>Get_Repair_Case</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <description>System required variable for capturing the starting record Id</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

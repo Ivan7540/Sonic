@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <choices>
+        <name>choiceMATCHOFACCorrect</name>
+        <choiceText>MATCH/OFAC Approved</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>MATCH/OFAC Approved</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>choiceMATCHOFACDocumentsRequired</name>
+        <choiceText>MATCH/OFAC Documents Required</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>MATCH/OFAC Documents Required</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>choiceMATCHRejected</name>
+        <choiceText>MATCH Rejected</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>MATCH Rejected</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>choiceOFACRejected</name>
+        <choiceText>OFAC Rejected</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>OFAC Rejected</stringValue>
+        </value>
+    </choices>
+    <interviewLabel>OFAC Check {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>OFAC Check</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>GetOpportunity</name>
+        <label>Get Opportunity</label>
+        <locationX>437</locationX>
+        <locationY>67</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>GetOpportunityDeal</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>GetOpportunityDeal</name>
+        <label>Get Opportunity Deal</label>
+        <locationX>588</locationX>
+        <locationY>67</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>MATCH_OFAC_Check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetOpportunity.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Deal__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>MATCH_OFAC_Check</name>
+        <label>MATCH/OFAC Check</label>
+        <locationX>774</locationX>
+        <locationY>79</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>FICADocuments</name>
+            <extensionName>c:DocumentRequirementCalculator</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>canAddNew</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>canDelete</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>requirementType</name>
+                <value>
+                    <stringValue>FICA</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>GetOpportunityDeal.Id</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>OFAC_Upload</name>
+            <extensionName>c:customFileUploader</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>documentLabel</name>
+                <value>
+                    <stringValue>Upload OFAC</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>documentType</name>
+                <value>
+                    <stringValue>OFAC Report</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>GetOpportunityDeal.Id</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>GetOpportunity</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

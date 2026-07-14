@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank__c</fullName>
+    <externalId>false</externalId>
+    <label>Bank</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ABSA</fullName>
+                <default>false</default>
+                <label>ABSA</label>
+            </value>
+            <value>
+                <fullName>Access Bank</fullName>
+                <default>false</default>
+                <label>Access Bank</label>
+            </value>
+            <value>
+                <fullName>African Bank</fullName>
+                <default>false</default>
+                <label>African Bank</label>
+            </value>
+            <value>
+                <fullName>AlBaraka</fullName>
+                <default>false</default>
+                <label>AlBaraka</label>
+            </value>
+            <value>
+                <fullName>Bank Zero</fullName>
+                <default>false</default>
+                <label>Bank Zero</label>
+            </value>
+            <value>
+                <fullName>Bidvest Bank</fullName>
+                <default>false</default>
+                <label>Bidvest Bank</label>
+            </value>
+            <value>
+                <fullName>Capitec</fullName>
+                <default>false</default>
+                <label>Capitec</label>
+            </value>
+            <value>
+                <fullName>Citbank</fullName>
+                <default>false</default>
+                <label>Citbank</label>
+            </value>
+            <value>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+                <label>Discovery</label>
+            </value>
+            <value>
+                <fullName>First National Bank</fullName>
+                <default>false</default>
+                <label>First National Bank</label>
+            </value>
+            <value>
+                <fullName>Habib Overseas Bank Limited</fullName>
+                <default>false</default>
+                <label>Habib Overseas Bank Limited</label>
+            </value>
+            <value>
+                <fullName>HBZ Bank Limited</fullName>
+                <default>false</default>
+                <label>HBZ Bank Limited</label>
+            </value>
+            <value>
+                <fullName>Investec</fullName>
+                <default>false</default>
+                <label>Investec</label>
+            </value>
+            <value>
+                <fullName>Ithala Limited</fullName>
+                <default>false</default>
+                <label>Ithala Limited</label>
+            </value>
+            <value>
+                <fullName>Mercantile</fullName>
+                <default>false</default>
+                <label>Mercantile</label>
+            </value>
+            <value>
+                <fullName>Nedbank</fullName>
+                <default>false</default>
+                <label>Nedbank</label>
+            </value>
+            <value>
+                <fullName>Old Mutual</fullName>
+                <default>false</default>
+                <label>Old Mutual</label>
+            </value>
+            <value>
+                <fullName>Sasfin</fullName>
+                <default>false</default>
+                <label>Sasfin</label>
+            </value>
+            <value>
+                <fullName>Standard Bank</fullName>
+                <default>false</default>
+                <label>Standard Bank</label>
+            </value>
+            <value>
+                <fullName>Tyme bank</fullName>
+                <default>false</default>
+                <label>Tyme bank</label>
+            </value>
+            <value>
+                <fullName>Ubank</fullName>
+                <default>false</default>
+                <label>Ubank</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

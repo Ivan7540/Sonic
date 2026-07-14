@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Innervation</fullName>
+    <active>true</active>
+    <label>Innervation</label>
+    <picklistValues>
+        <picklist>Card_Set__c</picklist>
+        <values>
+            <fullName>Full CardSet</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Comms_Profile__c</picklist>
+        <values>
+            <fullName>ConnectNet External Modem</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Manual_PAN_Entry__c</picklist>
+        <values>
+            <fullName>Manual PAN Entry disabled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manual PAN Entry enabled</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_Profile__c</picklist>
+        <values>
+            <fullName>Altech Retail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service__c</picklist>
+        <values>
+            <fullName>GAAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Masterpass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sureswipe Acquiring</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Switch Pay</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suspended</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Terminal_Capabilities__c</picklist>
+        <values>
+            <fullName>SS Refunds</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Terminal_Type__c</picklist>
+        <values>
+            <fullName>TermApp%2EISO</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

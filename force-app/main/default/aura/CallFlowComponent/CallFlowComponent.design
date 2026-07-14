@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="flowAPIName" label="Flow API Name" description="API name of the flow to invoke"/>
+    <design:attribute name="buttonLabel" label="Button Label"/>
+</design:component>

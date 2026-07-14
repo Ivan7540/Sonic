@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>SS_Call Centre</name>
+    <queueMembers>
+        <users>
+            <user>bronwyn@innervation.co.za</user>
+            <user>candice.wilson@sureswipe.co.za.sonic</user>
+            <user>celeste@innervation.co.za.sonic</user>
+            <user>gina@innervation.co.za.sonic</user>
+            <user>gugulethu@innervation.co.za.sonic</user>
+            <user>ishmail@innervation.co.za.sonic</user>
+            <user>kagiso@sureswipe.co.za</user>
+            <user>katlegom@innervation.co.za.sonic</user>
+            <user>lesego@innervation.co.za.sonic</user>
+            <user>luigi@innervation.co.za.sonic</user>
+            <user>nhlamulo.mabaso@sureswipe.co.za.sonic</user>
+            <user>nomagugu@sureswipe.co.za.sonic</user>
+            <user>nthabiseng@innervation.co.za.sonic</user>
+            <user>pierre@innervation.co.za.sonic</user>
+            <user>rendani@sureswipe.co.za.sonic</user>
+            <user>roland@sureswipe.co.za.sonic</user>
+            <user>victoria@sureswipe.co.za</user>
+            <user>wisani@innervation.co.za.sonic</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>SS_Call_Center</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

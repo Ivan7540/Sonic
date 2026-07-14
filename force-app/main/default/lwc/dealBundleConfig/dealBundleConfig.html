@@ -1,0 +1,28 @@
+<!--
+ - Created by JurgitaG on 12/6/2021.
+ -->
+
+<!-- Deal Bundle Config -->
+<template>
+    <c-deal-bundle-config-path current-step-value={configStep}></c-deal-bundle-config-path>
+
+    <template if:true={isProductSelection}>
+        <c-deal-product-config record-id={recordId} bundle-id={bundleId} onbundlesaved={handleBundleSaved}></c-deal-product-config>
+    </template>
+
+    <template if:true={isOptionSelection}>
+        <c-deal-product-options metadata-id={selectedMetadataId} bundle-id={bundleId} onbundleback={handleNavigation}
+                                onoptionsaved={handleServiceSaved}></c-deal-product-options>
+    </template>
+
+    <template if:true={isServiceConfig}>
+        <c-deal-device-vas-config device-line-id={bundleId} onbundleforward={handleNavigation} configuration-fields={configurationFields} onbundleback={handleNavigation}></c-deal-device-vas-config>
+
+    </template>
+
+    <template if:true={isDiscountSelection}>
+        <c-deal-bundle-rebate bundle-id={bundleId} selected-metadata-id= {selectedMetadataId} onclosebundle={onBundleClosed} ></c-deal-bundle-rebate>
+<!--        <c-deal-bundle-discount bundle-id={bundleId} metadata-id={selectedMetadataId} onbundleback={onBundleBack} onclosebundle={onBundleClosed}></c-deal-bundle-discount>-->
+
+    </template>
+</template>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conditions__c</fullName>
+    <description>The parent metadata, determining the status, product and record type of the Work Order</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Conditions</label>
+    <referenceTo>WorkOrderStage__mdt</referenceTo>
+    <relationshipLabel>Action Templates</relationshipLabel>
+    <relationshipName>Action_Templates</relationshipName>
+    <required>false</required>
+    <type>MetadataRelationship</type>
+    <unique>false</unique>
+</CustomField>

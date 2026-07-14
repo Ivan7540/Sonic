@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Indicates when the Lead should be escalated based on the Lead Source</description>
+    <label>Lead Escalation Time</label>
+    <pluralLabel>Lead Escalation Times</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

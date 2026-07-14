@@ -1,0 +1,3 @@
+<design:component label="Price Calculator Component">
+    <design:attribute name="quoteId" label="Quote Id"/>
+</design:component>

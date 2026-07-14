@@ -1,0 +1,55 @@
+<template>
+    <lightning-combobox
+            name="progress"
+            label="Bundle"
+            value={bundleSelected}
+            placeholder="Select Product"
+            options={productOptionArray}
+            onchange={handleProductSelect}
+            required
+            class="dealWizard-bundle"></lightning-combobox>
+    <lightning-combobox
+            name="progress"
+            label="Device"
+            value={deviceSelected}
+            placeholder="Select Device"
+            options={deviceOptionArray}
+            onchange={handleDeviceSelect}
+            required
+            class="dealWizard-device" ></lightning-combobox>
+    <lightning-combobox
+            name="progress"
+            label="Contract Term"
+            value={contractSelected}
+            placeholder="Select Contract Term"
+            options={contractTermOptionArray}
+            onchange={handleContractSelected}
+            required
+            class="dealWizard-contract-term" ></lightning-combobox>
+    <lightning-input
+            type="number"
+            label="Quantity"
+            value={quantity}
+            step="1"
+            onchange={handleQuantityChange}
+            required
+            class="dealWizard-quantity" ></lightning-input>
+
+    <template if:true={showAdditionalFields}>
+        <lightning-record-edit-form
+                object-api-name={objectApiName}
+                record-id={bundleId}
+        >
+            <lightning-input-field value={contractSelected} field-name='ContractTerm__c' class="slds-hide"> </lightning-input-field>
+            <lightning-input-field value={deviceSelected} field-name='Device__c' class="slds-hide"> </lightning-input-field>
+
+            <template for:each={additionalFields} for:item="item" for:index="index">
+                <lightning-input-field key={item} field-name={item} data-name={item} variant="label-stacked"> </lightning-input-field>
+            </template>
+        </lightning-record-edit-form>
+    </template>
+    <div class="slds-m-top_small slds-float_right">
+        <lightning-button variant="brand" label="Save" title="Save & Next" onclick={handleSave}></lightning-button>
+    </div>
+
+</template>

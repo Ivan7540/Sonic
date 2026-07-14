@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StockStatus__c</fullName>
+    <description>Status of the Stock relating to the Work Order Line Item&apos;s related Asset. When set to &apos;Lost&apos;, changes trigger for the Asset/Stock in question</description>
+    <externalId>false</externalId>
+    <label>Stock Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>WorkOrderType__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Collected</fullName>
+                <default>false</default>
+                <label>Collected</label>
+            </value>
+            <value>
+                <fullName>Lost</fullName>
+                <default>false</default>
+                <label>Lost</label>
+            </value>
+            <value>
+                <fullName>Installed</fullName>
+                <default>false</default>
+                <label>Installed</label>
+            </value>
+            <value>
+                <fullName>Not Installed</fullName>
+                <default>false</default>
+                <label>Not Installed</label>
+            </value>
+            <value>
+                <fullName>Replaced</fullName>
+                <default>false</default>
+                <label>Replaced</label>
+            </value>
+            <value>
+                <fullName>Not Replaced</fullName>
+                <default>false</default>
+                <label>Not Replaced</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Installation</controllingFieldValue>
+            <valueName>Installed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Installation</controllingFieldValue>
+            <valueName>Not Installed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Collection</controllingFieldValue>
+            <valueName>Collected</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Collection</controllingFieldValue>
+            <valueName>Lost</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Repair</controllingFieldValue>
+            <valueName>Replaced</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Repair</controllingFieldValue>
+            <valueName>Not Replaced</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

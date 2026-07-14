@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UnqualifiedReason__c</fullName>
+    <externalId>false</externalId>
+    <label>Unqualified Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>UnqualifiedCategory__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not interested</fullName>
+                <default>false</default>
+                <label>Not interested</label>
+            </value>
+            <value>
+                <fullName>Business Closed</fullName>
+                <default>false</default>
+                <label>Business Closed</label>
+            </value>
+            <value>
+                <fullName>Client Unavailable</fullName>
+                <default>false</default>
+                <label>Client Unavailable</label>
+            </value>
+            <value>
+                <fullName>Risk High</fullName>
+                <default>false</default>
+                <label>Risk High</label>
+            </value>
+            <value>
+                <fullName>Fleet : Needs to accept fleet cards</fullName>
+                <default>false</default>
+                <label>Fleet : Needs to accept fleet cards</label>
+            </value>
+            <value>
+                <fullName>Buying Aid: Needs Koopkrag, Saambou Etc</fullName>
+                <default>false</default>
+                <label>Buying Aid: Needs Koopkrag, Saambou Etc</label>
+            </value>
+            <value>
+                <fullName>Pricing</fullName>
+                <default>false</default>
+                <label>Pricing</label>
+            </value>
+            <value>
+                <fullName>Bad Reviews</fullName>
+                <default>false</default>
+                <label>Bad Reviews</label>
+            </value>
+            <value>
+                <fullName>Settlement too long</fullName>
+                <default>false</default>
+                <label>Settlement too long</label>
+            </value>
+            <value>
+                <fullName>Client not contactable</fullName>
+                <default>false</default>
+                <label>Client not contactable</label>
+            </value>
+            <value>
+                <fullName>Rates too high</fullName>
+                <default>false</default>
+                <label>Rates too high</label>
+            </value>
+            <value>
+                <fullName>Rental too high</fullName>
+                <default>false</default>
+                <label>Rental too high</label>
+            </value>
+            <value>
+                <fullName>Rental &amp; Rates too high</fullName>
+                <default>false</default>
+                <label>Rental &amp; Rates too high</label>
+            </value>
+            <value>
+                <fullName>Purchase too high</fullName>
+                <default>false</default>
+                <label>Purchase too high</label>
+            </value>
+            <value>
+                <fullName>Low Turnover: No need for machine</fullName>
+                <default>false</default>
+                <label>Low Turnover: No need for machine</label>
+            </value>
+            <value>
+                <fullName>High Risk</fullName>
+                <default>false</default>
+                <label>High Risk</label>
+            </value>
+            <value>
+                <fullName>Wont sign contract</fullName>
+                <default>false</default>
+                <label>Wont sign contract</label>
+            </value>
+            <value>
+                <fullName>Happy with Current Service Provider</fullName>
+                <default>false</default>
+                <label>Happy with Current Service Provider</label>
+            </value>
+            <value>
+                <fullName>Business Packaged Banking</fullName>
+                <default>false</default>
+                <label>Business Packaged Banking</label>
+            </value>
+            <value>
+                <fullName>Research Only</fullName>
+                <default>false</default>
+                <label>Research Only</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Duplicate</controllingFieldValue>
+            <valueName>Research Only</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>
