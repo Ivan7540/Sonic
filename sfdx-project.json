@@ -8,6 +8,6 @@
   "name": "SONIC PROD",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "60.0",
-  "sfdxFormatVersion": "60.0"
+  "sourceApiVersion": "67.0",
+  "sfdxFormatVersion": "67.0"
 }
