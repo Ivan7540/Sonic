@@ -1,11 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>52.0</apiVersion>
+    <actionCalls>
+        <description>Send survey to customer</description>
+        <name>i_evaluate_feedback_survey_Action_1</name>
+        <label>i_evaluate_feedback_survey Action 1</label>
+        <locationX>3614</locationX>
+        <locationY>863</locationY>
+        <actionName>i_evaluate_feedback_survey</actionName>
+        <actionType>dynamicSendSurveyInvitation</actionType>
+        <connector>
+            <targetReference>Loop_Primary_Contacts</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recipientType</name>
+            <value>
+                <stringValue>Contact</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipient</name>
+            <value>
+                <stringValue>{!Loop_Primary_Contacts.ContactId}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>personalInvitation</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>isUnauthenticatedResponse</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>autoExpiryDays</name>
+            <value>
+                <numberValue>30.0</numberValue>
+            </value>
+        </inputParameters>
+        <nameSegment>i_evaluate_feedback_survey</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>i_purchase_feedback_survey_Action_1</name>
+        <label>i_purchase_feedback_survey Action 1</label>
+        <locationX>2998</locationX>
+        <locationY>971</locationY>
+        <actionName>i_purchase_feedback_survey</actionName>
+        <actionType>dynamicSendSurveyInvitation</actionType>
+        <connector>
+            <targetReference>Loop_Primary_Contacts_2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recipientType</name>
+            <value>
+                <stringValue>Contact</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipient</name>
+            <value>
+                <stringValue>{!Loop_Primary_Contacts_2.ContactId}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>personalInvitation</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>isUnauthenticatedResponse</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>autoExpiryDays</name>
+            <value>
+                <numberValue>30.0</numberValue>
+            </value>
+        </inputParameters>
+        <nameSegment>i_purchase_feedback_survey</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Log_Message_Action_1</name>
+        <label>Log Message Action 1</label>
+        <locationX>4274</locationX>
+        <locationY>1955</locationY>
+        <actionName>rflib_LoggerFlowAction</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>context</name>
+            <value>
+                <elementReference>$Flow.InterviewGuid</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logLevel</name>
+            <value>
+                <stringValue>ERROR</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <elementReference>ErrorMessage</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>rflib_LoggerFlowAction</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Send survey on business growth</description>
+        <name>Survey</name>
+        <label>Survey</label>
+        <locationX>3262</locationX>
+        <locationY>971</locationY>
+        <actionName>i_grow_my_business_feedback_survey</actionName>
+        <actionType>dynamicSendSurveyInvitation</actionType>
+        <connector>
+            <targetReference>Loop_Primary_Contacts_2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recipientType</name>
+            <value>
+                <stringValue>Contact</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipient</name>
+            <value>
+                <stringValue>{!Loop_Primary_Contacts_2.ContactId}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>personalInvitation</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>isUnauthenticatedResponse</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>autoExpiryDays</name>
+            <value>
+                <numberValue>30.0</numberValue>
+            </value>
+        </inputParameters>
+        <nameSegment>i_grow_my_business_feedback_survey</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Updating quote status via apex to avoid license issues</description>
+        <name>Update_Quote_Status</name>
+        <label>Update Quote Status</label>
+        <locationX>2030</locationX>
+        <locationY>1739</locationY>
+        <actionName>QuoteStatusInvocable</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Deal_Updateable</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>SetError</targetReference>
+        </faultConnector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>quoteId</name>
+            <value>
+                <elementReference>primaryQuote.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>status</name>
+            <value>
+                <elementReference>primaryQuote.SBQQ__Status__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>QuoteStatusInvocable</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Assign_Quote_Stage_Approved</name>
         <label>Assign Quote Stage: Approved</label>
         <locationX>842</locationX>
-        <locationY>671</locationY>
+        <locationY>1547</locationY>
         <assignmentItems>
             <assignToReference>primaryQuote.Id</assignToReference>
             <operator>Assign</operator>
@@ -21,14 +215,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Quote</targetReference>
+            <targetReference>Update_Quote_Status</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Quote_Stage_Awaiting_Approval</name>
         <label>Assign Quote Stage:  Awaiting Approval</label>
         <locationX>314</locationX>
-        <locationY>671</locationY>
+        <locationY>1547</locationY>
         <assignmentItems>
             <assignToReference>primaryQuote.Id</assignToReference>
             <operator>Assign</operator>
@@ -44,14 +238,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Quote</targetReference>
+            <targetReference>Update_Quote_Status</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Quote_Stage_Cancelled</name>
         <label>Assign Quote Stage:  Cancelled</label>
         <locationX>50</locationX>
-        <locationY>671</locationY>
+        <locationY>1547</locationY>
         <assignmentItems>
             <assignToReference>primaryQuote.Id</assignToReference>
             <operator>Assign</operator>
@@ -67,14 +261,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Quote</targetReference>
+            <targetReference>Update_Quote_Status</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Quote_Stage_Client_Declined</name>
         <label>Assign Quote Stage:  Client Declined</label>
         <locationX>1370</locationX>
-        <locationY>671</locationY>
+        <locationY>1547</locationY>
         <assignmentItems>
             <assignToReference>primaryQuote.Id</assignToReference>
             <operator>Assign</operator>
@@ -90,14 +284,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Quote</targetReference>
+            <targetReference>Update_Quote_Status</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Quote_Stage_Client_Signed</name>
         <label>Assign Quote Stage: Client Signed</label>
         <locationX>1634</locationX>
-        <locationY>671</locationY>
+        <locationY>1547</locationY>
         <assignmentItems>
             <assignToReference>primaryQuote.Id</assignToReference>
             <operator>Assign</operator>
@@ -113,14 +307,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Quote</targetReference>
+            <targetReference>Update_Quote_Status</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Quote_Stage_Orders_Created</name>
         <label>Assign Quote Stage: Orders Created</label>
         <locationX>1898</locationX>
-        <locationY>671</locationY>
+        <locationY>1547</locationY>
         <assignmentItems>
             <assignToReference>primaryQuote.Id</assignToReference>
             <operator>Assign</operator>
@@ -143,14 +337,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Quote</targetReference>
+            <targetReference>Update_Quote_Status</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Quote_Stage_Rejected</name>
         <label>Assign Quote Stage:  Rejected</label>
         <locationX>578</locationX>
-        <locationY>671</locationY>
+        <locationY>1547</locationY>
         <assignmentItems>
             <assignToReference>primaryQuote.Id</assignToReference>
             <operator>Assign</operator>
@@ -166,14 +360,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Quote</targetReference>
+            <targetReference>Update_Quote_Status</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Quote_Stage_Sent_To_Client</name>
         <label>Assign Quote Stage:  Sent To Client</label>
         <locationX>1106</locationX>
-        <locationY>671</locationY>
+        <locationY>1547</locationY>
         <assignmentItems>
             <assignToReference>primaryQuote.Id</assignToReference>
             <operator>Assign</operator>
@@ -189,14 +383,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Quote</targetReference>
+            <targetReference>Update_Quote_Status</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>SetError</name>
         <label>SetError</label>
         <locationX>4274</locationX>
-        <locationY>1007</locationY>
+        <locationY>1847</locationY>
         <assignmentItems>
             <assignToReference>ErrorMessage</assignToReference>
             <operator>Assign</operator>
@@ -204,13 +398,16 @@
                 <elementReference>$Flow.FaultMessage</elementReference>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>Log_Message_Action_1</targetReference>
+        </connector>
     </assignments>
     <decisions>
         <description>If Deal exists, update it</description>
         <name>Deal_Updateable</name>
         <label>Deal Updateable</label>
         <locationX>2030</locationX>
-        <locationY>1007</locationY>
+        <locationY>1847</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
@@ -229,10 +426,183 @@
         </rules>
     </decisions>
     <decisions>
+        <description>Choose which survey to send based on type and other criteria</description>
+        <name>Opportunity_Type</name>
+        <label>Opportunity Type</label>
+        <locationX>3262</locationX>
+        <locationY>863</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Primary_Contacts_2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Business</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>i_purchase_feedback_survey_Action_1</targetReference>
+            </connector>
+            <label>New</label>
+        </rules>
+        <rules>
+            <name>Expansion</name>
+            <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR (6 AND 7)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Branch</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Service</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Cash Advance</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Masterpass</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Change of Product</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Change of Quantity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Amount</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Survey</targetReference>
+            </connector>
+            <label>Expansion</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is Opportunity in a stage where a survey needs to send out?</description>
+        <name>Stage</name>
+        <label>Stage</label>
+        <locationX>3658</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Update_Primary_Quote</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default</defaultConnectorLabel>
+        <rules>
+            <name>Negotiating</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Negotiating</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Adhoc Charges</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Change of Ownership</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Change of Entity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Cancellation</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Change of Bank</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Swipe Incentive</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Upgrade</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Inter Account Transfer</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Primary_Contacts</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Negotiating</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Update_Primary_Quote</name>
         <label>Update Primary Quote?</label>
         <locationX>3284</locationX>
-        <locationY>431</locationY>
+        <locationY>1331</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>YesPrimaryQuotePresent</name>
@@ -254,7 +624,7 @@
         <name>UpdateQuoteStatus</name>
         <label>Update Quote Status?</label>
         <locationX>2030</locationX>
-        <locationY>551</locationY>
+        <locationY>1439</locationY>
         <defaultConnectorLabel>New Opportunity stage added without updating this flow</defaultConnectorLabel>
         <rules>
             <name>ClosedLost</name>
@@ -461,9 +831,80 @@
             <label>Bank Rejected</label>
         </rules>
     </decisions>
+    <decisions>
+        <description>Is Opportunity Won</description>
+        <name>Won</name>
+        <label>Won?</label>
+        <locationX>3284</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Stage</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Won</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract Completed/Won</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Account.Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Activate_Account</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
     <description>Added CPQ Permission Check</description>
+    <environments>Default</environments>
     <interviewLabel>Opportunity Stage Change: After Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Opportunity Stage Change: After Update</label>
+    <loops>
+        <description>For each primary contact on account</description>
+        <name>Loop_Primary_Contacts</name>
+        <label>Loop Primary Contacts</label>
+        <locationX>3526</locationX>
+        <locationY>755</locationY>
+        <collectionReference>Primary_Contacts</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>i_evaluate_feedback_survey_Action_1</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Primary_Quote</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>For each primary contact on account</description>
+        <name>Loop_Primary_Contacts_2</name>
+        <label>Loop Primary Contacts</label>
+        <locationX>2910</locationX>
+        <locationY>755</locationY>
+        <collectionReference>Primary_Contacts</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Opportunity_Type</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Primary_Quote</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -487,10 +928,10 @@
         <name>Get_Deal</name>
         <label>Get Deal</label>
         <locationX>3284</locationX>
-        <locationY>311</locationY>
+        <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Update_Primary_Quote</targetReference>
+            <targetReference>Won</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -506,25 +947,95 @@
         <sortOrder>Desc</sortOrder>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <description>Get primary contacts for account</description>
+        <name>Primary_Contacts</name>
+        <label>Primary Contacts</label>
+        <locationX>3526</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Primary_Contacts</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Relationship_Strength__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Primary</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>AccountContactRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get primary contacts for account</description>
+        <name>Primary_Contacts_2</name>
+        <label>Primary Contacts</label>
+        <locationX>2910</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Primary_Contacts_2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Relationship_Strength__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Primary</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>AccountContactRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Sets account to active status</description>
+        <name>Activate_Account</name>
+        <label>Activate Account</label>
+        <locationX>2910</locationX>
+        <locationY>539</locationY>
+        <connector>
+            <targetReference>Primary_Contacts_2</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SetError</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Account</inputReference>
+    </recordUpdates>
     <recordUpdates>
         <name>Update_Deal</name>
         <label>Update Deal</label>
-        <locationX>1898</locationX>
-        <locationY>1127</locationY>
-        <inputReference>Get_Deal</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Update_Quote</name>
-        <label>Update Quote</label>
-        <locationX>2030</locationX>
-        <locationY>887</locationY>
-        <connector>
-            <targetReference>Deal_Updateable</targetReference>
-        </connector>
+        <locationX>1766</locationX>
+        <locationY>1955</locationY>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>SetError</targetReference>
         </faultConnector>
-        <inputReference>primaryQuote</inputReference>
+        <inputReference>Get_Deal</inputReference>
     </recordUpdates>
     <start>
         <locationX>3158</locationX>
