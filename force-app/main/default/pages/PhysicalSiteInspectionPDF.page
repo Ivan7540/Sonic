@@ -6,13 +6,13 @@
             size: A4;
             margin:0in;
             @bottom-center {
-            font-family: Arial Unicode MS;
-            font-size: 10px;
+            font-family: Arial;
+            font-size: 12px;
             /*content: "Page " counter(page) " of " counter(pages);*/
             }
             @top-center {
-            font-family: Arial Unicode MS;
-            font-size: 12px;
+            font-family: Arial;
+            font-size: 14px;
             /*content: "Sureswipe Physical Site Inspection Report";*/
             }
             }
@@ -21,9 +21,12 @@
             page-break-after:always;
             }
             body {
-            font-family: Arial Unicode MS;
-            font-size: 10px;
+            font-family: Arial;
+            font-size: 12px;
             font-weight: normal;
+            }
+            .header{
+                background-color: #d4eb00;
             }
             .footer {
             position:fixed;
@@ -41,12 +44,12 @@
     
     <body>
         <div class="header">
-            <apex:image url="{!$Resource.SureswipeSiteVerificationHeader}" style="width: 100%; padding: 0px !important;"/>
+            <apex:image url="{!$Resource.LesakaHeadImg}" style="width: 30%; padding: 0px !important;"/> SITE INSPECTION
         </div>
         
         <!-- content -->
         <div style="padding: 5%;">
-            <h2 style="color: #f47621;"><strong>Conduced for Verification purposes</strong></h2>
+            <h2 style="color: #000000;"><strong>Conducted for Verification purposes</strong></h2>
             
             <br/>
             
@@ -59,7 +62,7 @@
                 </div>
                 
                 <div style="width: 30%; display: inline-block;">
-                    <h2>Sureswipe employee name:</h2>
+                    <h2>Lesaka employee name:</h2>
                 </div>
                 <div style="width: 60%; display: inline-block;">
                     <h2><span class="underline" style="width: 116%;">{!ssEmployeeName}</span></h2>
@@ -108,7 +111,7 @@
             
             <div style="width: 100%; display: flex;">
                 <div style="width: 100%; display: inline-block;">
-                    <h2>I confirm that I am satisfied with the above mentioned address, and is the residential/business address of:</h2>
+                    <h2>I confirm that I am satisfied with the above mentioned address, and it is the residential/business address of:</h2>
                 </div>
                 <div style="width: 100%; display: inline-block;">
                     <h2><span class="underline" style="width: 100%;">{!tradingNameConfirmation}</span></h2>
@@ -127,17 +130,18 @@
             <br/>
 			
             <div style="width: 30% !important; display: table;">
-                <h2 style="text-align:center; font-family: Helvetica;
-                           font-style: italic;
-                           font-variant: petite-caps;">{!SFUsername}</h2>
+                <h2 style="text-align:center; 
+                            font-family: Arial;
+                            font-style: italic;
+                            font-variant: petite-caps;">{!SFUsername}</h2>
                 <h2><span class="underline" style="width: 100%;"></span></h2>
             </div>
 
             <h2>
-                Signature (<strong>Sureswipe</strong> employee)
+                Signature (<strong>Lesaka</strong> employee)
             </h2>
         </div>
         
-		<div class="footer"><apex:image value="{!$Resource.SureswipeSiteVerificationFooter}" style="width:100%;"/></div>
+		<div class="footer"><apex:image value="{!$Resource.LesakaFootImg}" style="width:30%;"/></div>
     </body>
 </apex:page>
