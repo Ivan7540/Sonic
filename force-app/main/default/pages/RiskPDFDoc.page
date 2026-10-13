@@ -6,14 +6,14 @@
                 @page {
                     size: A4;
                     @bottom-center {
-                        font-family: Arial Unicode MS;
-                        font-size: 10px;
+                        font-family: Arial;
+                        font-size: 12px;
                         content: "Page " counter(page) " of " counter(pages);
                     }
                     @top-center {
-                        font-family: Arial Unicode MS;
-                        font-size: 12px;
-                        content: "Sureswipe Risk Report";
+                        font-family: Arial;
+                        font-size: 14px;
+                        content: "Lesaka Risk Report";
                     }
                 }
                 .page-break {
@@ -21,8 +21,8 @@
                     page-break-after:always;
                 }
                 body {
-                    font-family: Arial Unicode MS;
-                    font-size: 10px;
+                    font-family: Arial;
+                    font-size: 12px;
                 }
                 .explainBox{
                     border-width:1px;
@@ -33,14 +33,14 @@
             </style>
         </head>
         <body>
-            <div>
-                <apex:image url="{!$Resource.SureswipeLogoHorizontal}" style="width:40%;"/> 
+            <div style="font-size: 12px;">
+                <apex:image url="{!$Resource.LesakaHeadImg}" style="width:40%;"/> 
                 <br/>
-                <span style="font-size:12pt;">Company Name: <apex:outputText value="{!deal.Account__r.Name}"/></span>
+                <span>Company Name: <apex:outputText value="{!deal.Account__r.Name}"/></span>
                 <br/>
-                <span style="font-size:12pt;">BAM Name: <apex:outputText value="{!deal.Owner.Name}"/></span>
+                <span>BAM Name: <apex:outputText value="{!deal.Owner.Name}"/></span>
                 <p>
-                    <span style="font-size:12pt;">Description / Category</span>
+                    <span>Description / Category</span>
                 </p>
                 <table style="width:60%;">
                     <tr>
@@ -57,7 +57,7 @@
                     </tr>
                 </table>
                 <p>
-                    <span style="font-size:12pt;">Business / Stock</span>
+                    <span>Business / Stock</span>
                 </p>
                 <table style="width:60%">
                     <tr>
@@ -126,7 +126,7 @@
                     </tr>
                 </table>
                 <p>
-                    <span style="font-size:12pt;">General</span>
+                    <span>General</span>
                 </p>
                 <table style="width:60%">
                     <tr>
@@ -158,7 +158,7 @@
                     </tr>
                 </table>
                 <br/>
-                <span style="font-size:12pt;">Agent: {!$User.FirstName + ' ' + $User.LastName}</span>
+                <span>Agent: {!$User.FirstName + ' ' + $User.LastName}</span>
             </div>
         </body>
     </html>

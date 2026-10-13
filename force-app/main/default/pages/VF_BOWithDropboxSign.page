@@ -1,0 +1,160 @@
+<apex:page showHeader="false" applyBodyTag="false" standardStylesheets="true" standardController="Account" extensions="BOControllerWithDropboxSign" renderAs="pdf">
+    <head>
+        <style>
+            th
+            {
+                border: 1px solid;
+            }
+            td
+            {
+                border: 1px solid;
+            }
+            table
+            {
+                border-collapse: collapse;
+                border: 1px solid;
+                margin: 0px 15px 0px 15px; 
+            }
+            .center
+            {
+                text-align: center;
+            }
+            .right
+            {
+                text-align: right;
+            }
+            .no-border
+            {
+                border: none;
+            }
+            .wide
+            {
+                width: 99%;
+            }
+            .third
+            {
+                width: 33%;
+                display: inline-block;
+            }
+            .padding
+            {
+                padding: 0px 15px;
+            }
+            .headerRight
+            {
+                font-size: 16pt;
+                text-align: right;
+            }
+            .headerLeft
+            {
+                font-size: 16pt;
+                text-align: left;
+            }
+            .lime
+            {
+                background-color: #C6E100;
+            }
+        </style>
+        <style type="text/css" media="print">
+            @page {
+            	margin-bottom: 3cm;
+            
+            	@bottom-left {
+                    content: counter(page) " / " counter(pages);
+            	}
+            	@bottom-right {
+            		content: element(footer);
+            	}
+            }
+            
+            div.footer {
+            display: block;
+            padding: 10px;
+            text-align: right;
+            position: running(footer);
+            color: white;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <apex:variable rendered="{! signerType != 'adumo'}" value="" var="">
+            <div class="footer" name="footer">
+                <apex:repeat value="{!signatories}" var="signatory">
+                    <apex:variable value="" var="" rendered="{! if(CONTAINS(signatory.signer.Roles, 'Principal Signatory'), 'true','false') }">
+                        [initial|req|{!signatory.signerIndex}]
+                    </apex:variable>
+                </apex:repeat>
+            </div>
+        </apex:variable>
+        <apex:pageMessages />
+        <apex:variable rendered="{! AND(signerType != 'adumo', includeResolutionLetter) }" value="" var="">
+            <c:CMP_BO_ResolutionLetter entity="{!companyAccount}" signatories="{!signatories}" signerType="{!signerType}"/>
+        </apex:variable>
+        <table class="wide lime">
+            <tr>
+                <td class="no-border">
+                    <p class="headerLeft">
+                        <apex:image url="{!$Resource.LesakaHeadImg}" height="40" />
+                    </p>
+                </td>
+                <td class="no-border">
+                    <p class="headerRight">
+                        FICA FORM
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <table class="wide">
+            <tr>
+                <td width="30%">
+                    CSI No#
+                </td>
+                <td width="70%">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td width="30%">
+                    Business Name
+                </td>
+                <td width="70%">
+                    {!companyAccount.Name}
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <c:CMP_CC_Shareholder directors="{!companyAccount.AccountContactRelations}" />
+        <br/>
+        <p>
+            Does the entity have any shareholding in the entire structure through voting-pool arrangements or family groups that together could have
+            a total shareholding percentage of 25% or more?
+        </p>
+        <table class="no-border">
+            <tr>
+                <td class="no-border"><apex:image value="{!IF(companyAccount.ControlStake__c, '/img/checkbox_checked.gif', '/img/checkbox_unchecked.gif')}"/> YES</td>
+                <td class="no-border"><apex:image value="{!IF(companyAccount.ControlStake__c, '/img/checkbox_unchecked.gif', '/img/checkbox_checked.gif')}"/> NO</td>
+            </tr>
+        </table>
+        <p>
+            If ‘Yes’, please provide a detailed ownership and control structure indicating various ownership levels, including family relationships and
+            voting pools, where applicable.
+        </p>
+        <p>
+            {!companyAccount.ThirdPartyOwnershipStructure__c}
+        </p>
+        <c:CMP_BO_DeclarationWithDropboxSign entity="{!companyAccount}" signatories="{!signatories}" signerType="{!signerType}"/>
+        <br/>
+        <c:CMP_BO_JuristicWithDropboxSign entity="{!companyAccount}" signatories="{!signatories}" signerType="{!signerType}"/>
+        <br/>
+        <c:CMP_BO_Funds company="{!companyAccount}" />
+        <p>
+            <b>Associated Party Information<br/></b>
+        </p>
+        <apex:variable var="count" value="{!0}" /> 
+        <apex:repeat value="{!companyAccount.AccountContactRelations}" var="party">
+            <apex:variable var="count" value="{!count + 1}"/>
+            <c:CMP_BO_Party row="{!count}" director="{!party}" />
+        </apex:repeat>
+    </body>
+</apex:page>
