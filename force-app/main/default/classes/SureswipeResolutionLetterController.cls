@@ -55,8 +55,8 @@ public class SureswipeResolutionLetterController
 		Integer m = d.month();
 		Integer day = d.day();
 		DateTime dt = DateTime.newInstance(y,m,day);
-		this.resolutionYear = dt.format('YYYY');
-		this.resolutionDay = day.format();
+		this.resolutionYear = dt.format('YYYY').right(1);
+		this.resolutionDay = day.format() + DateUtil.dateSuffix(day);
 		this.resolutionMonth = dt.format('MMMM');
 		Integer i= 1;
 		for (AccountContactRelation principle : [

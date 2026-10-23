@@ -1,88 +1,156 @@
 <!--
- - Created by JurgitaG on 11/4/2021.
- -->
+- Created by JurgitaG on 11/4/2021.
+-->
 
 <apex:page id="SureswipeResolutionLetter" renderAs="PDF" controller="SureswipeResolutionLetterController"
-           showHeader="false" sideBar="false" standardStylesheets="false" applyHtmlTag="false">
+           showHeader="false" sideBar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" showQuickActionVfHeader="false">
     <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-        <style>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+            <style>
                 @page {
-                    size: A4;
-                    @bottom-center {
-                        font-family: Arial Unicode MS;
-                        font-size: 10px;
-                        content: "Page " counter(page) " of " counter(pages);
-                    }
-                    @top-center {
-                        font-family: Arial Unicode MS;
-                        font-size: 10px;
-                    }
+                size: A4;
+                margin-bottom: 2.6cm;
+                margin-left: 0cm;
+                margin-right: 0.3cm;
+                
+                @top-center {
+                content: element(header);
                 }
-                .page-break {
-                    display:block;
-                    page-break-after:always;
+                @bottom-left {
+                content: element(footer);
                 }
-                body {
-                    font-family: Arial Unicode MS;
-                    font-size: 10px;
                 }
-                .explainBox{
-                    border-width:1px;
-                    border-style:solid;
-                    border-color:black;
-                    padding:10px;
+                div.header {
+                display: block; 
+                position: running(header);
+                }
+                div.content {
+                margin-left: 1.2cm;
+                margin-right: 1.2cm;
                 }
                 div.footer {
-                    position: fixed;
-                    bottom: 0;
-                    width: 100%;
+                margin-top:20px;                
+                display: block;
+                position: running(footer);
+                
                 }
-                table { border-spacing:0; }
-                p{
-                    line-height: 1.5;
+                .pagenumber:before {
+                content: counter(page);
                 }
-        </style>
-    </head>
-    <body>
-    <div class="header">
-        <apex:image url="{!$Resource.SureswipeLetterHeader}" style="width:100%;"/>
-    </div>
-    <div>
-
-
-        <p style="font-size:10pt;">It was resolved that&nbsp;<apex:outputText value="{!company}"/>&nbsp;with registration number
-            &nbsp;<apex:outputText value="{!registrationNumber}"/>&nbsp;enters into an Agreement with
-            Sureswipe in respect of the provision of Merchant Services for Debit and Credit Cards.</p>
-        <p style="font-size:10pt;"> It was further resolved that&nbsp;<apex:outputText value="{!mainDirectorName}"/>&nbsp;
-            with ID number&nbsp;<apex:outputText value="{!mainDirectorId}"/>&nbsp;in his/her capacity as a Director
-            hereby authorised to sign all relevant documentation and agreements for and behalf of the above mentioned business entity.</p>
-    <br/>
-        <p style="font-size:10pt;">Signed at&nbsp;<apex:outputText value="{!shippingCity}"/>&nbsp;on the
-            &nbsp;<apex:outputText value="{!resolutionDay}"/>&nbsp;day of&nbsp;<apex:outputText value="{!resolutionMonth}"/>
-            &nbsp;<apex:outputText value="{!resolutionYear}"/>&nbsp;</p>
-
-        <div>
-            <h6 style="font-size:10pt;">SIGNATURES:</h6>
-            <table style="width:100%;margin-top:12px">
-                <apex:repeat value="{!principles}" var="eachSignatory">
-                    <tr style="font-size:10pt;margin-top:50px;">
-                        <td style="padding-bottom: 10px;width:50%;">Name:
-                            <span style="font-size:10pt;">{!eachSignatory.principleName}</span>
-                        </td>
-                        <td style="padding-bottom: 10px;width:50%;">Signature:
-                            <span style="color:white;font-size:10pt;">[sig|req|{!eachSignatory.signaturetext}]</span>
-                        </td>
-                    </tr>
-                </apex:repeat>
+                .pagecount:before {
+                content: counter(pages);
+                }
+                
+                body {
+                font-family: Arial Unicode MS;
+                font-size: 12px;            
+                margin:0; 
+                padding:0;
+                }
+                th {
+                min-height: 15px;
+                max-height: auto;
+                background: #ddd;
+                }
+                td {
+                min-height: 15px;
+                max-height: auto;
+                }
+               
+                .dynamicBox{
+                border-bottom: 1px solid #000; 
+                padding-left: 10px;
+                display: inline-block;
+                }
+                .head-table{  
+                    background-color: #d1e701; 
+                    border: 1px solid #d1e701;
+                	width: 100%;
+                }
+                .img-cell{
+                    width: 40%; 
+                    vertical-align: middle; 
+                    background-color: #d1e701; 
+                }
+                .text-cell{
+                    width:60%;                         
+                    text-align: right;                                       
+                    font-size: 14px;
+                	font-family: sans-serif;
+                	font-weight: bold;
+                    vertical-align: middle;
+                    padding-right: 15px; 
+                    background-color: #d1e701;
+                	height: 63px;
+                    color: #2f0d0b;
+                } 
+            </style>
+        </head>
+        <body>
+            <table class="head-table">
+                <tr>
+                    <td class="img-cell">
+                        <apex:image url="{!$Resource.LesakaHeadImg}" style="height: 63px;" />
+                    </td>
+                    <td class="text-cell">
+                        RESOLUTION LETTER
+                    </td>
+                </tr>
             </table>
-        </div>
-    </div>
-
-    <div class="footer">
-        <apex:image url="{!$Resource.SureswipeLetterFooter}" style="width:100%;"/>
-    </div>
-    </body>
+            <div class="content">                
+                <div style="padding: 15px">
+                    <div style="margin-top: 15px; margin-bottom: 15px;">
+                        <strong>Extract of the resolution of member of: {!company}</strong> 
+                    </div>
+                    Held at 
+                    <div class="dynamicBox"  style="width: 200px">
+                        <apex:outputText value="{!shippingCity}" />
+                    </div>
+                    on the
+                    <div class="dynamicBox"  style="width: 35px">
+                        <apex:outputText value="{!resolutionDay}" />
+                    </div>
+                    of
+                    <div class="dynamicBox"  style="width: 55px">
+                        <apex:outputText value="{!resolutionMonth}" />
+                    </div>
+                    202
+                    <span style="width: 10px; border-bottom: 1px solid #000;">
+                        <apex:outputText value="{!resolutionYear}" />
+                    </span>                        
+                </div>                    
+                <div style="padding: 15px 15px 0px;">
+                    It was resolved that                    
+                </div>
+                <div style="border-bottom: 1px solid #000; width: 600px; margin-left: 15px;">
+                    <apex:outputText value="{!company}" />
+                </div>
+                <div style="padding: 0px 15px;">
+                    enters into an agreement with Lesaka Payments in respect of the provision of Merchant services for Debit and Credit cards, it was further resolved that:
+                </div>
+                <div style="padding: 15px 15px 0px;">
+                    <apex:outputText value="{!mainDirectorName}" style="border-bottom: 1px solid #000; margin-right: 10px; display: inline-block; width: 275px;" />  in his/her capacity as a director is hereby authorised to sign all relevant documentation and agreements for the above.
+                </div>                     
+                <table style="width:100%; margin-top: 12px; margin-left: 15px;">
+                    <apex:repeat value="{!principles}" var="eachSignatory">
+                        <tr style="margin-top: 50px;">
+                            <td style="padding-bottom: 10px; width: 50%;">Name:
+                                <div class="dynamicBox" style= "width: 250px">
+                                    <span>{!eachSignatory.principleName}</span>
+                                </div>                                        
+                            </td>
+                            <td style="padding-bottom: 10px; width: 50%;">Signature:
+                                <div class="dynamicBox"  style= "width: 225px">
+                                    <span style="color: white;">[sig|req|{!eachSignatory.signaturetext}]</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </div>
+            <div class="footer">                
+            </div>
+        </body>
     </html>
 </apex:page>
