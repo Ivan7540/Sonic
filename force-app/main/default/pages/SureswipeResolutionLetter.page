@@ -67,6 +67,7 @@
                     background-color: #d1e701; 
                     border: 1px solid #d1e701;
                 	width: 100%;
+                    margin: 0px 70px;
                 }
                 .img-cell{
                     width: 40%; 
@@ -82,7 +83,7 @@
                     vertical-align: middle;
                     padding-right: 15px; 
                     background-color: #d1e701;
-                	height: 63px;
+                	height: 223px;
                     color: #2f0d0b;
                 } 
             </style>
@@ -91,7 +92,7 @@
             <table class="head-table">
                 <tr>
                     <td class="img-cell">
-                        <apex:image url="{!$Resource.LesakaHeadImg}" style="height: 63px;" />
+                        <apex:image url="{!$Resource.LesakaHeadImg}" style="height: 223px;" />
                     </td>
                     <td class="text-cell">
                         RESOLUTION LETTER
