@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Send_Signing_Request1</name>
         <label>Send Signing Request</label>
-        <locationX>429</locationX>
-        <locationY>507</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <actionName>SigningRequestInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -32,19 +32,19 @@
         <inputParameters>
             <name>reqMessage</name>
             <value>
-                <stringValue>Please review addendum</stringValue>
+                <elementReference>Message</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
             <name>reqSubject</name>
             <value>
-                <stringValue>Sureswipe Addendum</stringValue>
+                <elementReference>Subject</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
             <name>reqTitle</name>
             <value>
-                <stringValue>Sureswipe Addendum</stringValue>
+                <elementReference>Title</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -59,17 +59,20 @@
                 <elementReference>allSigners</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>SigningRequestInvocable</nameSegment>
+        <offset>0</offset>
         <outputParameters>
             <assignToReference>hellosignStatus</assignToReference>
             <name>output</name>
         </outputParameters>
     </actionCalls>
-    <apiVersion>52.0</apiVersion>
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Add_AM_to_List</name>
         <label>Add to AM List</label>
-        <locationX>949</locationX>
-        <locationY>363</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>allSigners</assignToReference>
             <operator>Add</operator>
@@ -84,8 +87,8 @@
     <assignments>
         <name>Add_to_List</name>
         <label>Add to List</label>
-        <locationX>706</locationX>
-        <locationY>363</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>allSigners</assignToReference>
             <operator>Add</operator>
@@ -100,8 +103,8 @@
     <assignments>
         <name>AddToDocumentIds</name>
         <label>Add to Document Ids</label>
-        <locationX>259</locationX>
-        <locationY>361</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>documentIds</assignToReference>
             <operator>Add</operator>
@@ -116,8 +119,8 @@
     <assignments>
         <name>Set_AM_Signer</name>
         <label>Set AM Signer</label>
-        <locationX>949</locationX>
-        <locationY>213</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>signer.emailAddress</assignToReference>
             <operator>Assign</operator>
@@ -144,10 +147,41 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_ME_Signer</name>
+        <label>Set ME Signer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>signer.emailAddress</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>GetPrimaryContact.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>signer.name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>GetPrimaryContact.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>signer.role</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>signer0</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Add_to_List</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Signer</name>
         <label>Set Signer</label>
-        <locationX>837</locationX>
-        <locationY>363</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>signer.emailAddress</assignToReference>
             <operator>Assign</operator>
@@ -174,10 +208,50 @@
         </connector>
     </assignments>
     <decisions>
+        <name>Account_Channel</name>
+        <label>Account Channel?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Set_AM_Signer</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ME</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetOpportunity.Account.Channel__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ME</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_ME_Signer</targetReference>
+            </connector>
+            <label>ME</label>
+        </rules>
+        <rules>
+            <name>SME</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetOpportunity.Account.Channel__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>SME</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_AM_Signer</targetReference>
+            </connector>
+            <label>SME</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Document_found</name>
         <label>Document found?</label>
-        <locationX>422</locationX>
-        <locationY>365</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>YesDocumentFound</name>
@@ -198,8 +272,8 @@
     <decisions>
         <name>Success</name>
         <label>Success?</label>
-        <locationX>580</locationX>
-        <locationY>509</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnector>
             <targetReference>scrError</targetReference>
         </defaultConnector>
@@ -220,7 +294,7 @@
             <label>Yes</label>
         </rules>
     </decisions>
-    <description>SWW:2021-07-08:: Added AM as signer as well on document</description>
+    <description>Initiate a Hellosign request for opportunity</description>
     <dynamicChoiceSets>
         <name>accountContacts</name>
         <dataType>String</dataType>
@@ -245,6 +319,7 @@
         </outputAssignments>
         <valueField>ContactId</valueField>
     </dynamicChoiceSets>
+    <environments>Default</environments>
     <interviewLabel>Opportunity Send Hellosign Document {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Opportunity Send Hellosign Document</label>
     <processMetadataValues>
@@ -256,7 +331,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -269,8 +344,8 @@
     <recordLookups>
         <name>Get_Quote_Document</name>
         <label>Get Quote Document</label>
-        <locationX>573</locationX>
-        <locationY>363</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Document_found</targetReference>
@@ -299,8 +374,8 @@
     <recordLookups>
         <name>GetHellosignSettings</name>
         <label>Get Hellosign Settings</label>
-        <locationX>261</locationX>
-        <locationY>507</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Send_Signing_Request1</targetReference>
@@ -320,8 +395,8 @@
     <recordLookups>
         <name>GetOpportunity</name>
         <label>Get Opportunity</label>
-        <locationX>452</locationX>
-        <locationY>213</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>GetPrimaryQuote</targetReference>
@@ -341,11 +416,11 @@
     <recordLookups>
         <name>GetPrimaryContact</name>
         <label>Get Primary Contact</label>
-        <locationX>751</locationX>
-        <locationY>213</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Set_AM_Signer</targetReference>
+            <targetReference>Account_Channel</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -362,8 +437,8 @@
     <recordLookups>
         <name>GetPrimaryQuote</name>
         <label>Get Primary Quote</label>
-        <locationX>607</locationX>
-        <locationY>213</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>GetPrimaryContact</targetReference>
@@ -383,8 +458,8 @@
     <recordUpdates>
         <name>Update_Oppty</name>
         <label>Update Oppty</label>
-        <locationX>884</locationX>
-        <locationY>533</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -405,8 +480,8 @@
     <screens>
         <name>Confirm_Document</name>
         <label>Confirm Document</label>
-        <locationX>104</locationX>
-        <locationY>457</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -414,18 +489,119 @@
             <targetReference>GetHellosignSettings</targetReference>
         </connector>
         <fields>
-            <name>confirmDocument</name>
-            <extensionName>c:FilePreviewAndSelector</extensionName>
-            <fieldType>ComponentInstance</fieldType>
-            <inputParameters>
-                <name>contentDocumentIds</name>
-                <value>
-                    <elementReference>documentIds</elementReference>
-                </value>
-            </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-            <storeOutputAutomatically>true</storeOutputAutomatically>
+            <name>Confirm_Document_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Confirm_Document_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Title</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <stringValue>Lesaka Payments Application</stringValue>
+                    </defaultValue>
+                    <fieldText>Title</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>Subject</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <stringValue>Lesaka Payments Application</stringValue>
+                    </defaultValue>
+                    <fieldText>Subject</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>Message</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <stringValue>Please review the application and kindly sign in order to accept</stringValue>
+                    </defaultValue>
+                    <fieldText>Message</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Confirm_Document_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>confirmDocument</name>
+                    <extensionName>c:FilePreviewAndSelector</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>contentDocumentIds</name>
+                        <value>
+                            <elementReference>documentIds</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -433,8 +609,8 @@
     <screens>
         <name>scrError</name>
         <label>Error</label>
-        <locationX>757</locationX>
-        <locationY>634</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -442,6 +618,14 @@
             <name>dispError</name>
             <fieldText>&lt;p&gt;Status:&lt;/p&gt;&lt;p&gt;{!hellosignStatus}: Error sending signing request&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -449,8 +633,8 @@
     <screens>
         <name>scrSuccess</name>
         <label>Success</label>
-        <locationX>744</locationX>
-        <locationY>496</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -461,13 +645,21 @@
             <name>dispSuccess</name>
             <fieldText>&lt;p&gt;Status:&lt;/p&gt;&lt;p&gt;{!hellosignStatus}: The document has been sent for signing.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
-        <locationY>196</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>GetOpportunity</targetReference>
         </connector>
